@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Site Title
+title:            Hiking Coder
 locale:           en_US
 url:
 
@@ -41,23 +41,23 @@ titlecase: true
 
 # Site owner
 owner:
-  name: Your Name
+  name: Allen Liu
   avatar: bio-photo.jpg
-  bio: "Describe your self."
+  bio: "Hiking,Swimming,Coding. My life is interesting."
   email:
   disqus-shortname:
-  twitter: #username
-  facebook: #username
-  google:
-    plus: #username
+  twitter: pkufaraway
+  facebook: yaoyuan.liu.184
+  google: #username 
+    plus: 
     analytics:
     verify:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: pkufaraway
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: #username
+  linkedin: yaoyuan-liu-463142a9
   xing: #username
   instagram: #username
   lastfm: #username
