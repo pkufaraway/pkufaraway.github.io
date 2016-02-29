@@ -1,5 +1,5 @@
 ---
 layout: post-index
-title: life
+title: Life
 excerpt: "A List of Posts"
 ---
