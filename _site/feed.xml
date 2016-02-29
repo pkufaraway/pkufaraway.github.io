@@ -4,12 +4,60 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-02-13T17:38:38-05:00</updated>
+<updated>2016-02-29T15:22:35-05:00</updated>
 <id>/</id>
 <author>
   <name>Allen Liu</name>
   <uri>/</uri>
   
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[头晕眼花]]></title>
+  <link rel="alternate" type="text/html" href="/posts/headache/" />
+  <id>/posts/headache</id>
+  <published>2016-02-29T14:30:39-05:00</published>
+  <updated>2016-02-29T14:30:39-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri></uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;  今天早起吃了一个自制的火腿鸡蛋卷，买了杯Grande Dark。 想来应该没问题，然而似乎阴天都在告诉我，你今儿要倒霉。中午吃完饭后，整个人都觉得乏力，头晕眼花仿佛低血糖的感觉。&lt;/p&gt;
+
+&lt;p&gt;问了问系草，据说是吃的太少的缘故，不知道俺这身体是啥风格，既不能吃的太多也不能太少，果然锻炼饮食是一门学问。随着锻炼的深入，不仅仍然要控制总的热量摄入，也要注意饮食结构的调整。上一学期几乎没有摄入任何碳水化合物，再加上较短的睡眠时间，这一学期就反馈给我很多疲惫的感觉。尽管我仍然对生活充满了激情，对学习也如是，但是调整生活节奏已经成为了必须考虑的问题。&lt;/p&gt;
+
+&lt;p&gt;可是还没写完NLP作业……~~~~(&amp;gt;_&amp;lt;)~~~~&lt;/p&gt;
+
+&lt;p&gt;经营这个Blog是很久很久很久以前就有的计划，其实并不想一开始第一篇文章是中文，然而今天这头晕眼花的状态实在是写不出什么英文出来，以后的学习工作生活会一点一点的记录在这里。幸哉，此时天空的阴霾少了很多，些许湛蓝也透过白云露了出来。但愿每天都能鼓励自己横扫阴霾，鼓励自己不断向前。&lt;/p&gt;
+
+&lt;p&gt;才奋起直追不到半年，我该懂得调节好自己的身体。岁月你别催，该走的我不追；岁月你别催，该来的我不会催。而立之年以前，吾当奋发惕厉，也当珍惜自己。.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/posts/headache/&quot;&gt;头晕眼花&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Finally]]></title>
+  <link rel="alternate" type="text/html" href="/posts/my-first-post/" />
+  <id>/posts/my-first-post</id>
+  <published>2016-02-29T14:27:58-05:00</published>
+  <updated>2016-02-29T14:27:58-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri></uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;My friends,&lt;/p&gt;
+
+&lt;p&gt;I am very glad that I’ve built my blog.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/posts/my-first-post/&quot;&gt;Finally&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+  </content>
+</entry>
 
 </feed>
