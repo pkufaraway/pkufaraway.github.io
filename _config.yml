@@ -4,6 +4,13 @@ title:            Hiking Coder
 locale:           zh_CN
 url:              http://pkufaraway.github.io
 
+#links
+links:
+- title: All Posts
+  url: /posts/
+- title: life
+  url: /posts/life
+
 # Jekyll configuration
 
 permalink:   /:categories/:title/
