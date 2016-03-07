@@ -2,7 +2,7 @@
 layout: post
 title: Finally
 modified:
-categories: posts
+categories: normalposts
 excerpt:
 tags: []
 image:

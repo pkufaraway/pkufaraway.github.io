@@ -1,5 +1,6 @@
 ---
 layout: post-index
-title: Life
+title: life
+categories: life
 excerpt: "A List of Posts"
 ---

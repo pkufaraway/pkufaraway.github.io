@@ -1,5 +1,6 @@
 ---
 layout: post-index
-title: All Posts
+title: Normal Posts
+categories: normalposts
 excerpt: "A List of Posts"
 ---
