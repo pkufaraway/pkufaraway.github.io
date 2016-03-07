@@ -1,6 +1,6 @@
 # Site navigation links
 
-- title: About
+- title: About Me
   url: /about/
 
 - title: All Posts
@@ -8,6 +8,9 @@
 
 - title: Life
   url: /life/
+
+- title: No Categories
+  url: /nocategories/
 
 - title: About the theme
   url: /theme-setup/

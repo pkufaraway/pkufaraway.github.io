@@ -1,6 +1,6 @@
 ---
 layout: post-index
-title: All Posts
-categories: All
+title: No Categories
+categories: nocategories
 excerpt: "A List of Posts"
 ---

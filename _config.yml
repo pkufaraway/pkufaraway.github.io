@@ -8,8 +8,13 @@ url:              http://pkufaraway.github.io
 links:
 - title: All Posts
   url: /posts/
+
 - title: Life
   url: /life/
+
+- title: No Categories
+  url: /nocategories/
+
 
 # Jekyll configuration
 
