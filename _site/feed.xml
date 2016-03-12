@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://pkufaraway.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://pkufaraway.github.io" />
-<updated>2016-03-12T11:20:59-08:00</updated>
+<updated>2016-03-12T11:30:45-08:00</updated>
 <id>http://pkufaraway.github.io/</id>
 <author>
   <name>Allen Liu</name>
@@ -46,8 +46,10 @@
 &lt;p&gt;每当我开始考虑买一个东西的时候，都不像许多人一样有情怀，或者说，我是一个过于理性的消费者。突然觉得，这大概是一个人能表现出的最不文艺的特征吧。每当我遇到那些不能用参数来衡量的消费品时，我就会产生选择恐惧症，因为我无法做出一个理性的判断，究竟哪个胜过哪个。正如今日开始思量的相机一事，就反复不停的在让我苦恼，于是乎快刀斩乱麻，索性不买了，不去想他，也就没有烦恼了。&lt;/p&gt;
 
 &lt;h3 id=&quot;checkkramdownlatex&quot;&gt;check一下Kramdown能不能写latex&lt;/h3&gt;
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=||a||||b||cos\theta&lt;/script&gt;
-貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=||a||||b||cos\theta&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/on-the-flight/&quot;&gt;On the Flight&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 12, 2016.&lt;/p&gt;
   </content>
