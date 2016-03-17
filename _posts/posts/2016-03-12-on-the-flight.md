@@ -32,7 +32,7 @@ date: 2016-03-12T08:35:54-05:00
 ### check一下Kramdown能不能写latex
 
 \$$
-\dot(a,b)=||a||||b||cos\theta
+\dot(a,b)=\lvert a \rvert \lvert b \rvert \cos \theta
 $$
 
 貌似只能居中？以后再慢慢研究吧

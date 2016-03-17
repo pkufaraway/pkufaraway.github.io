@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://pkufaraway.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://pkufaraway.github.io" />
-<updated>2016-03-12T11:30:45-08:00</updated>
+<updated>2016-03-14T17:38:09-08:00</updated>
 <id>http://pkufaraway.github.io/</id>
 <author>
   <name>Allen Liu</name>
@@ -14,11 +14,47 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Coldest Day]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/coldest-day/" />
+  <id>http://pkufaraway.github.io/life/coldest-day</id>
+  <published>2016-03-14T13:22:46-08:00</published>
+  <updated>2016-03-14T13:22:46-08:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;h3 id=&quot;section&quot;&gt;今天是来了阿拉斯加之后最冷的一天。&lt;/h3&gt;
+&lt;p&gt;耳边寒风尚惕厉呼啸，已经在回费尔班克斯市区的路上了。大家不是在听音乐，就是东倒西歪的睡着了。心中不知为何，总会在产生一种莫名其妙的失落感。有时候事情就是这样，总会在一个莫名其妙的时刻开始想起旅行的意义，想起去思考究竟自己为何而来，又为何要离去。&lt;/p&gt;
+
+&lt;p&gt;这世界的复杂之处就在于，无论是好与坏，悲伤还是欢喜，那一切的东西，都是相对的。对于你来说的一件高兴事，就可能是别人的一件伤心事。站在北极圈上，我想的最多的，其实就是，这辈子还有很多很多的地方要去，很多很多的地方要走。走遍这个世界，去让自己成长，让自己幸福。&lt;/p&gt;
+
+&lt;p&gt;多么想有一个人可以无论何时都一起出发啊。&lt;/p&gt;
+
+&lt;p&gt;在她面前可以当个傻瓜，可以不用想那么多，承担起该承担的，既所谓琴瑟和谐者也。缘分一说，一言难尽，他日也许自然就有那个所谓“真命天女”，在某个地方等着我吧。然而世事又是矛盾的，没有一段伟大的感情是不用争取的，而每一段所谓平凡的感情又都有其伟大之处。&lt;/p&gt;
+
+&lt;p&gt;今天说了一句自己心底里的话，遇到那个能和你走遍全世界的人之前，还是努力让自己变得更好吧。变成一个更温柔体贴的人，变成一个更聪明伶俐的人，变成一个更坚强勇敢的人，变成一个更谦虚谨慎的人。学会爱自己，爱每一个身边的人。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;所以今天也是来了阿拉斯加之后最温暖的一天。&lt;/h3&gt;
+
+&lt;p&gt;每一个让我意识到自己的错误，亦或是缺点的一天，都是温暖的一天。&lt;/p&gt;
+
+&lt;p&gt;于我，这冰雪，这寒冷，这一路向北的意义，并不是曾经来过，而是思考过。&lt;/p&gt;
+
+&lt;p&gt;你来过，你却离去了。&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/coldest-day/&quot;&gt;Coldest Day&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 14, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[On the Flight]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/on-the-flight/" />
   <id>http://pkufaraway.github.io/life/on-the-flight</id>
-  <published>2016-03-12T05:35:54-08:00</published>
-  <updated>2016-03-12T05:35:54-08:00</updated>
+  <published>2016-03-12T04:35:54-09:00</published>
+  <updated>2016-03-12T04:35:54-09:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -47,7 +83,7 @@
 
 &lt;h3 id=&quot;checkkramdownlatex&quot;&gt;check一下Kramdown能不能写latex&lt;/h3&gt;
 
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=||a||||b||cos\theta&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=\lvert a \rvert \lvert b \rvert \cos \theta&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
 
@@ -60,8 +96,8 @@
   <title type="html"><![CDATA[未来的未来]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/future/" />
   <id>http://pkufaraway.github.io/life/future</id>
-  <published>2016-03-06T17:34:32-08:00</published>
-  <updated>2016-03-06T17:34:32-08:00</updated>
+  <published>2016-03-06T16:34:32-09:00</published>
+  <updated>2016-03-06T16:34:32-09:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -81,8 +117,8 @@
   <title type="html"><![CDATA[头晕眼花]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/headache/" />
   <id>http://pkufaraway.github.io/life/headache</id>
-  <published>2016-02-29T11:30:39-08:00</published>
-  <updated>2016-02-29T11:30:39-08:00</updated>
+  <published>2016-02-29T10:30:39-09:00</published>
+  <updated>2016-02-29T10:30:39-09:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -108,8 +144,8 @@
   <title type="html"><![CDATA[Finally]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/my-first-post/" />
   <id>http://pkufaraway.github.io/nocategories/my-first-post</id>
-  <published>2016-02-29T11:27:58-08:00</published>
-  <updated>2016-02-29T11:27:58-08:00</updated>
+  <published>2016-02-29T10:27:58-09:00</published>
+  <updated>2016-02-29T10:27:58-09:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
