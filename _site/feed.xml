@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://pkufaraway.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://pkufaraway.github.io" />
-<updated>2016-03-18T10:22:07-07:00</updated>
+<updated>2016-04-28T10:18:36-04:00</updated>
 <id>http://pkufaraway.github.io/</id>
 <author>
   <name>Allen Liu</name>
@@ -14,11 +14,61 @@
 
 
 <entry>
+  <title type="html"><![CDATA[关于未来]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/about-the-future/" />
+  <id>http://pkufaraway.github.io/life/about-the-future</id>
+  <published>2016-04-15T16:22:05-04:00</published>
+  <updated>2016-04-15T16:22:05-04:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;h3 id=&quot;section&quot;&gt;爱护你的灵感。&lt;/h3&gt;
+&lt;p&gt;有时会我会想，一辈子你会有多少秒能想起来写点东西。当那些时刻到来的时候，你又有多少次会真正把那些心中的东西写下来。所以这一刻是宝贵的。我不惜像个SB一样的在火锅店把电脑拿出来，只是为了写一些乱七八糟的文字。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;六小龄童的感动&lt;/h3&gt;
+&lt;p&gt;有很多很多的人让我感动。今天看到一个B站上的视频，回顾了那些一生只为演好猴戏的大师们，浇灌着辛勤的汗水，只为了舞台上那活灵活现的几秒钟，几分钟。为了那更逼真，更引人入胜的大圣。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;初代男神&lt;/h3&gt;
+&lt;p&gt;原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/about-the-future/&quot;&gt;关于未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on April 15, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[About The Future]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/about-the-future/" />
+  <id>http://pkufaraway.github.io/about-the-future</id>
+  <published>2016-04-15T00:00:00-04:00</published>
+  <updated>2016-04-15T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;###爱护你的灵感。
+有时会我会想，一辈子你会有多少秒能想起来写点东西。当那些时刻到来的时候，你又有多少次会真正把那些心中的东西写下来。所以这一刻是宝贵的。我不惜像个SB一样的在火锅店把电脑拿出来，只是为了写一些乱七八糟的文字。
+###六小龄童的感动
+有很多很多的人让我感动。今天看到一个B站上的视频，回顾了那些一生只为演好猴戏的大师们，浇灌着辛勤的汗水，只为了舞台上那活灵活现的几秒钟，几分钟。为了那更逼真，更引人入胜的大圣。
+###初代男神
+原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/about-the-future/&quot;&gt;About The Future&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on April 15, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[回家啦，少年！]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/back-to-home/" />
   <id>http://pkufaraway.github.io/life/back-to-home</id>
-  <published>2016-03-18T09:43:55-07:00</published>
-  <updated>2016-03-18T09:43:55-07:00</updated>
+  <published>2016-03-18T12:43:55-04:00</published>
+  <updated>2016-03-18T12:43:55-04:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -56,11 +106,53 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Back To Home]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/back-to-home/" />
+  <id>http://pkufaraway.github.io/back-to-home</id>
+  <published>2016-03-18T00:00:00-04:00</published>
+  <updated>2016-03-18T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;h3 id=&quot;section&quot;&gt;何处是故乡？&lt;/h3&gt;
+&lt;p&gt;不知不觉离开北京已有半年，纵使如本科四年，也未曾如此远离家乡。家乡有山，有水，有巍峨的长城，有如梦似幻的风景。有七块钱不到的地铁，有二十刀不到的美食，最重要的，是有爸爸妈妈，有每一位家人。&lt;/p&gt;
+
+&lt;p&gt;这大概是纽约永远不会成为我家乡的原因。&lt;/p&gt;
+
+&lt;p&gt;有人会爱上纽约，会爱上纽约的绝代风华，爱上纽约的钢铁丛林，爱上纽约的放纵不羁，甚至爱上纽约的艰难前行。然而于我，纽约，大概只能是人生路上的一站，她的任何可爱之处，在我看来是个方便，她的任何可恨之处，又会被我无限放大。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;每一次有收获的旅行，只是让人成长而已。&lt;/h3&gt;
+
+&lt;p&gt;当我多年以后回忆起这一次旅行，不会想到没能拍摄极光的遗憾，不会想到265刀我买不起的精美工艺品，甚至不会想到那许多风雪，寒冷与孤寂。第一个跑到我脑海里的，只有那次刹车失灵，险些撞上前车而已。&lt;/p&gt;
+
+&lt;p&gt;那是去博物馆的那天晚上，我开着车（当然几乎每天都是我开），前面有一辆浅蓝色小轿车，我大概在距离三十米的时候还有不到40公里每小时的速度。二十米左右踩下刹车时候我整个人一惊，因为刹车失灵了，雪地太滑车胎已经抱死。幸好我是个凡事反应很快的人，于是松开刹车反复踩，另一方面观察了左右有没有安全区域，0.5s后我向左打轮同时刹住了车，车尾离前面蓝色小轿车的尾部也只有半米而已。&lt;/p&gt;
+
+&lt;p&gt;一身冷汗。&lt;/p&gt;
+
+&lt;p&gt;这事情一直到今天我做到飞机上，仍然挥之不去。这辈子不知道还会遇到多少类似的事情，但是想来，如果可以更慢，更早的尝试刹车，更谨慎的开车，就不会有这种事情发生了吧。戒之，慎之。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;良辰美景，苦无佳人&lt;/h3&gt;
+
+&lt;p&gt;总有良辰美景，却总无佳人为伴，不亦悲乎！似乎我总是在讨论这些矛盾无聊的话题，一方面想着大丈夫当顶天立地，何患无妻？一方面又总是暗自神伤，默默发呆。此事无需多言，但却又缭绕心头。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;再见，再见&lt;/h3&gt;
+
+&lt;p&gt;来了美国之后的第一次旅行，有收获，有遗憾，有欣喜与欢笑，有争吵与不安。十七张明信片写满了我对家人朋友的思念，希望能和你们每一个人有机会再见！&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/back-to-home/&quot;&gt;Back To Home&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 18, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Coldest Day]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/coldest-day/" />
   <id>http://pkufaraway.github.io/life/coldest-day</id>
-  <published>2016-03-14T14:22:46-07:00</published>
-  <updated>2016-03-14T14:22:46-07:00</updated>
+  <published>2016-03-14T17:22:46-04:00</published>
+  <updated>2016-03-14T17:22:46-04:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -92,11 +184,47 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Coldest Day]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/coldest-day/" />
+  <id>http://pkufaraway.github.io/coldest-day</id>
+  <published>2016-03-14T00:00:00-04:00</published>
+  <updated>2016-03-14T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;h3 id=&quot;section&quot;&gt;今天是来了阿拉斯加之后最冷的一天。&lt;/h3&gt;
+&lt;p&gt;耳边寒风尚惕厉呼啸，已经在回费尔班克斯市区的路上了。大家不是在听音乐，就是东倒西歪的睡着了。心中不知为何，总会在产生一种莫名其妙的失落感。有时候事情就是这样，总会在一个莫名其妙的时刻开始想起旅行的意义，想起去思考究竟自己为何而来，又为何要离去。&lt;/p&gt;
+
+&lt;p&gt;这世界的复杂之处就在于，无论是好与坏，悲伤还是欢喜，那一切的东西，都是相对的。对于你来说的一件高兴事，就可能是别人的一件伤心事。站在北极圈上，我想的最多的，其实就是，这辈子还有很多很多的地方要去，很多很多的地方要走。走遍这个世界，去让自己成长，让自己幸福。&lt;/p&gt;
+
+&lt;p&gt;多么想有一个人可以无论何时都一起出发啊。&lt;/p&gt;
+
+&lt;p&gt;在她面前可以当个傻瓜，可以不用想那么多，承担起该承担的，既所谓琴瑟和谐者也。缘分一说，一言难尽，他日也许自然就有那个所谓“真命天女”，在某个地方等着我吧。然而世事又是矛盾的，没有一段伟大的感情是不用争取的，而每一段所谓平凡的感情又都有其伟大之处。&lt;/p&gt;
+
+&lt;p&gt;今天说了一句自己心底里的话，遇到那个能和你走遍全世界的人之前，还是努力让自己变得更好吧。变成一个更温柔体贴的人，变成一个更聪明伶俐的人，变成一个更坚强勇敢的人，变成一个更谦虚谨慎的人。学会爱自己，爱每一个身边的人。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;所以今天也是来了阿拉斯加之后最温暖的一天。&lt;/h3&gt;
+
+&lt;p&gt;每一个让我意识到自己的错误，亦或是缺点的一天，都是温暖的一天。&lt;/p&gt;
+
+&lt;p&gt;于我，这冰雪，这寒冷，这一路向北的意义，并不是曾经来过，而是思考过。&lt;/p&gt;
+
+&lt;p&gt;你来过，你却离去了。&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/coldest-day/&quot;&gt;Coldest Day&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 14, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[On the Flight]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/on-the-flight/" />
   <id>http://pkufaraway.github.io/life/on-the-flight</id>
-  <published>2016-03-12T05:35:54-08:00</published>
-  <updated>2016-03-12T05:35:54-08:00</updated>
+  <published>2016-03-12T08:35:54-05:00</published>
+  <updated>2016-03-12T08:35:54-05:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -135,11 +263,54 @@
 
 
 <entry>
+  <title type="html"><![CDATA[On The Flight]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/on-the-flight/" />
+  <id>http://pkufaraway.github.io/on-the-flight</id>
+  <published>2016-03-12T00:00:00-05:00</published>
+  <updated>2016-03-12T00:00:00-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;h2 id=&quot;section&quot;&gt;最近值得注意的七件事儿&lt;/h2&gt;
+
+&lt;h3 id=&quot;ddl-os&quot;&gt;3.15 DDL 的OS作业&lt;/h3&gt;
+&lt;p&gt;尽管OS作业给了我很长时间，我也做了很长时间，然而实际的情况是，我仍然在做它……即使是在这样一次飞机旅途中，我也仍然无法避免的在继续写它。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;也许带的衣服并不够&lt;/h3&gt;
+&lt;p&gt;今晚就要到Fairbanks，我不知道是自己担心的太多，还是事实就摆在那里，总之我觉得自己带的衣服可能不太够。不过既来之则安之，如若不够，安心买更厚的就是了~&lt;/p&gt;
+
+&lt;h3 id=&quot;blog&quot;&gt;好久不写blog，我的中文表达能力似乎在下降&lt;/h3&gt;
+&lt;p&gt;这样的感觉让人窒息，仅仅来了美国半年，中文表达能力就在直线下降。我承认自己不是一个有语言天赋的人，然而母语于我之意义，是与人交流沟通的根本。假使有一天，我不再会说中文，甚至是不会写中文，这世界就会变成灰色的吧。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;我之初心&lt;/h3&gt;
+&lt;p&gt;最近几年的梦想一直是走遍世界，去每一个地方，见不同的人，看不同的风景，品尝不同的美食。然而这两天总想起一段话，不忘初心。对我而言，何为初心？是刘玄德之“上报国家，下安黎庶”？是李大钊先生的“铁肩担道义，妙笔著文章”？是做一名优秀的工程师？是做一个伟大的政治家？企业家？其实都不是。想来想去，这辈子无非是想受人尊重，且过得开心。想要受人尊重，反过来自己一种虚荣心，已是世俗之见了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;嵇康阮籍还是管仲鲍叔牙？&lt;/h3&gt;
+&lt;p&gt;以嵇康阮籍昔日之间，我如今的日子可谓世俗之心慎重，假使我乃昔日之山涛山巨源，亦或是今日我有朋友如嵇阮，亦会得一封绝交书吧。出世入世，世俗礼教，今日远比南朝风雅之时淡薄许多了。我觉得，嵇康其人，其能啸傲风月而不拘于世俗者，亦在于其人之才学不逊于人尔。又所谓大隐隐于世，这隐字有很多种定义。我更喜欢如管仲鲍叔牙之间的交情，也欣赏管鲍之人生，既有才学，能为生民立命，岂不快哉！&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;消费观&lt;/h3&gt;
+&lt;p&gt;每当我开始考虑买一个东西的时候，都不像许多人一样有情怀，或者说，我是一个过于理性的消费者。突然觉得，这大概是一个人能表现出的最不文艺的特征吧。每当我遇到那些不能用参数来衡量的消费品时，我就会产生选择恐惧症，因为我无法做出一个理性的判断，究竟哪个胜过哪个。正如今日开始思量的相机一事，就反复不停的在让我苦恼，于是乎快刀斩乱麻，索性不买了，不去想他，也就没有烦恼了。&lt;/p&gt;
+
+&lt;h3 id=&quot;checkkramdownlatex&quot;&gt;check一下Kramdown能不能写latex&lt;/h3&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=\lvert a \rvert \lvert b \rvert \cos \theta&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/on-the-flight/&quot;&gt;On The Flight&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 12, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[未来的未来]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/future/" />
   <id>http://pkufaraway.github.io/life/future</id>
-  <published>2016-03-06T17:34:32-08:00</published>
-  <updated>2016-03-06T17:34:32-08:00</updated>
+  <published>2016-03-06T20:34:32-05:00</published>
+  <updated>2016-03-06T20:34:32-05:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -156,11 +327,32 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Future]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/future/" />
+  <id>http://pkufaraway.github.io/future</id>
+  <published>2016-03-06T00:00:00-05:00</published>
+  <updated>2016-03-06T00:00:00-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;终于弄好了我的github博客，一时间不知道说什么。自己过去几年来什么事情都弄不好的状态，居然一时间就改了过来。可以很有效率的做事情了。有些时候我真不知道，自己究竟是怎么了？&lt;/p&gt;
+
+&lt;p&gt;但愿如今这种比较好的状态可以延续。&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/future/&quot;&gt;Future&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 06, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[头晕眼花]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/headache/" />
   <id>http://pkufaraway.github.io/life/headache</id>
-  <published>2016-02-29T11:30:39-08:00</published>
-  <updated>2016-02-29T11:30:39-08:00</updated>
+  <published>2016-02-29T14:30:39-05:00</published>
+  <updated>2016-02-29T14:30:39-05:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -186,8 +378,8 @@
   <title type="html"><![CDATA[Finally]]></title>
   <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/my-first-post/" />
   <id>http://pkufaraway.github.io/nocategories/my-first-post</id>
-  <published>2016-02-29T11:27:58-08:00</published>
-  <updated>2016-02-29T11:27:58-08:00</updated>
+  <published>2016-02-29T14:27:58-05:00</published>
+  <updated>2016-02-29T14:27:58-05:00</updated>
   <author>
     <name>Allen Liu</name>
     <uri>http://pkufaraway.github.io</uri>
@@ -199,6 +391,54 @@
 &lt;p&gt;I am very glad that I’ve built my blog.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/my-first-post/&quot;&gt;Finally&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[My First Post]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/my-first-post/" />
+  <id>http://pkufaraway.github.io/my-first-post</id>
+  <published>2016-02-29T00:00:00-05:00</published>
+  <updated>2016-02-29T00:00:00-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;My friends,&lt;/p&gt;
+
+&lt;p&gt;I am very glad that I’ve built my blog.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/my-first-post/&quot;&gt;My First Post&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Headache]]></title>
+  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/headache/" />
+  <id>http://pkufaraway.github.io/headache</id>
+  <published>2016-02-29T00:00:00-05:00</published>
+  <updated>2016-02-29T00:00:00-05:00</updated>
+  <author>
+    <name>Allen Liu</name>
+    <uri>http://pkufaraway.github.io</uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;今天早起吃了一个自制的火腿鸡蛋卷，买了杯Grande Dark。 想来应该没问题，然而似乎阴天都在告诉我，你今儿要倒霉。中午吃完饭后，整个人都觉得乏力，头晕眼花仿佛低血糖的感觉。&lt;/p&gt;
+
+&lt;p&gt;问了问系草，据说是吃的太少的缘故，不知道俺这身体是啥风格，既不能吃的太多也不能太少，果然锻炼饮食是一门学问。随着锻炼的深入，不仅仍然要控制总的热量摄入，也要注意饮食结构的调整。上一学期几乎没有摄入任何碳水化合物，再加上较短的睡眠时间，这一学期就反馈给我很多疲惫的感觉。尽管我仍然对生活充满了激情，对学习也如是，但是调整生活节奏已经成为了必须考虑的问题。&lt;/p&gt;
+
+&lt;p&gt;可是还没写完NLP作业……~~~~(&amp;gt;_&amp;lt;)~~~~&lt;/p&gt;
+
+&lt;p&gt;经营这个Blog是很久很久很久以前就有的计划，其实并不想一开始第一篇文章是中文，然而今天这头晕眼花的状态实在是写不出什么英文出来，以后的学习工作生活会一点一点的记录在这里。幸哉，此时天空的阴霾少了很多，些许湛蓝也透过白云露了出来。但愿每天都能鼓励自己横扫阴霾，鼓励自己不断向前。&lt;/p&gt;
+
+&lt;p&gt;才奋起直追不到半年，我该懂得调节好自己的身体。岁月你别催，该走的我不追；岁月你别催，该来的我不会催。而立之年以前，吾当奋发惕厉，也当珍惜自己。.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/headache/&quot;&gt;Headache&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
   </content>
 </entry>
 
