@@ -4,6 +4,7 @@ title: 关于未来
 modified:
 categories: life
 excerpt:
+comments: true
 tags: []
 image:
   feature:
