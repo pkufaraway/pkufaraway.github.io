@@ -47,8 +47,19 @@
         <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
       </footer>
     </div><!-- /.article-wrap -->
-  {% if site.owner.disqus-shortname and page.comments == true %}
-    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  {% if page.comments == true %}
+    <section id="disqus_thread"></section>
+      <script>
+        (function() {  // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+        
+          s.src = '//pkufaraway.disqus.com/embed.js';
+        
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   {% endif %}
   </article>
 </div><!-- /#main -->
