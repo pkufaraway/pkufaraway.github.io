@@ -3,6 +3,7 @@ layout: post
 title: On the Flight
 modified:
 categories: life
+comments: true
 excerpt:
 tags: []
 image:
