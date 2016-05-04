@@ -20,7 +20,6 @@ links:
 - title: No Categories
   url: /nocategories/
 
-
 # Jekyll configuration
 
 permalink:   /:categories/:title/
