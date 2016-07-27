@@ -5,6 +5,7 @@ modified:
 categories: nocategories
 excerpt:
 tags: []
+comments: true
 image:
   feature:
   date: 2016-07-19T02:27:58-05:00
