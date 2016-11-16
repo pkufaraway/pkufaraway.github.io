@@ -1,0 +1,570 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Procalator 学习笔记 &#8211; Hiking Coder</title>
+<meta name="description" content="Distributed Transactions
+
+">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Procalator 学习笔记">
+<meta name="twitter:description" content="Distributed Transactions
+
+">
+<meta name="twitter:site" content="@pkufaraway">
+<meta name="twitter:creator" content="@pkufaraway">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pkufaraway.github.io/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Procalator 学习笔记">
+<meta property="og:description" content="Distributed Transactions
+
+">
+<meta property="og:url" content="http://pkufaraway.github.io/nocategories/Percolator-Notes/">
+<meta property="og:site_name" content="Hiking Coder">
+
+<meta property="og:image" content="http://pkufaraway.github.io/images/default-thumb.png">
+
+
+
+
+
+
+<link rel="canonical" href="http://pkufaraway.github.io/nocategories/Percolator-Notes/">
+<link href="http://pkufaraway.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Hiking Coder Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<body class="post">
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://pkufaraway.github.io/">Hiking Coder</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				    <li><a href="http://pkufaraway.github.io/about/" >About Me</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/posts/" >All Posts</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/life/" >Life</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/nocategories/" >No Categories</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="http://pkufaraway.github.io/images/bio-photo.jpg" class="bio-photo" alt="Allen Liu bio photo">
+
+
+  <h3 itemprop="name">Allen Liu</h3>
+  <p>Hiking,Swimming,Coding. My life is interesting.</p>
+  
+  <a href="http://twitter.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+  <a href="http://facebook.com/yaoyuan.liu.184" class="author-social" target="_blank"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a>
+  
+  <a href="http://linkedin.com/in/yaoyuan-liu-463142a9" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+  
+  
+  
+  <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="http://pkufaraway.github.io/nocategories/Percolator-Notes/" rel="bookmark" title="Procalator 学习笔记">Procalator 学习笔记</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <h1 id="distributed-transactions">Distributed Transactions</h1>
+
+<blockquote>
+  <p>ACID operations for transactions(Atomic)
+Serializable</p>
+</blockquote>
+
+<h2 id="serializability-review">Serializability Review</h2>
+
+<p>Any history of executions(set of transactions) should has same effect on the databse and produce same result as some <strong>serial execution</strong> of the same set of transactions</p>
+
+<ul>
+  <li>Obey completion to issue order in the original execution history.(strict serializability)</li>
+</ul>
+
+<h3 id="related-to-linearizability">Related to linearizability</h3>
+
+<h2 id="why-distribution">Why distribution</h2>
+
+<ul>
+  <li>Scale performance: Not sufficient storage/computation resource on one Machine.</li>
+  <li>Fault Tolerence</li>
+</ul>
+
+<h2 id="review-design-for-single-machine-transactions">Review: Design for single machine transactions</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>begin_tx
+	read
+	write
+	commit
+end_tx
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre>begin_tx
+	read &amp; write phase:
+		tx &lt;- tx.context
+		Lock(a) //return to the user
+		Lock(b) //buffer the writes
+	
+	commit phase:
+		log tx.writes
+		for each x in buffer:
+			write(x.key) = x.value
+			Unlock(x.key)
+end_tx
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3 id="example">Example</h3>
+
+<p>T1: W(a=1), W(b=1)</p>
+
+<blockquote>
+  <p>May crash between writes</p>
+</blockquote>
+
+<h2 id="distributed-setting">Distributed Setting</h2>
+
+<h3 id="shard-our-data">Shard our data</h3>
+
+<h3 id="example-1">example</h3>
+
+<ul>
+  <li>ServerA for object A</li>
+  <li>ServerB for object B</li>
+</ul>
+
+<p>client/coordinator for transaction</p>
+
+<p>initial state a = b = 0</p>
+
+<p>exmpale: T1: W(a=1), W(b=1)</p>
+
+<p>send write and do it immediately</p>
+
+<ul>
+  <li>send(w(a==1))</li>
+  <li>serverA.lock(a)</li>
+  <li>serverA.log(a==1)</li>
+  <li>
+    <p>serverA.write(a)</p>
+  </li>
+  <li>client may crash</li>
+  <li>two t_xs can interleave each other</li>
+</ul>
+
+<p>Solution: 2PC</p>
+
+<ul>
+  <li>Prepare phase:
+    <ul>
+      <li>ServerA.lock(a)</li>
+      <li>ServerA.log(a=1)</li>
+      <li>ServerB.lock(b)</li>
+      <li>ServerB.log(b=1)</li>
+    </ul>
+  </li>
+  <li>Commit phase:
+    <ul>
+      <li>ServerA.write(a=1)</li>
+      <li>ServerA.unlock(a)</li>
+      <li>ServerB.write(b=1)</li>
+      <li>ServerB.unlock(b)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="pcs-problem">2PC’s problem</h3>
+
+<p>If a call is timeout:</p>
+
+<ol>
+  <li>Coordinator can unilaterally abort
+    <ul>
+      <li>if coordinator dies, outcome of a tx</li>
+      <li>new solution
+        <ul>
+          <li>log decisions to paxos</li>
+          <li>then decide on abort/commit</li>
+          <li>then send 2p-commit or abort</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Coordinator can not unilaterally abort
+    <ul>
+      <li>if any of the server dies, outcome of a tx ?</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="percolator">Percolator</h1>
+
+<blockquote>
+  <p>bootstrap(GFS) =&gt; Bigtable =&gt; Percolator</p>
+</blockquote>
+
+<h2 id="before-google">Before google</h2>
+
+<p>Distributed transactions</p>
+
+<p>crawling =&gt; processing crawled documents =&gt; generated inverted index</p>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre>insert_doc(doc) {
+	content_table.put(doc.url, doc.contents);
+	hash = md5sum(doc.contents);
+	canonical_url = dups_table.get(hash);
+	if (!canonical_url || canonical_url &gt; doc.url) {
+		dups_table.put(hash, doc.url);
+	}
+}
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>What can go wrong in the above code?</p>
+
+<ul>
+  <li>Failures example.
+    <ul>
+      <li>doc inserted, but does not appear in the collection of canonical urls</li>
+    </ul>
+  </li>
+  <li>Concurrency example:
+    <ul>
+      <li>two concurrent inserts of nyt.com nytimes.com</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Why transactions help?</p>
+
+<p>Why do they need distributed transactions?</p>
+
+<p>Why does Percolator decide to support SI instead of serializability?
+- avoid read locks so that transactions can read lots and lots of data cheaply</p>
+
+<p>How to implement SI in a distributed setting?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></td><td class="code"><pre>begin_tx() {
+	tx.start_ts = get_timestamp()
+}
+
+/**
+	normal read like other SI system.
+*/
+read(key) {
+	//issue key to the server responsible for key
+	//At server
+	versioned_data = db[key]
+	v = highest version smaller than tx.start_ts in versioned_data
+	return v.data
+}
+
+write(key, value) {
+	tx.writes[key] = value
+}
+
+commit_tx(tx)  {
+	foreach w in tx.writes 
+		issue 2PC_prepare to server responsible for w
+	if (all replies are okay) {
+		tx.commit_ts = get_timestamp()
+		foreach w in tx.writes 
+			issue 2PC_commit to server responsible for w
+	} else {
+		foreach w in tx.writes 
+			issue 2PC_abort to server responsible for w
+	}
+}
+
+on_2PC_prepare(tx, w) {
+	lock(w.key)
+	if lock is unavabile 
+		return 2PC_vote_no;
+	//check for write-write conflict
+	if there exists db[key] whose version is greater than tx.start_ts
+		return 2PC_vote_no;
+	log(tx.id, w.key,w.data);
+	return 2PC_vote_yes;
+}
+
+on_2PC_commit(tx, w) {
+	w.version = tx.commit_ts;
+	add w to db[key]
+	unlock(w.key)
+}
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Percolator is built on top of BigTable (a versioned multi-coloumn key-value store). 
+How is its design different from one outlined above?</p>
+
+<p>Let’s look at Pseudocode for Perrcolator in Figure 6?</p>
+
+<ul>
+  <li>pre-write is similar to the prepare phase in 2P commit.
+    <ul>
+      <li>why line 32? (check for write-write conflict)</li>
+      <li>why line 34? (concurrent 2P commit on overlapping data)</li>
+    </ul>
+  </li>
+  <li>commit()
+    <ul>
+      <li>can I move line 48 to after 43?</li>
+      <li>ignore line 53 for now</li>
+    </ul>
+  </li>
+</ul>
+
+<p>How does Percolator handle failures?</p>
+
+<ul>
+  <li>data is replicated by BigTable, hence no logging is necessary (BigTable internally logs)</li>
+  <li>But, transaction coordiator (Percolator worker) can fail.
+Consequence: locks held during 2P commit are never cleaned up.
+  The idea: if other workers notice that a lock is held for a long time, it cleans up.
+  Challenge: what if B thinks A is dead but A is not dead and still in the process of committing?</li>
+</ul>
+
+<p>Percolator solution:</p>
+
+<ul>
+  <li>Every transaction corresponds to a primary lock.</li>
+  <li>All other locks in a transaction point to its primary lock.</li>
+  <li>Commit replaces the primary lock with a write record</li>
+  <li>Cleanup erases the primary lock if it’s still there.</li>
+  <li>Access to primary lock is synchronized by the underlying BigTable single row transaction.</li>
+</ul>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://pkufaraway.github.io/nocategories/Percolator-Notes/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://pkufaraway.github.io/nocategories/Percolator-Notes/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://pkufaraway.github.io/nocategories/Percolator-Notes/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>Procalator 学习笔记</strong> was published on <time datetime="2016-11-16T00:00:00-05:00">November 16, 2016</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section>
+      <script>
+        (function() {  // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+        
+          s.src = '//pkufaraway.disqus.com/embed.js';
+        
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  
+  </article>
+</div><!-- /#main -->
+
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://pkufaraway.github.io/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://pkufaraway.github.io/nocategories/Paxos-Notes/" title="Paxos 学习笔记">Paxos 学习笔记</a></li>
+    
+      <li><a href="http://pkufaraway.github.io/life/Nonsense/" title="瞎说">瞎说</a></li>
+    
+      <li><a href="http://pkufaraway.github.io/nocategories/Better-Terminal/" title="Internship Tech Review (3) - A better terminal">Internship Tech Review (3) - A better terminal</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span>&copy; 2016 Allen Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://pkufaraway.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://pkufaraway.github.io/assets/js/scripts.min.js"></script>
+
+
+  
+
+
+
+
+</body>
+</html>
