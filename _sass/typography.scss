@@ -8,15 +8,16 @@
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
+
 }
 h1 {
-	@include font-size(32);
+	@include font-size(24);
 }
 h2 {
-	@include font-size(28);
+	@include font-size(22);
 }
 h3 {
-	@include font-size(24);
+	@include font-size(20);
 }
 h4 {
 	@include font-size(18);
@@ -108,11 +109,12 @@ figcaption {
    ========================================================================== */
 
 blockquote {
-	margin-left: -28px;
-	padding-left: 20px;
-	border-left: 3px solid $border-color;
+	margin-left: -5px;
+	padding-left: 10px;
+	border-left: 3px solid #777777;
 	font-family: $alt-font;
 	font-style: italic;
+	color: #777777;
 }
 
 /*

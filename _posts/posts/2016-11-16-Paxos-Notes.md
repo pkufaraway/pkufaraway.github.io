@@ -160,8 +160,8 @@ it has not responded to a prepare request having a number greater than n.
 
 ### Phase1
 
-1. $prepareRequest(n)$
-2. Acceptor responses promise or ignore it based on the largest \\(n^{'}\\) it got.
+1. \\( prepareRequest(n) \\)
+2. Acceptor responses promise or ignore it based on the largest \\(n'\\) it got.
 
 ### Phase2
 
@@ -169,7 +169,7 @@ it has not responded to a prepare request having a number greater than n.
 2. Acceptor没有response给一个比n更高prepare请求的时候，就接受v。
 
 ### Phase 3
-1. 收到Majority水平的accept_ok, \\(decide(v^{'})\\), send \\(decide(v^{'})\\) to all others.
+1. 收到Majority水平的accept_ok, \\(decide(v')\\), send \\(decide(v')\\) to all others.
 
 ## Proposal Number
 

@@ -49,34 +49,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://pkufaraway.github.io/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
-	<script src="http://pkufaraway.github.io/assets/js/vendor/html5shiv.min.js"></script>
-	<script src="http://pkufaraway.github.io/assets/js/vendor/respond.min.js"></script>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
 <![endif]-->
 
 <!-- Modernizr -->
-<script src="http://pkufaraway.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
 <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://pkufaraway.github.io/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://pkufaraway.github.io/favicon.png">
+<link rel="shortcut icon" href="/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://pkufaraway.github.io/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://pkufaraway.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://pkufaraway.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pkufaraway.github.io/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -245,8 +245,9 @@
 
 <h2 id="section">需求推断</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P1. An acceptor must accept the first proposal that it receives 
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>P1. An acceptor must accept the first proposal that it receives 
+</pre></td></tr></tbody></table>
+</div>
 </div>
 <ol>
   <li>除了发送值，还发送Proposal Number
@@ -256,25 +257,31 @@
   </li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P2. If a proposal with value v is chosen, 
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>P2. If a proposal with value v is chosen, 
 then every higher-numbered proposal that is chosen has value v.
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <blockquote>
   <p>在proposal number有序的情况下，这保证了总是选择相同的值，因为一个值必须要Accpetor接受之后才能被选择，所以P2a也可以满足P2。</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P2a. If a proposal with value v is chosen, 
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>P2a. If a proposal with value v is chosen, 
 then every higher-numbered proposal that is chosen has value v.
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <p>然而一个Acceptor如果没有接受过旧值，那么就有可能接受一个新的错值，所以需要加强P2a到P2b</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P2b. If a proposal with value v is chosen, 
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>P2b. If a proposal with value v is chosen, 
 then every higher-numbered proposal issued by any proposer has value v.
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 <blockquote>
   <p>显然P2b保证了P2a，也就保证了P2</p>
@@ -287,12 +294,17 @@ then every higher-numbered proposal issued by any proposer has value v.
 因为m的时候选择了v，所以对于Acceptor里选择了v的majority来说，一定在m~(n-1)里的某一个proposal number选择了v。
 考虑一个</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P2c. For any v and n, if a proposal with value v and number n is issued, 
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>P2c. For any v and n, if a proposal with value v and number n is issued, 
 then there is a set S consisting of a majority of acceptors such that either 
 (a) no acceptor in S has accepted any proposal numbered less than n, or 
 (b) v is the value of the highest-numbered proposal 
 among all proposals numbered less than n accepted by the acceptors in S.
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <h2 id="paxos">Paxos</h2>
@@ -339,9 +351,11 @@ among all proposals numbered less than n accepted by the acceptors in S.
 
 <p>我们需要考虑Acceptor面对两种request时候要如何做出选择，具体如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P1a . An acceptor can accept a proposal numbered n iff 
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>P1a . An acceptor can accept a proposal numbered n iff 
 it has not responded to a prepare request having a number greater than n.
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <p>就是说，没有回复 \(prepareRequest(m), m &gt; n\) 时，就可以接受 \(n\) 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。</p>
@@ -356,8 +370,8 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 <h3 id="phase1">Phase1</h3>
 
 <ol>
-  <li>$prepareRequest(n)$</li>
-  <li>Acceptor responses promise or ignore it based on the largest \(n^{‘}\) it got.</li>
+  <li>\( prepareRequest(n) \)</li>
+  <li>Acceptor responses promise or ignore it based on the largest \(n’\) it got.</li>
 </ol>
 
 <h3 id="phase2">Phase2</h3>
@@ -369,7 +383,7 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 
 <h3 id="phase-3">Phase 3</h3>
 <ol>
-  <li>收到Majority水平的accept_ok, \(decide(v^{‘})\), send \(decide(v^{‘})\) to all others.</li>
+  <li>收到Majority水平的accept_ok, \(decide(v’)\), send \(decide(v’)\) to all others.</li>
 </ol>
 
 <h2 id="proposal-number">Proposal Number</h2>
@@ -386,7 +400,14 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 
 <p>At proposer:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>choose n (unique &amp; higher than any seen n)
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre>choose n (unique &amp; higher than any seen n)
 send prepare(n) to all including self
 if prepare_ok(n,n_a,v_a) from majority
 	v' = v_a with highest n_a or choose arbitary v if all v_a ==  nil
@@ -394,26 +415,36 @@ send accept(n,v') to all
 if accpet_ok(n) from majority
 	decide on v'
 	send decide (n,v')
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <p>Acceptor OnPrepare(n)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if n &gt; n_h
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>if n &gt; n_h
 	n_h = n
 	reply prepare_ok(n,n_a,v_a)
 else reject
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <p>Acceptor onAccept(n)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if n &gt;= n_h
+<div class="highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>if n &gt;= n_h
 	n_h = n
 	n_a,v_a = n, v
 	reply ok
 else reject
-</code></pre>
+</pre></td></tr></tbody></table>
+</div>
 </div>
 
 <blockquote>

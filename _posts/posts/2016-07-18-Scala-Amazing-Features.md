@@ -31,6 +31,7 @@ res3: List[Int] = List(2, 3, 4)
 scala> a.map(_+1)
 res4: List[Int] = List(2, 3, 4)
 ```
+
 From the above example you can see that you can use `_` if you don't want to use an arrow(for example, call a method belongs to every element).
 
 On the other hand, you can use map with pattern matching.
