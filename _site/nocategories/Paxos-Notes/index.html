@@ -1,0 +1,499 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Paxos 学习笔记 &#8211; Hiking Coder</title>
+<meta name="description" content="要解决什么问题？(Consensus Problem)
+
+">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Paxos 学习笔记">
+<meta name="twitter:description" content="要解决什么问题？(Consensus Problem)
+
+">
+<meta name="twitter:site" content="@pkufaraway">
+<meta name="twitter:creator" content="@pkufaraway">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pkufaraway.github.io/images/default-thumb.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paxos 学习笔记">
+<meta property="og:description" content="要解决什么问题？(Consensus Problem)
+
+">
+<meta property="og:url" content="http://pkufaraway.github.io/nocategories/Paxos-Notes/">
+<meta property="og:site_name" content="Hiking Coder">
+
+<meta property="og:image" content="http://pkufaraway.github.io/images/default-thumb.png">
+
+
+
+
+
+
+<link rel="canonical" href="http://pkufaraway.github.io/nocategories/Paxos-Notes/">
+<link href="http://pkufaraway.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Hiking Coder Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://pkufaraway.github.io/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://pkufaraway.github.io/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://pkufaraway.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://pkufaraway.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://pkufaraway.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://pkufaraway.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://pkufaraway.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://pkufaraway.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://pkufaraway.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pkufaraway.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<body class="post">
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://pkufaraway.github.io/">Hiking Coder</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				    <li><a href="http://pkufaraway.github.io/about/" >About Me</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/posts/" >All Posts</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/life/" >Life</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/nocategories/" >No Categories</a></li>
+				
+				    
+				    <li><a href="http://pkufaraway.github.io/theme-setup/" >About the theme</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="http://pkufaraway.github.io/images/bio-photo.jpg" class="bio-photo" alt="Allen Liu bio photo">
+
+
+  <h3 itemprop="name">Allen Liu</h3>
+  <p>Hiking,Swimming,Coding. My life is interesting.</p>
+  
+  <a href="http://twitter.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>
+  <a href="http://facebook.com/yaoyuan.liu.184" class="author-social" target="_blank"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a>
+  
+  <a href="http://linkedin.com/in/yaoyuan-liu-463142a9" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+  
+  
+  
+  <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="http://pkufaraway.github.io/nocategories/Paxos-Notes/" rel="bookmark" title="Paxos 学习笔记">Paxos 学习笔记</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <h2 id="consensus-problem">要解决什么问题？(Consensus Problem)</h2>
+
+<p>本质上来说就是投票问题，分为三个角色，Proposer，Acceptor，Learner。 Proposer可以propose一些值，然后Acceptor可以接受一些值，Learner可以记住一些值。目标是：</p>
+
+<ul>
+  <li>最终只产生一个值</li>
+  <li>产生的值必须是propose的值其中一个</li>
+  <li>这个值得被记住</li>
+</ul>
+
+<h3 id="livenesssafety">Liveness/Safety</h3>
+
+<ul>
+  <li>Liveness: 必须得选出一个值</li>
+  <li>Safety: 选定了之后不会变</li>
+</ul>
+
+<blockquote>
+  <p><strong>实际上一个Process可能同时扮演三个角色，但是每个Agent都可能fail (not be accuratelly detected</strong></p>
+</blockquote>
+
+<h3 id="asynchornous-network-communication-assumption">Asynchornous network communication assumption</h3>
+<blockquote>
+  <p>An RPC time can mean</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>node failed</li>
+    <li>node is very slow</li>
+    <li>network is slow</li>
+    <li>network has partition</li>
+  </ul>
+</blockquote>
+
+<h2 id="naive">几个Naive模型</h2>
+
+<ol>
+  <li>只有一个Acceptor：
+    <ul>
+      <li>Acceptor死了就GG了。</li>
+    </ul>
+  </li>
+  <li>多个Acceptor，当足够多的Acceptor都接受了一个值的时候，就选择这个值
+    <ul>
+      <li>可以，但是每个Acceptor只能接受一个值。</li>
+      <li>每个Acceptor只接受一个值，当一些Acceptor死了，就影响Majority了，所以没法记住。</li>
+    </ul>
+
+    <blockquote>
+      <p>由此推断当需要选择Majority的时候，Acceptor需要接受不止一个值。</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="strawman-1">Strawman #1</h3>
+
+<p>S1, S2, S3</p>
+
+<ul>
+  <li>every node sends its value to all others</li>
+  <li>Wait to receive all 3 values, pick one w/ smallest node_id.</li>
+</ul>
+
+<blockquote>
+  <p>死了一个node，第二步就永远到不了了，就GG了 (liveness GG了）</p>
+</blockquote>
+
+<h3 id="strawman-2">Strawman #2</h3>
+
+<ul>
+  <li>every node sends its value to all others</li>
+  <li>node chooses the first value, reject the rest.</li>
+  <li>if the original proposer has more than half nodes chooses value v, then decided on v.</li>
+  <li>send victory msg.</li>
+</ul>
+
+<blockquote>
+  <p>问题是可能选不出majority (liveness GG了）</p>
+</blockquote>
+
+<h3 id="strawman-3-based-on-strawman-2">Strawman #3, based on Strawman #2</h3>
+
+<ul>
+  <li>if a node has not seen a victory-msg in 10 sec, forget its accepted value.</li>
+</ul>
+
+<blockquote>
+  <p>问题是victory msg may fail（不能依靠对于时间的任何假设）</p>
+</blockquote>
+
+<h2 id="section">需求推断</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P1. An acceptor must accept the first proposal that it receives 
+</code></pre>
+</div>
+<ol>
+  <li>除了发送值，还发送Proposal Number
+    <ul>
+      <li>先假设每个Proposal的Proposal Number不同</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P2. If a proposal with value v is chosen, 
+then every higher-numbered proposal that is chosen has value v.
+</code></pre>
+</div>
+
+<blockquote>
+  <p>在proposal number有序的情况下，这保证了总是选择相同的值，因为一个值必须要Accpetor接受之后才能被选择，所以P2a也可以满足P2。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P2a. If a proposal with value v is chosen, 
+then every higher-numbered proposal that is chosen has value v.
+</code></pre>
+</div>
+
+<p>然而一个Acceptor如果没有接受过旧值，那么就有可能接受一个新的错值，所以需要加强P2a到P2b</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P2b. If a proposal with value v is chosen, 
+then every higher-numbered proposal issued by any proposer has value v.
+</code></pre>
+</div>
+<blockquote>
+  <p>显然P2b保证了P2a，也就保证了P2</p>
+</blockquote>
+
+<p><strong>所以问题变成了如何实现P2b</strong></p>
+
+<h2 id="p2b">如何证明P2b保证了我们的目标</h2>
+<p>假设某一个proposal number m，我们选择了value v， 那么我们需要证明对于某个n&gt;m，我们也会选择v。
+因为m的时候选择了v，所以对于Acceptor里选择了v的majority来说，一定在m~(n-1)里的某一个proposal number选择了v。
+考虑一个</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P2c. For any v and n, if a proposal with value v and number n is issued, 
+then there is a set S consisting of a majority of acceptors such that either 
+(a) no acceptor in S has accepted any proposal numbered less than n, or 
+(b) v is the value of the highest-numbered proposal 
+among all proposals numbered less than n accepted by the acceptors in S.
+</code></pre>
+</div>
+
+<h2 id="paxos">Paxos</h2>
+
+<h3 id="phase-protocol">3 Phase protocol</h3>
+
+<ul>
+  <li>to obtain prviously major accepted value</li>
+  <li>to seek majority accpted value</li>
+  <li>to tell others decied values.</li>
+</ul>
+
+<h3 id="multiple-rounds">Multiple rounds</h3>
+
+<h3 id="majority-acceptance-prevents-split-brain">Majority acceptance prevents “split-brain”</h3>
+
+<h2 id="proposer">Proposer算法</h2>
+
+<p>两种request：Prepare &amp; Accept</p>
+
+<h3 id="prepare-request">Prepare Request</h3>
+
+<ol>
+  <li>选定proposal number n;</li>
+  <li>告诉一些Acceptor， 不要再接受比n小的proposal了</li>
+  <li>让这些Acceptor告诉我现在自己的接受的小于n的最高的proposal number对应的值是多少。</li>
+</ol>
+
+<blockquote>
+  <p>我们可以称之为 $prepareRequest(n)$</p>
+</blockquote>
+
+<h3 id="accept-request">Accept Request</h3>
+
+<p>接收到一个majority的response之后，就可以用n作为proposal number来发值了，但是v必须是response里proposal number最高的那个proposal对应的value，所有response里都没值，就可以自己选择了。</p>
+
+<blockquote>
+  <p>我们可以称之为 $acceptRequest(n,v)$</p>
+</blockquote>
+
+<p>发送这个(n,v), 就是一个Accept Request，但是这个request不一定要发送给Prepare Request的Set，可以有区别。</p>
+
+<h2 id="acceptor">Acceptor算法</h2>
+
+<p>我们需要考虑Acceptor面对两种request时候要如何做出选择，具体如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>P1a . An acceptor can accept a proposal numbered n iff 
+it has not responded to a prepare request having a number greater than n.
+</code></pre>
+</div>
+
+<p>就是说，没有回复 $prepareRequest(m), m &gt; n$ 时，就可以接受 $n$ 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。</p>
+
+<blockquote>
+  <p>所以当已经回复了 $prepareRequest(m), m &gt; n$ 时，$prepare(n)$ 就可以直接忽略。
+Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
+</blockquote>
+
+<h2 id="section-1">流程总结</h2>
+
+<h3 id="phase1">Phase1</h3>
+
+<ol>
+  <li>$prepareRequest(n)$</li>
+  <li>Acceptor responses promise or ignore it based on the largest $n^{‘}$ it got.</li>
+</ol>
+
+<h3 id="phase2">Phase2</h3>
+
+<ol>
+  <li>Proposer receives enough responses(majority), $acceptRequest(n,v)$. v是response里proposal number最大的，response都是没有值的话，自己选一个。</li>
+  <li>Acceptor没有response给一个比n更高prepare请求的时候，就接受v。</li>
+</ol>
+
+<h3 id="phase-3">Phase 3</h3>
+<ol>
+  <li>收到Majority水平的accept_ok, $decide(v^{‘})$, send $decide(v^{‘})$ to all others.</li>
+</ol>
+
+<h2 id="proposal-number">Proposal Number</h2>
+
+<p>n must be unique among all nodes.</p>
+
+<h2 id="paxos-invariansis">Paxos’ invariansis</h2>
+
+<ul>
+  <li>if value v is accepted by majority at round nthen all round $n’ &gt; n$ propose v.</li>
+</ul>
+
+<h2 id="pseudocode">Pseudocode</h2>
+
+<p>At proposer:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>choose n (unique &amp; higher than any seen n)
+send prepare(n) to all including self
+if prepare_ok(n,n_a,v_a) from majority
+	v' = v_a with highest n_a or choose arbitary v if all v_a ==  nil
+send accept(n,v') to all
+if accpet_ok(n) from majority
+	decide on v'
+	send decide (n,v')
+</code></pre>
+</div>
+
+<p>Acceptor OnPrepare(n)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if n &gt; n_h
+	n_h = n
+	reply prepare_ok(n,n_a,v_a)
+else reject
+</code></pre>
+</div>
+
+<p>Acceptor onAccept(n)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if n &gt;= n_h
+	n_h = n
+	n_a,v_a = n, v
+	reply ok
+else reject
+</code></pre>
+</div>
+
+<blockquote>
+  <p>What state mu be persisted across reboot?</p>
+</blockquote>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Share on</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://pkufaraway.github.io/nocategories/Paxos-Notes/" class="twitter" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://pkufaraway.github.io/nocategories/Paxos-Notes/" class="facebook" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://pkufaraway.github.io/nocategories/Paxos-Notes/" class="google-plus" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+        <p class="byline"><strong>Paxos 学习笔记</strong> was published on <time datetime="2016-11-16T00:00:00-05:00">November 16, 2016</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section>
+      <script>
+        (function() {  // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+        
+          s.src = '//pkufaraway.disqus.com/embed.js';
+        
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  
+  </article>
+</div><!-- /#main -->
+
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://pkufaraway.github.io/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="http://pkufaraway.github.io/life/Nonsense/" title="瞎说">瞎说</a></li>
+    
+      <li><a href="http://pkufaraway.github.io/nocategories/Better-Terminal/" title="Internship Tech Review (3) - A better terminal">Internship Tech Review (3) - A better terminal</a></li>
+    
+      <li><a href="http://pkufaraway.github.io/nocategories/Scala-Amazing-Features/" title="Internship Tech Review (1) - Scala is Amazing!">Internship Tech Review (1) - Scala is Amazing!</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span>&copy; 2016 Allen Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://pkufaraway.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://pkufaraway.github.io/assets/js/scripts.min.js"></script>
+
+
+  
+
+
+
+
+</body>
+</html>
