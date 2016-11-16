@@ -24,20 +24,21 @@ links:
 
 permalink:   /:categories/:title/
 markdown:    kramdown
-highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: ture
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+
 sass:
   sass_dir: _sass
   style: compressed
 gems:
   - jekyll-sitemap
   - jekyll-gist
-
-kramdown:
-  auto_ids: ture
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
 
 
 # Octopress

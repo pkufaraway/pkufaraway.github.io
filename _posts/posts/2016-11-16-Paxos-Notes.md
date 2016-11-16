@@ -132,13 +132,13 @@ among all proposals numbered less than n accepted by the acceptors in S.
 2. 告诉一些Acceptor， 不要再接受比n小的proposal了
 3. 让这些Acceptor告诉我现在自己的接受的小于n的最高的proposal number对应的值是多少。
 
-> 我们可以称之为 $prepareRequest(n)$
+> 我们可以称之为 \\(prepareRequest(n)\\)
 
 ### Accept Request
 
 接收到一个majority的response之后，就可以用n作为proposal number来发值了，但是v必须是response里proposal number最高的那个proposal对应的value，所有response里都没值，就可以自己选择了。
 
-> 我们可以称之为 $acceptRequest(n,v)$
+> 我们可以称之为 \\(acceptRequest(n,v)\\)
 
 发送这个(n,v), 就是一个Accept Request，但是这个request不一定要发送给Prepare Request的Set，可以有区别。
 
@@ -151,9 +151,9 @@ P1a . An acceptor can accept a proposal numbered n iff
 it has not responded to a prepare request having a number greater than n.
 ```
 
-就是说，没有回复 $prepareRequest(m), m > n$ 时，就可以接受 $n$ 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。
+就是说，没有回复 \\(prepareRequest(m), m > n\\) 时，就可以接受 \\(n\\) 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。
 
-> 所以当已经回复了 $prepareRequest(m), m > n$ 时，$prepare(n)$ 就可以直接忽略。
+> 所以当已经回复了 \\(prepareRequest(m), m > n\\) 时，\\(prepare(n)\\) 就可以直接忽略。
 > Acceptor 只需要记住自己接受过的最大的n，及其对应的v。
 
 ## 流程总结
@@ -161,15 +161,15 @@ it has not responded to a prepare request having a number greater than n.
 ### Phase1
 
 1. $prepareRequest(n)$
-2. Acceptor responses promise or ignore it based on the largest $n^{'}$ it got.
+2. Acceptor responses promise or ignore it based on the largest \\(n^{'}\\) it got.
 
 ### Phase2
 
-1. Proposer receives enough responses(majority), $acceptRequest(n,v)$. v是response里proposal number最大的，response都是没有值的话，自己选一个。
+1. Proposer receives enough responses(majority), \\(acceptRequest(n,v)\\). v是response里proposal number最大的，response都是没有值的话，自己选一个。
 2. Acceptor没有response给一个比n更高prepare请求的时候，就接受v。
 
 ### Phase 3
-1. 收到Majority水平的accept_ok, $decide(v^{'})$, send $decide(v^{'})$ to all others.
+1. 收到Majority水平的accept_ok, \\(decide(v^{'})\\), send \\(decide(v^{'})\\) to all others.
 
 ## Proposal Number
 
@@ -177,7 +177,7 @@ n must be unique among all nodes.
 
 ## Paxos' invariansis
 
-- if value v is accepted by majority at round nthen all round $n' > n$ propose v.
+- if value v is accepted by majority at round nthen all round \\(n' > n\\) propose v.
 
 ## Pseudocode
 

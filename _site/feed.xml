@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://pkufaraway.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://pkufaraway.github.io" />
-<updated>2016-11-16T09:29:29-05:00</updated>
+<updated>2016-11-16T13:53:29-05:00</updated>
 <id>http://pkufaraway.github.io/</id>
 <author>
   <name>Allen Liu</name>
@@ -195,7 +195,7 @@ among all proposals numbered less than n accepted by the acceptors in S.
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;我们可以称之为 $prepareRequest(n)$&lt;/p&gt;
+  &lt;p&gt;我们可以称之为 \(prepareRequest(n)\)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;accept-request&quot;&gt;Accept Request&lt;/h3&gt;
@@ -203,7 +203,7 @@ among all proposals numbered less than n accepted by the acceptors in S.
 &lt;p&gt;接收到一个majority的response之后，就可以用n作为proposal number来发值了，但是v必须是response里proposal number最高的那个proposal对应的value，所有response里都没值，就可以自己选择了。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;我们可以称之为 $acceptRequest(n,v)$&lt;/p&gt;
+  &lt;p&gt;我们可以称之为 \(acceptRequest(n,v)\)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;发送这个(n,v), 就是一个Accept Request，但是这个request不一定要发送给Prepare Request的Set，可以有区别。&lt;/p&gt;
@@ -217,10 +217,10 @@ it has not responded to a prepare request having a number greater than n.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;就是说，没有回复 $prepareRequest(m), m &amp;gt; n$ 时，就可以接受 $n$ 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。&lt;/p&gt;
+&lt;p&gt;就是说，没有回复 \(prepareRequest(m), m &amp;gt; n\) 时，就可以接受 \(n\) 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;所以当已经回复了 $prepareRequest(m), m &amp;gt; n$ 时，$prepare(n)$ 就可以直接忽略。
+  &lt;p&gt;所以当已经回复了 \(prepareRequest(m), m &amp;gt; n\) 时，\(prepare(n)\) 就可以直接忽略。
 Acceptor 只需要记住自己接受过的最大的n，及其对应的v。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -230,19 +230,19 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。&lt;/p
 
 &lt;ol&gt;
   &lt;li&gt;$prepareRequest(n)$&lt;/li&gt;
-  &lt;li&gt;Acceptor responses promise or ignore it based on the largest $n^{‘}$ it got.&lt;/li&gt;
+  &lt;li&gt;Acceptor responses promise or ignore it based on the largest \(n^{‘}\) it got.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;phase2&quot;&gt;Phase2&lt;/h3&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Proposer receives enough responses(majority), $acceptRequest(n,v)$. v是response里proposal number最大的，response都是没有值的话，自己选一个。&lt;/li&gt;
+  &lt;li&gt;Proposer receives enough responses(majority), \(acceptRequest(n,v)\). v是response里proposal number最大的，response都是没有值的话，自己选一个。&lt;/li&gt;
   &lt;li&gt;Acceptor没有response给一个比n更高prepare请求的时候，就接受v。&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;phase-3&quot;&gt;Phase 3&lt;/h3&gt;
 &lt;ol&gt;
-  &lt;li&gt;收到Majority水平的accept_ok, $decide(v^{‘})$, send $decide(v^{‘})$ to all others.&lt;/li&gt;
+  &lt;li&gt;收到Majority水平的accept_ok, \(decide(v^{‘})\), send \(decide(v^{‘})\) to all others.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;proposal-number&quot;&gt;Proposal Number&lt;/h2&gt;
@@ -252,7 +252,7 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。&lt;/p
 &lt;h2 id=&quot;paxos-invariansis&quot;&gt;Paxos’ invariansis&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;if value v is accepted by majority at round nthen all round $n’ &amp;gt; n$ propose v.&lt;/li&gt;
+  &lt;li&gt;if value v is accepted by majority at round nthen all round \(n’ &amp;gt; n\) propose v.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;pseudocode&quot;&gt;Pseudocode&lt;/h2&gt;

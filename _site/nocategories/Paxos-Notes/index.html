@@ -103,9 +103,6 @@
 				    
 				    <li><a href="http://pkufaraway.github.io/nocategories/" >No Categories</a></li>
 				
-				    
-				    <li><a href="http://pkufaraway.github.io/theme-setup/" >About the theme</a></li>
-				
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -325,7 +322,7 @@ among all proposals numbered less than n accepted by the acceptors in S.
 </ol>
 
 <blockquote>
-  <p>我们可以称之为 $prepareRequest(n)$</p>
+  <p>我们可以称之为 \(prepareRequest(n)\)</p>
 </blockquote>
 
 <h3 id="accept-request">Accept Request</h3>
@@ -333,7 +330,7 @@ among all proposals numbered less than n accepted by the acceptors in S.
 <p>接收到一个majority的response之后，就可以用n作为proposal number来发值了，但是v必须是response里proposal number最高的那个proposal对应的value，所有response里都没值，就可以自己选择了。</p>
 
 <blockquote>
-  <p>我们可以称之为 $acceptRequest(n,v)$</p>
+  <p>我们可以称之为 \(acceptRequest(n,v)\)</p>
 </blockquote>
 
 <p>发送这个(n,v), 就是一个Accept Request，但是这个request不一定要发送给Prepare Request的Set，可以有区别。</p>
@@ -347,10 +344,10 @@ it has not responded to a prepare request having a number greater than n.
 </code></pre>
 </div>
 
-<p>就是说，没有回复 $prepareRequest(m), m &gt; n$ 时，就可以接受 $n$ 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。</p>
+<p>就是说，没有回复 \(prepareRequest(m), m &gt; n\) 时，就可以接受 \(n\) 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。</p>
 
 <blockquote>
-  <p>所以当已经回复了 $prepareRequest(m), m &gt; n$ 时，$prepare(n)$ 就可以直接忽略。
+  <p>所以当已经回复了 \(prepareRequest(m), m &gt; n\) 时，\(prepare(n)\) 就可以直接忽略。
 Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 </blockquote>
 
@@ -360,19 +357,19 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 
 <ol>
   <li>$prepareRequest(n)$</li>
-  <li>Acceptor responses promise or ignore it based on the largest $n^{‘}$ it got.</li>
+  <li>Acceptor responses promise or ignore it based on the largest \(n^{‘}\) it got.</li>
 </ol>
 
 <h3 id="phase2">Phase2</h3>
 
 <ol>
-  <li>Proposer receives enough responses(majority), $acceptRequest(n,v)$. v是response里proposal number最大的，response都是没有值的话，自己选一个。</li>
+  <li>Proposer receives enough responses(majority), \(acceptRequest(n,v)\). v是response里proposal number最大的，response都是没有值的话，自己选一个。</li>
   <li>Acceptor没有response给一个比n更高prepare请求的时候，就接受v。</li>
 </ol>
 
 <h3 id="phase-3">Phase 3</h3>
 <ol>
-  <li>收到Majority水平的accept_ok, $decide(v^{‘})$, send $decide(v^{‘})$ to all others.</li>
+  <li>收到Majority水平的accept_ok, \(decide(v^{‘})\), send \(decide(v^{‘})\) to all others.</li>
 </ol>
 
 <h2 id="proposal-number">Proposal Number</h2>
@@ -382,7 +379,7 @@ Acceptor 只需要记住自己接受过的最大的n，及其对应的v。</p>
 <h2 id="paxos-invariansis">Paxos’ invariansis</h2>
 
 <ul>
-  <li>if value v is accepted by majority at round nthen all round $n’ &gt; n$ propose v.</li>
+  <li>if value v is accepted by majority at round nthen all round \(n’ &gt; n\) propose v.</li>
 </ul>
 
 <h2 id="pseudocode">Pseudocode</h2>
