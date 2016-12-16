@@ -2,23 +2,11 @@
 
 title:            Hiking Coder
 locale:           zh_CN
-url:              http://pkufaraway.github.io
 
 # Disqus Comments
 
 disqus_short_name: pkufaraway
 disqus_show_comment_count: true
-
-#links
-links:
-- title: All Posts
-  url: /posts/
-
-- title: Life
-  url: /life/
-
-- title: No Categories
-  url: /nocategories/
 
 # Jekyll configuration
 

@@ -2,7 +2,7 @@
 layout: post
 title: Internship Tech Review (3) - A better terminal
 modified:
-categories: nocategories
+categories: skill
 excerpt:
 tags: []
 comments: true

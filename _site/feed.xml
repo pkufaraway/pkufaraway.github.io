@@ -2,343 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Hiking Coder</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://pkufaraway.github.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://pkufaraway.github.io" />
-<updated>2016-11-16T17:45:06-05:00</updated>
-<id>http://pkufaraway.github.io/</id>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2016-12-16T17:45:55-05:00</updated>
+<id>/</id>
 <author>
   <name>Allen Liu</name>
-  <uri>http://pkufaraway.github.io/</uri>
+  <uri>/</uri>
   
 </author>
 
 
 <entry>
-  <title type="html"><![CDATA[Paxos 学习笔记]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/Paxos-Notes/" />
-  <id>http://pkufaraway.github.io/nocategories/Paxos-Notes</id>
-  <published>2016-11-16T00:00:00-05:00</published>
-  <updated>2016-11-16T00:00:00-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h2 id=&quot;consensus-problem&quot;&gt;要解决什么问题？(Consensus Problem)&lt;/h2&gt;
-
-&lt;p&gt;本质上来说就是投票问题，分为三个角色，Proposer，Acceptor，Learner。 Proposer可以propose一些值，然后Acceptor可以接受一些值，Learner可以记住一些值。目标是：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;最终只产生一个值&lt;/li&gt;
-  &lt;li&gt;产生的值必须是propose的值其中一个&lt;/li&gt;
-  &lt;li&gt;这个值得被记住&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;livenesssafety&quot;&gt;Liveness/Safety&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Liveness: 必须得选出一个值&lt;/li&gt;
-  &lt;li&gt;Safety: 选定了之后不会变&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;实际上一个Process可能同时扮演三个角色，但是每个Agent都可能fail (not be accuratelly detected&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;asynchornous-network-communication-assumption&quot;&gt;Asynchornous network communication assumption&lt;/h3&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;An RPC time can mean&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;node failed&lt;/li&gt;
-    &lt;li&gt;node is very slow&lt;/li&gt;
-    &lt;li&gt;network is slow&lt;/li&gt;
-    &lt;li&gt;network has partition&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;naive&quot;&gt;几个Naive模型&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;只有一个Acceptor：
-    &lt;ul&gt;
-      &lt;li&gt;Acceptor死了就GG了。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;多个Acceptor，当足够多的Acceptor都接受了一个值的时候，就选择这个值
-    &lt;ul&gt;
-      &lt;li&gt;可以，但是每个Acceptor只能接受一个值。&lt;/li&gt;
-      &lt;li&gt;每个Acceptor只接受一个值，当一些Acceptor死了，就影响Majority了，所以没法记住。&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;由此推断当需要选择Majority的时候，Acceptor需要接受不止一个值。&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;strawman-1&quot;&gt;Strawman #1&lt;/h3&gt;
-
-&lt;p&gt;S1, S2, S3&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;every node sends its value to all others&lt;/li&gt;
-  &lt;li&gt;Wait to receive all 3 values, pick one w/ smallest node_id.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;死了一个node，第二步就永远到不了了，就GG了 (liveness GG了）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;strawman-2&quot;&gt;Strawman #2&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;every node sends its value to all others&lt;/li&gt;
-  &lt;li&gt;node chooses the first value, reject the rest.&lt;/li&gt;
-  &lt;li&gt;if the original proposer has more than half nodes chooses value v, then decided on v.&lt;/li&gt;
-  &lt;li&gt;send victory msg.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;问题是可能选不出majority (liveness GG了）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;strawman-3-based-on-strawman-2&quot;&gt;Strawman #3, based on Strawman #2&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;if a node has not seen a victory-msg in 10 sec, forget its accepted value.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;问题是victory msg may fail（不能依靠对于时间的任何假设）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;需求推断&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P1. An acceptor must accept the first proposal that it receives 
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ol&gt;
-  &lt;li&gt;除了发送值，还发送Proposal Number
-    &lt;ul&gt;
-      &lt;li&gt;先假设每个Proposal的Proposal Number不同&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P2. If a proposal with value v is chosen, 
-then every higher-numbered proposal that is chosen has value v.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;在proposal number有序的情况下，这保证了总是选择相同的值，因为一个值必须要Accpetor接受之后才能被选择，所以P2a也可以满足P2。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P2a. If a proposal with value v is chosen, 
-then every higher-numbered proposal that is chosen has value v.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;然而一个Acceptor如果没有接受过旧值，那么就有可能接受一个新的错值，所以需要加强P2a到P2b&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P2b. If a proposal with value v is chosen, 
-then every higher-numbered proposal issued by any proposer has value v.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;显然P2b保证了P2a，也就保证了P2&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;所以问题变成了如何实现P2b&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;p2b&quot;&gt;如何证明P2b保证了我们的目标&lt;/h2&gt;
-&lt;p&gt;假设某一个proposal number m，我们选择了value v， 那么我们需要证明对于某个n&amp;gt;m，我们也会选择v。
-因为m的时候选择了v，所以对于Acceptor里选择了v的majority来说，一定在m~(n-1)里的某一个proposal number选择了v。
-考虑一个&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P2c. For any v and n, if a proposal with value v and number n is issued, 
-then there is a set S consisting of a majority of acceptors such that either 
-(a) no acceptor in S has accepted any proposal numbered less than n, or 
-(b) v is the value of the highest-numbered proposal 
-among all proposals numbered less than n accepted by the acceptors in S.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;paxos&quot;&gt;Paxos&lt;/h2&gt;
-
-&lt;h3 id=&quot;phase-protocol&quot;&gt;3 Phase protocol&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;to obtain prviously major accepted value&lt;/li&gt;
-  &lt;li&gt;to seek majority accpted value&lt;/li&gt;
-  &lt;li&gt;to tell others decied values.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;multiple-rounds&quot;&gt;Multiple rounds&lt;/h3&gt;
-
-&lt;h3 id=&quot;majority-acceptance-prevents-split-brain&quot;&gt;Majority acceptance prevents “split-brain”&lt;/h3&gt;
-
-&lt;h2 id=&quot;proposer&quot;&gt;Proposer算法&lt;/h2&gt;
-
-&lt;p&gt;两种request：Prepare &amp;amp; Accept&lt;/p&gt;
-
-&lt;h3 id=&quot;prepare-request&quot;&gt;Prepare Request&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;选定proposal number n;&lt;/li&gt;
-  &lt;li&gt;告诉一些Acceptor， 不要再接受比n小的proposal了&lt;/li&gt;
-  &lt;li&gt;让这些Acceptor告诉我现在自己的接受的小于n的最高的proposal number对应的值是多少。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我们可以称之为 \(prepareRequest(n)\)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;accept-request&quot;&gt;Accept Request&lt;/h3&gt;
-
-&lt;p&gt;接收到一个majority的response之后，就可以用n作为proposal number来发值了，但是v必须是response里proposal number最高的那个proposal对应的value，所有response里都没值，就可以自己选择了。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我们可以称之为 \(acceptRequest(n,v)\)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;发送这个(n,v), 就是一个Accept Request，但是这个request不一定要发送给Prepare Request的Set，可以有区别。&lt;/p&gt;
-
-&lt;h2 id=&quot;acceptor&quot;&gt;Acceptor算法&lt;/h2&gt;
-
-&lt;p&gt;我们需要考虑Acceptor面对两种request时候要如何做出选择，具体如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;P1a . An acceptor can accept a proposal numbered n iff 
-it has not responded to a prepare request having a number greater than n.
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;就是说，没有回复 \(prepareRequest(m), m &amp;gt; n\) 时，就可以接受 \(n\) 传过来的值。之所以叫P1a是因为P1a实际上是P1的子集。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;所以当已经回复了 \(prepareRequest(m), m &amp;gt; n\) 时，\(prepare(n)\) 就可以直接忽略。
-Acceptor 只需要记住自己接受过的最大的n，及其对应的v。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;流程总结&lt;/h2&gt;
-
-&lt;h3 id=&quot;phase1&quot;&gt;Phase1&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;\( prepareRequest(n) \)&lt;/li&gt;
-  &lt;li&gt;Acceptor responses promise or ignore it based on the largest \(n’\) it got.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;phase2&quot;&gt;Phase2&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Proposer receives enough responses(majority), \(acceptRequest(n,v)\). v是response里proposal number最大的，response都是没有值的话，自己选一个。&lt;/li&gt;
-  &lt;li&gt;Acceptor没有response给一个比n更高prepare请求的时候，就接受v。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;phase-3&quot;&gt;Phase 3&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;收到Majority水平的accept_ok, \(decide(v’)\), send \(decide(v’)\) to all others.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;proposal-number&quot;&gt;Proposal Number&lt;/h2&gt;
-
-&lt;p&gt;n must be unique among all nodes.&lt;/p&gt;
-
-&lt;h2 id=&quot;paxos-invariansis&quot;&gt;Paxos’ invariansis&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;if value v is accepted by majority at round nthen all round \(n’ &amp;gt; n\) propose v.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;pseudocode&quot;&gt;Pseudocode&lt;/h2&gt;
-
-&lt;p&gt;At proposer:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;choose n (unique &amp;amp; higher than any seen n)
-send prepare(n) to all including self
-if prepare_ok(n,n_a,v_a) from majority
-	v&#39; = v_a with highest n_a or choose arbitary v if all v_a ==  nil
-send accept(n,v&#39;) to all
-if accpet_ok(n) from majority
-	decide on v&#39;
-	send decide (n,v&#39;)
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Acceptor OnPrepare(n)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;if n &amp;gt; n_h
-	n_h = n
-	reply prepare_ok(n,n_a,v_a)
-else reject
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Acceptor onAccept(n)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;if n &amp;gt;= n_h
-	n_h = n
-	n_a,v_a = n, v
-	reply ok
-else reject
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What state mu be persisted across reboot?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/Paxos-Notes/&quot;&gt;Paxos 学习笔记&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on November 16, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
   <title type="html"><![CDATA[瞎说]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/Nonsense/" />
-  <id>http://pkufaraway.github.io/life/Nonsense</id>
+  <link rel="alternate" type="text/html" href="/life/Nonsense/" />
+  <id>/life/Nonsense</id>
   <published>2016-08-21T00:00:00-04:00</published>
   <updated>2016-08-21T00:00:00-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -364,20 +47,20 @@ else reject
 
 &lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/Nonsense/&quot;&gt;瞎说&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on August 21, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/Nonsense/&quot;&gt;瞎说&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on August 21, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Internship Tech Review (3) - A better terminal]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/Better-Terminal/" />
-  <id>http://pkufaraway.github.io/nocategories/Better-Terminal</id>
+  <link rel="alternate" type="text/html" href="/skill/Better-Terminal/" />
+  <id>/skill/Better-Terminal</id>
   <published>2016-08-02T00:00:00-04:00</published>
   <updated>2016-08-02T00:00:00-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -398,20 +81,20 @@ You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.c
 &lt;h3 id=&quot;oh-my-zsh&quot;&gt;oh-my-zsh&lt;/h3&gt;
 &lt;p&gt;oh my zsh is a cute name, isn’t it?&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/Better-Terminal/&quot;&gt;Internship Tech Review (3) - A better terminal&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on August 02, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/skill/Better-Terminal/&quot;&gt;Internship Tech Review (3) - A better terminal&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on August 02, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Internship Tech Review (1) - Scala is Amazing!]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/Scala-Amazing-Features/" />
-  <id>http://pkufaraway.github.io/nocategories/Scala-Amazing-Features</id>
+  <link rel="alternate" type="text/html" href="/skill/Scala-Amazing-Features/" />
+  <id>/skill/Scala-Amazing-Features</id>
   <published>2016-07-18T00:00:00-04:00</published>
   <updated>2016-07-18T00:00:00-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -528,39 +211,39 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;The number 0 after fold is the basic value for sum, and I use pattern matching here too.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/Scala-Amazing-Features/&quot;&gt;Internship Tech Review (1) - Scala is Amazing!&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on July 18, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/skill/Scala-Amazing-Features/&quot;&gt;Internship Tech Review (1) - Scala is Amazing!&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on July 18, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[First Day at Seattle]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/first-day-at-seattle/" />
-  <id>http://pkufaraway.github.io/life/first-day-at-seattle</id>
+  <link rel="alternate" type="text/html" href="/life/first-day-at-seattle/" />
+  <id>/life/first-day-at-seattle</id>
   <published>2016-05-18T14:03:53-04:00</published>
   <updated>2016-05-18T14:03:53-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
     &lt;p&gt;一想到即将开始的暑假，这忐忑不安&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/first-day-at-seattle/&quot;&gt;First Day at Seattle&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on May 18, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/first-day-at-seattle/&quot;&gt;First Day at Seattle&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on May 18, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[母校生日快乐]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/happy-birthday-pku/" />
-  <id>http://pkufaraway.github.io/nocategories/happy-birthday-pku</id>
+  <link rel="alternate" type="text/html" href="/nocategories/happy-birthday-pku/" />
+  <id>/nocategories/happy-birthday-pku</id>
   <published>2016-05-03T21:22:16-04:00</published>
   <updated>2016-05-03T21:22:16-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -576,20 +259,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 &lt;h3 id=&quot;blog&quot;&gt;Blog总算搭建完毕了&lt;/h3&gt;
 &lt;p&gt;这两天搭建好了Disqus评论系统，就开始多推广推广喽~。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/happy-birthday-pku/&quot;&gt;母校生日快乐&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on May 03, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/nocategories/happy-birthday-pku/&quot;&gt;母校生日快乐&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on May 03, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[关于未来]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/about-the-future/" />
-  <id>http://pkufaraway.github.io/life/about-the-future</id>
+  <link rel="alternate" type="text/html" href="/life/about-the-future/" />
+  <id>/life/about-the-future</id>
   <published>2016-04-15T16:22:05-04:00</published>
   <updated>2016-04-15T16:22:05-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -602,20 +285,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 &lt;h3 id=&quot;section-2&quot;&gt;初代男神&lt;/h3&gt;
 &lt;p&gt;原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/about-the-future/&quot;&gt;关于未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on April 15, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/about-the-future/&quot;&gt;关于未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on April 15, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[回家啦，少年！]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/back-to-home/" />
-  <id>http://pkufaraway.github.io/life/back-to-home</id>
+  <link rel="alternate" type="text/html" href="/life/back-to-home/" />
+  <id>/life/back-to-home</id>
   <published>2016-03-18T12:43:55-04:00</published>
   <updated>2016-03-18T12:43:55-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -644,20 +327,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;来了美国之后的第一次旅行，有收获，有遗憾，有欣喜与欢笑，有争吵与不安。十七张明信片写满了我对家人朋友的思念，希望能和你们每一个人有机会再见！&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/back-to-home/&quot;&gt;回家啦，少年！&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 18, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/back-to-home/&quot;&gt;回家啦，少年！&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on March 18, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Coldest Day]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/coldest-day/" />
-  <id>http://pkufaraway.github.io/life/coldest-day</id>
+  <link rel="alternate" type="text/html" href="/life/coldest-day/" />
+  <id>/life/coldest-day</id>
   <published>2016-03-14T17:22:46-04:00</published>
   <updated>2016-03-14T17:22:46-04:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -680,20 +363,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;你来过，你却离去了。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/coldest-day/&quot;&gt;Coldest Day&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 14, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/coldest-day/&quot;&gt;Coldest Day&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on March 14, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[On the Flight]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/on-the-flight/" />
-  <id>http://pkufaraway.github.io/life/on-the-flight</id>
+  <link rel="alternate" type="text/html" href="/life/on-the-flight/" />
+  <id>/life/on-the-flight</id>
   <published>2016-03-12T08:35:54-05:00</published>
   <updated>2016-03-12T08:35:54-05:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -723,20 +406,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/on-the-flight/&quot;&gt;On the Flight&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 12, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/on-the-flight/&quot;&gt;On the Flight&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on March 12, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[未来的未来]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/future/" />
-  <id>http://pkufaraway.github.io/life/future</id>
+  <link rel="alternate" type="text/html" href="/life/future/" />
+  <id>/life/future</id>
   <published>2016-03-06T20:34:32-05:00</published>
   <updated>2016-03-06T20:34:32-05:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -744,20 +427,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;但愿如今这种比较好的状态可以延续。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/future/&quot;&gt;未来的未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on March 06, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/future/&quot;&gt;未来的未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on March 06, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[头晕眼花]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/life/headache/" />
-  <id>http://pkufaraway.github.io/life/headache</id>
+  <link rel="alternate" type="text/html" href="/life/headache/" />
+  <id>/life/headache</id>
   <published>2016-02-29T14:30:39-05:00</published>
   <updated>2016-02-29T14:30:39-05:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -771,20 +454,20 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;才奋起直追不到半年，我该懂得调节好自己的身体。岁月你别催，该走的我不追；岁月你别催，该来的我不会催。而立之年以前，吾当奋发惕厉，也当珍惜自己。.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/life/headache/&quot;&gt;头晕眼花&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/life/headache/&quot;&gt;头晕眼花&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Finally]]></title>
-  <link rel="alternate" type="text/html" href="http://pkufaraway.github.io/nocategories/my-first-post/" />
-  <id>http://pkufaraway.github.io/nocategories/my-first-post</id>
+  <link rel="alternate" type="text/html" href="/nocategories/my-first-post/" />
+  <id>/nocategories/my-first-post</id>
   <published>2016-02-29T14:27:58-05:00</published>
   <updated>2016-02-29T14:27:58-05:00</updated>
   <author>
     <name>Allen Liu</name>
-    <uri>http://pkufaraway.github.io</uri>
+    <uri></uri>
     
   </author>
   <content type="html">
@@ -792,7 +475,7 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;I am very glad that I’ve built my blog.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://pkufaraway.github.io/nocategories/my-first-post/&quot;&gt;Finally&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://pkufaraway.github.io&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/nocategories/my-first-post/&quot;&gt;Finally&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
   </content>
 </entry>
 

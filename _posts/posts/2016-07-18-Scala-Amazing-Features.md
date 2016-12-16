@@ -2,7 +2,7 @@
 layout: post
 title: Internship Tech Review (1) - Scala is Amazing!
 modified:
-categories: nocategories
+categories: skill
 excerpt:
 tags: []
 comments: true
