@@ -7,7 +7,7 @@ comments: true
 image:
 ---
 
-## 我是谁 
-* 一个喜欢爬山的码农
-* 一个对小技术充满兴趣的DIYer 
-* 一个在纽约的北京人
+## 我是谁 Who am I?
+* 一个喜欢爬山的码农 (An software engineer who loves hiking)
+* 一个对小技术充满兴趣的DIYer (A DIYer who loves geek skills)
+* 一个在纽约的北京人 (A New Yoker from Beijing)
