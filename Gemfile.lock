@@ -35,7 +35,7 @@ GEM
     mercenary (0.3.6)
     multipart-post (2.0.0)
     octokit (4.6.2)
-      sawyer (~> 0.8.0, >= 0.5.3)
+      sawyer (>= 0.5.3, ~> 0.8.0)
     octopress (3.0.11)
       jekyll (>= 2.0)
       mercenary (~> 0.3.2)
@@ -73,6 +73,3 @@ DEPENDENCIES
   jekyll-gist
   jekyll-sitemap
   octopress
-
-BUNDLED WITH
-   1.14.4
