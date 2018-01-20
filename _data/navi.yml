@@ -1,0 +1,15 @@
+- categories: all
+  title: All Posts
+  url: /pages/all.html
+
+- categories: life
+  title: Life
+  url: /pages/life.html
+
+- categories: tech
+  title: Tech
+  url: /pages/tech.html
+
+- categories: unknown
+  title: Unknown
+  url: /pages/unknown.html

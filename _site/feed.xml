@@ -1,41 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">Hiking Coder</title>
-<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2017-02-21T10:25:22-05:00</updated>
-<id>http://localhost:4000/</id>
-<author>
-  <name>Allen Liu</name>
-  <uri>http://localhost:4000/</uri>
-  
-</author>
-
-
-<entry>
-  <title type="html"><![CDATA[航班上]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/the-sound-of-rain/" />
-  <id>http://localhost:4000/life/the-sound-of-rain</id>
-  <published>2017-02-21T00:00:00-05:00</published>
-  <updated>2017-02-21T00:00:00-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h2 id=&quot;而我听见下雨的声音&quot;&gt;而我听见下雨的声音&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-20T15:47:34-08:00</updated><id>http://localhost:4000/</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">航班上</title><link href="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html" rel="alternate" type="text/html" title="航班上" /><published>2017-02-21T07:11:09-08:00</published><updated>2017-02-21T07:11:09-08:00</updated><id>http://localhost:4000/life/2017/02/21/the-sound-of-rain</id><content type="html" xml:base="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html">&lt;h1 id=&quot;而我听见下雨的声音&quot;&gt;而我听见下雨的声音&lt;/h1&gt;
 
 &lt;p&gt;一年半了，红红火火，恍恍惚惚。 在这一班回纽约的航班上，耳边的肖邦渐渐生出一种让我厌恶之感。回荡起的《你的名字》让我突然意识到，我是不是一直在寻找？找一个人，一个地方，一个故事，一段时光？我始终不会让自己生活在一个中庸的状态中，那种既不拼尽全力，也不消极颓废的态度，不知我何年何月才能拥有。&lt;/p&gt;
 
 &lt;p&gt;纽约下雨了，还没到，而我听见下雨的声音。&lt;/p&gt;
 
-&lt;h2 id=&quot;这是我想要的生活么&quot;&gt;这是我想要的生活么？&lt;/h2&gt;
+&lt;h1 id=&quot;这是我想要的生活么&quot;&gt;这是我想要的生活么？&lt;/h1&gt;
 
 &lt;p&gt;有时候觉得一个工程师无聊透顶，写无病呻吟的文字是不是一种病？我庆幸自己还有这细腻的感情，能思考很多事情。有时候别人羡慕我，有时候别人唾弃我；有时候人们可怜我，有时候人们夸赞我。可那都不是我喜欢的我。我需要更多的时间思考究竟什么是我想要的生活，不管自己过得很好还是很崩，都不该忘记什么是自己想要的生活，不要忘记哪怕只是很简单的梦想。否则，似乎一切辛苦都失去了意义。&lt;/p&gt;
 
-&lt;h2 id=&quot;年龄宗教心灵的归宿&quot;&gt;年龄、宗教、心灵的归宿&lt;/h2&gt;
+&lt;h1 id=&quot;年龄宗教心灵的归宿&quot;&gt;年龄、宗教、心灵的归宿&lt;/h1&gt;
 
 &lt;p&gt;我的中文表达开始碎片化了，不知道要如何才能不继续堕落下去。也许，从今天起每天写一点东西是挽救我的好方法。随着自己年龄的增长，开始一点一点拜托精神的束缚。举个例子来说，过去很多年我会觉得自己的每一分汗水都在为家人的爱而努力，直到有一天这爱我根本承受不住，还不清，我才知道，自己的那些努力，都应该是为了自己而已。在此基础上，我努力对家人好，给自己的感觉就不像是在还债，而像是奉献，自然就身心愉悦多了。&lt;/p&gt;
 
@@ -43,118 +16,61 @@
 
 &lt;p&gt;我觉得知识、爱能成为自己心灵的归宿。对爱有一点恐惧心理的我，不知道什么时候才能在知识之外，找到一点心灵旅程的避风港呢？想来如果自己把爱当做避风港，反而是一种幼稚、懦弱的表现。真正伟大的爱情，应该是经历过风吹雨打的平凡吧。&lt;/p&gt;
 
-&lt;h2 id=&quot;凭什么要失望&quot;&gt;凭什么要失望&lt;/h2&gt;
+&lt;h1 id=&quot;凭什么要失望&quot;&gt;凭什么要失望&lt;/h1&gt;
 
-&lt;p&gt;在北京的这三周很神奇，当你过得变好的时候，大家都来关心爱护你；当你在低谷的时候，只有那些真正爱你的人才会关心你。我该多庆幸即使自己过得那么差，还有那么多人爱护我，鼓励我，让我振作起来。仅仅这一点，就该庆幸一辈子。&lt;/p&gt;
+&lt;p&gt;在北京的这三周很神奇，当你过得变好的时候，大家都来关心爱护你；当你在低谷的时候，只有那些真正爱你的人才会关心你。我该多庆幸即使自己过得那么差，还有那么多人爱护我，鼓励我，让我振作起来。仅仅这一点，就该庆幸一辈子。&lt;/p&gt;</content><author><name></name></author><summary type="html">而我听见下雨的声音</summary></entry><entry><title type="html">瞎说</title><link href="http://localhost:4000/life/2016/08/21/Nonsense.html" rel="alternate" type="text/html" title="瞎说" /><published>2016-08-21T00:27:58-07:00</published><updated>2016-08-21T00:27:58-07:00</updated><id>http://localhost:4000/life/2016/08/21/Nonsense</id><content type="html" xml:base="http://localhost:4000/life/2016/08/21/Nonsense.html">&lt;h1 id=&quot;每次回去的路上陪伴自己的只有孤独&quot;&gt;每次回去的路上，陪伴自己的只有孤独&lt;/h1&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/the-sound-of-rain/&quot;&gt;航班上&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on February 21, 2017.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[瞎说]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/Nonsense/" />
-  <id>http://localhost:4000/life/Nonsense</id>
-  <published>2016-08-21T00:00:00-04:00</published>
-  <updated>2016-08-21T00:00:00-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;每次回去的路上陪伴自己的只有孤独&quot;&gt;每次回去的路上，陪伴自己的只有孤独&lt;/h3&gt;
 &lt;p&gt;这次的座位是20C，一路上20E的妹子和20B的汉子是一对couple，妹子总是无限深情的看向我们这边，期待着20B的汉子能看她一眼，然而汉子总是无动于衷，世间多少相爱的人，其实也在痛苦着啊！又有多少如我一般孤独着的人，脸上挂着一丝苦笑。&lt;/p&gt;
 
-&lt;h3 id=&quot;还是写点历史吧&quot;&gt;还是写点历史吧&lt;/h3&gt;
-&lt;p&gt;最近看了很多南北朝历史，重新审视了我们这个总是在不断堕落的民族。我们往往可以取得很多很多成就，一旦领先了这个世界，就慢慢堕落、骄傲、自满、目空一切，然后就是被那些自己根本看不起的“蛮夷”民族征服，无论是五胡乱华、蒙古人灭我华夏，还是两次鸦片战争，我们都只能被动挨打，直到一百年的战争让我们觉醒，让我们重新站立起来。我真庆幸我们这个民族总是没丢失自己的根儿，却也惊叹于我们衰落的速度之快。&lt;/p&gt;
+&lt;h1 id=&quot;还是写点历史吧&quot;&gt;还是写点历史吧&lt;/h1&gt;
 
-&lt;p&gt;也许每一个人心目中的伟大的中国君主都不同。有人喜欢“天可汗”李世民，有人喜欢“泗水亭长”刘邦，有人偏爱平八荒，扫六合的秦始皇，有人欣赏草莽出身，天不怕地不怕的朱元璋。然而我喜欢的那些人，也许连君主都算不上，却又深深的影响了中国的历史进程。&lt;/p&gt;
+&lt;p&gt;最近看了很多南北朝历史，重新审视了我们这个总是在不断堕落的民族。我们往往可以取得很多很多成就，一旦领先了这个世界，就慢慢堕落、骄傲、自满、目空一切，然后就是被那些自己根本看不起的”蛮夷”民族征服，无论是五胡乱华、蒙古人灭我华夏，还是两次鸦片战争，我们都只能被动挨打，直到一百年的战争让我们觉醒，让我们重新站立起来。我真庆幸我们这个民族总是没丢失自己的根儿，却也惊叹于我们衰落的速度之快。&lt;/p&gt;
+
+&lt;p&gt;也许每一个人心目中的伟大的中国君主都不同。有人喜欢”天可汗”李世民，有人喜欢”泗水亭长”刘邦，有人偏爱平八荒，扫六合的秦始皇，有人欣赏草莽出身，天不怕地不怕的朱元璋。然而我喜欢的那些人，也许连君主都算不上，却又深深的影响了中国的历史进程。&lt;/p&gt;
 
 &lt;p&gt;比如孟德。&lt;/p&gt;
 
-&lt;p&gt;没有曹孟德这样的英雄，也许我们的南北朝动乱时代，要早开启一百年。曹操曹丕父子，包括后来的司马懿以及他两个有出息的儿子，北拒游牧民族的同时，还有精力南下以一中国，是非常不容易的。他们所在的时代，是被无数后人称颂的将星云集的时代。汉族人在三国时期，并不惧怕少数民族，与边境少数民族作战都是胜多败少。三国演义中说羌人尊马孟起为“神威天将军”，还经常与蜀国联合侵扰魏国西北，可见当时的少数民族是没法对中原政权形成任何威胁的，尽管此时的中原政权并不稳固。&lt;/p&gt;
+&lt;p&gt;没有曹孟德这样的英雄，也许我们的南北朝动乱时代，要早开启一百年。曹操曹丕父子，包括后来的司马懿以及他两个有出息的儿子，北拒游牧民族的同时，还有精力南下以一中国，是非常不容易的。他们所在的时代，是被无数后人称颂的将星云集的时代。汉族人在三国时期，并不惧怕少数民族，与边境少数民族作战都是胜多败少。三国演义中说羌人尊马孟起为”神威天将军”，还经常与蜀国联合侵扰魏国西北，可见当时的少数民族是没法对中原政权形成任何威胁的，尽管此时的中原政权并不稳固。&lt;/p&gt;
 
 &lt;p&gt;比如苻坚。&lt;/p&gt;
 
-&lt;p&gt;苻坚其人，被后世嘲笑最多的肯定是“风声鹤唳，草木皆兵”了，然而却没有多少人对苻坚的前秦一统北方，文治武功有太多的欣赏。也许在我们看来，苻坚不是汉人，可苻坚王猛那套治理国家的方法，不正是汉人治理国家的方法么？高欢宇文泰乃至后来的杨坚就可以是汉人，苻坚为何不能？今日的统一战线工作异常的高效，我们认为辽金都是中华民族的一部分，苻坚就也可以理解为中华民族的强者？当无数的电视剧电影都专注于隋唐、三国、甚至先秦的时候，竟然没有几部作品是反应南北朝时期英雄的，这该多么遗憾啊。&lt;/p&gt;
+&lt;p&gt;苻坚其人，被后世嘲笑最多的肯定是”风声鹤唳，草木皆兵”了，然而却没有多少人对苻坚的前秦一统北方，文治武功有太多的欣赏。也许在我们看来，苻坚不是汉人，可苻坚王猛那套治理国家的方法，不正是汉人治理国家的方法么？高欢宇文泰乃至后来的杨坚就可以是汉人，苻坚为何不能？今日的统一战线工作异常的高效，我们认为辽金都是中华民族的一部分，苻坚就也可以理解为中华民族的强者？当无数的电视剧电影都专注于隋唐、三国、甚至先秦的时候，竟然没有几部作品是反应南北朝时期英雄的，这该多么遗憾啊。&lt;/p&gt;
 
-&lt;p&gt;殊不知，除了苻坚以外，无论是南北朝，都出了很多位不亚于那些三国英雄的不世出的豪杰。说到奸雄，前有曹操，后有高欢宇文泰。说到谋士，前秦的王猛是绝对不亚于诸葛孔明的存在。说到沙场将军，南朝宋国的开国皇帝刘裕，是连辛弃疾都称赞的，可记得那句：“想当年，金戈铁马，气吞万里如虎”，又有几个人知道玉璧城的韦孝宽，白袍将军陈庆之，懂音律又能征善战的翩翩少年兰陵王？&lt;/p&gt;
+&lt;p&gt;殊不知，除了苻坚以外，无论是南北朝，都出了很多位不亚于那些三国英雄的不世出的豪杰。说到奸雄，前有曹操，后有高欢宇文泰。说到谋士，前秦的王猛是绝对不亚于诸葛孔明的存在。说到沙场将军，南朝宋国的开国皇帝刘裕，是连辛弃疾都称赞的，可记得那句：”想当年，金戈铁马，气吞万里如虎”，又有几个人知道玉璧城的韦孝宽，白袍将军陈庆之，懂音律又能征善战的翩翩少年兰陵王？&lt;/p&gt;
 
-&lt;p&gt;如果我有幸能听到兰陵王的入阵曲，脑海中浮现的一定是一个比周瑜有过之而无不及的美少年。而他传奇和悲怆的一生，又比《三国演义》中的公瑾更有故事性。而一路打到洛阳的白袍将军陈庆之，其著名诗句连Dota2解说都拿来用过，那是一场承载YYF蓝猫的比赛，剑雪封喉称赞他的蓝猫：“名师大将莫自牢，千军万马避蓝猫！”。殊不知这句话是从称赞陈庆之的那句：“名师大将莫自牢，千军万马避白袍”来的！&lt;/p&gt;
+&lt;p&gt;如果我有幸能听到兰陵王的入阵曲，脑海中浮现的一定是一个比周瑜有过之而无不及的美少年。而他传奇和悲怆的一生，又比《三国演义》中的公瑾更有故事性。而一路打到洛阳的白袍将军陈庆之，其著名诗句连Dota2解说都拿来用过，那是一场承载YYF蓝猫的比赛，剑雪封喉称赞他的蓝猫：”名师大将莫自牢，千军万马避蓝猫！”。殊不知这句话是从称赞陈庆之的那句：”名师大将莫自牢，千军万马避白袍”来的！&lt;/p&gt;
 
-&lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;
+&lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;</content><author><name></name></author><summary type="html">每次回去的路上，陪伴自己的只有孤独</summary></entry><entry><title type="html">Internship Tech Review (3) - A better terminal</title><link href="http://localhost:4000/tech/2016/08/03/Better-Terminal.html" rel="alternate" type="text/html" title="Internship Tech Review (3) - A better terminal" /><published>2016-08-03T00:27:58-07:00</published><updated>2016-08-03T00:27:58-07:00</updated><id>http://localhost:4000/tech/2016/08/03/Better-Terminal</id><content type="html" xml:base="http://localhost:4000/tech/2016/08/03/Better-Terminal.html">&lt;h1 id=&quot;the-main-purpose-of-this-series&quot;&gt;The main purpose of this series&lt;/h1&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/Nonsense/&quot;&gt;瞎说&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on August 21, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Internship Tech Review (3) - A better terminal]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/skill/Better-Terminal/" />
-  <id>http://localhost:4000/skill/Better-Terminal</id>
-  <published>2016-08-02T00:00:00-04:00</published>
-  <updated>2016-08-02T00:00:00-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h2 id=&quot;the-main-purpose-of-this-series&quot;&gt;The main purpose of this series&lt;/h2&gt;
 &lt;p&gt;As my internship is nearly finished, I decide to write a tech-review for all the amazing features that I have learnt during this summer.&lt;/p&gt;
 
 &lt;p&gt;Today I gonna talk about some useful tools/features that can be applied to your terminal, make it happier.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Notice that this is for Mac OS users only.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;try-iterm2&quot;&gt;Try iTerm2&lt;/h3&gt;
-&lt;p&gt;You can try iTerm2 &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;here&lt;/a&gt;.
-You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.com/features.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;try-iterm2&quot;&gt;Try iTerm2&lt;/h2&gt;
 
-&lt;h3 id=&quot;zsh&quot;&gt;ZSH&lt;/h3&gt;
+&lt;p&gt;You can try iTerm2 &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;here&lt;/a&gt;. You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.com/features.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;zsh&quot;&gt;ZSH&lt;/h2&gt;
+
 &lt;p&gt;Zsh is one of the shell that you can use, the reason why I love it is its wonderful theme plugins and best auto-completion that I’ve met. Using oh my zsh with zsh can give me a totally different shell compared to the Mac OS X’s own shell.&lt;/p&gt;
 
-&lt;h3 id=&quot;oh-my-zsh&quot;&gt;oh-my-zsh&lt;/h3&gt;
-&lt;p&gt;oh my zsh is a cute name, isn’t it?&lt;/p&gt;
+&lt;h2 id=&quot;oh-my-zsh&quot;&gt;oh-my-zsh&lt;/h2&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/skill/Better-Terminal/&quot;&gt;Internship Tech Review (3) - A better terminal&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on August 02, 2016.&lt;/p&gt;
-  </content>
-</entry>
+&lt;p&gt;oh my zsh is a cute name, isn’t it?&lt;/p&gt;</content><author><name></name></author><summary type="html">The main purpose of this series</summary></entry><entry><title type="html">Internship Tech Review (1) - Scala is Amazing!</title><link href="http://localhost:4000/tech/2016/07/19/Scala-Amazing-Features.html" rel="alternate" type="text/html" title="Internship Tech Review (1) - Scala is Amazing!" /><published>2016-07-19T00:27:58-07:00</published><updated>2016-07-19T00:27:58-07:00</updated><id>http://localhost:4000/tech/2016/07/19/Scala-Amazing-Features</id><content type="html" xml:base="http://localhost:4000/tech/2016/07/19/Scala-Amazing-Features.html">&lt;h1 id=&quot;the-main-purpose-of-this-series&quot;&gt;The main purpose of this series&lt;/h1&gt;
 
-
-<entry>
-  <title type="html"><![CDATA[Internship Tech Review (1) - Scala is Amazing!]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/skill/Scala-Amazing-Features/" />
-  <id>http://localhost:4000/skill/Scala-Amazing-Features</id>
-  <published>2016-07-18T00:00:00-04:00</published>
-  <updated>2016-07-18T00:00:00-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h2 id=&quot;the-main-purpose-of-this-series&quot;&gt;The main purpose of this series&lt;/h2&gt;
 &lt;p&gt;As my internship is nearly finished, I decide to write a tech-review for all the amazing features that I have learnt during this summer.&lt;/p&gt;
 
 &lt;p&gt;Today I gonna talk about some important features that I’ve learnt in Scala.&lt;/p&gt;
 
 &lt;p&gt;Scala is really amazing! Although Java8 has come with lambda feature, Scala look more beatiful. Since most people will still use Java in old style, most Java code looks aweful.&lt;/p&gt;
 
-&lt;h3 id=&quot;the-most-common-function-i-used-in-scala-map&quot;&gt;The most common function I used in Scala: Map&lt;/h3&gt;
+&lt;h2 id=&quot;the-most-common-function-i-used-in-scala-map&quot;&gt;The most common function I used in Scala: Map&lt;/h2&gt;
+
 &lt;p&gt;map is a useful function that you can use, it can be used to convert &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection[A]&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection[B]&lt;/code&gt;, such as:&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
@@ -162,51 +78,30 @@ You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.c
 
 &lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;res4&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;From the above example you can see that you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; if you don’t want to use an arrow(for example, call a method belongs to every element).&lt;/p&gt;
 
 &lt;p&gt;On the other hand, you can use map with pattern matching.&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;res5&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;absolutely-pattern-matching-is-so-cute&quot;&gt;Absolutely, pattern matching is so cute&lt;/h3&gt;
+&lt;h2 id=&quot;absolutely-pattern-matching-is-so-cute&quot;&gt;Absolutely, pattern matching is so cute&lt;/h2&gt;
+
 &lt;p&gt;Scala has an important object called Option, Option is a brilliant choice for something that can be null, for example:&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Some&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;When you want to figure out whether a val is parameter or not, just use match:&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reveal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reveal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Some&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toString&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;None&quot;&lt;/span&gt;
@@ -219,22 +114,15 @@ You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.c
 
 &lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reveal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;res8&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;Keep using Option can help you to deal with any kind of data that can be null, you won’t need to worry about using &lt;code class=&quot;highlighter-rouge&quot;&gt;a == null&lt;/code&gt; any more.&lt;/p&gt;
 
-&lt;h3 id=&quot;the-lovely-fold-series-function&quot;&gt;The lovely fold series function&lt;/h3&gt;
+&lt;h2 id=&quot;the-lovely-fold-series-function&quot;&gt;The lovely fold series function&lt;/h2&gt;
+
 &lt;p&gt;What will you do to sum a &lt;code class=&quot;highlighter-rouge&quot;&gt;List[int]&lt;/code&gt;? For most programming language, you may expect that the class &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; has an inner method to do, or some existing lib to use. What if I only want to sum all the even numbers? There is no easy way to do that for traditional language. How to do that in scala?&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;scala&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
@@ -242,106 +130,32 @@ You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.c
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;res1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;You may think that it looks not simple enough compare to a for loop,
-But how about more complex logic during this &lt;code class=&quot;highlighter-rouge&quot;&gt;fold&lt;/code&gt;?&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The number 0 after fold is the basic value for sum, and I use pattern matching here too.&lt;/p&gt;
+&lt;p&gt;You may think that it looks not simple enough compare to a for loop, But how about more complex logic during this &lt;code class=&quot;highlighter-rouge&quot;&gt;fold&lt;/code&gt;?&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/skill/Scala-Amazing-Features/&quot;&gt;Internship Tech Review (1) - Scala is Amazing!&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on July 18, 2016.&lt;/p&gt;
-  </content>
-</entry>
+&lt;p&gt;The number 0 after fold is the basic value for sum, and I use pattern matching here too.&lt;/p&gt;</content><author><name></name></author><summary type="html">The main purpose of this series</summary></entry><entry><title type="html">First Day at Seattle</title><link href="http://localhost:4000/life/2016/05/18/first-day-at-seattle.html" rel="alternate" type="text/html" title="First Day at Seattle" /><published>2016-05-18T11:03:53-07:00</published><updated>2016-05-18T11:03:53-07:00</updated><id>http://localhost:4000/life/2016/05/18/first-day-at-seattle</id><content type="html" xml:base="http://localhost:4000/life/2016/05/18/first-day-at-seattle.html">&lt;p&gt;一想到即将开始的暑假，这忐忑不安&lt;/p&gt;</content><author><name></name></author><summary type="html">一想到即将开始的暑假，这忐忑不安</summary></entry><entry><title type="html">母校生日快乐</title><link href="http://localhost:4000/unknown/2016/05/04/happy-birthday-pku.html" rel="alternate" type="text/html" title="母校生日快乐" /><published>2016-05-03T18:22:16-07:00</published><updated>2016-05-03T18:22:16-07:00</updated><id>http://localhost:4000/unknown/2016/05/04/happy-birthday-pku</id><content type="html" xml:base="http://localhost:4000/unknown/2016/05/04/happy-birthday-pku.html">&lt;h1 id=&quot;时光仿佛日月恍惚&quot;&gt;时光仿佛，日月恍惚&lt;/h1&gt;
 
-
-<entry>
-  <title type="html"><![CDATA[First Day at Seattle]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/first-day-at-seattle/" />
-  <id>http://localhost:4000/life/first-day-at-seattle</id>
-  <published>2016-05-18T14:03:53-04:00</published>
-  <updated>2016-05-18T14:03:53-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;p&gt;一想到即将开始的暑假，这忐忑不安&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/first-day-at-seattle/&quot;&gt;First Day at Seattle&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on May 18, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[母校生日快乐]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/nocategories/happy-birthday-pku/" />
-  <id>http://localhost:4000/nocategories/happy-birthday-pku</id>
-  <published>2016-05-03T21:22:16-04:00</published>
-  <updated>2016-05-03T21:22:16-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;时光仿佛日月恍惚&quot;&gt;时光仿佛，日月恍惚&lt;/h3&gt;
 &lt;p&gt;离开你已然将近三年。碰到别人问我，你是什么学校的时候，我往往低头不语，惭愧不已。母校之光辉如日月，母校之情怀似天地。我无时无刻都以自己是个北大孩子而骄傲，也无时无刻因为自己不能为母校增光而羞愧。118年的风雨，你依然在那里，就够了。&lt;/p&gt;
 
-&lt;h3 id=&quot;五四青年&quot;&gt;五四青年&lt;/h3&gt;
+&lt;h1 id=&quot;五四青年&quot;&gt;五四青年&lt;/h1&gt;
+
 &lt;p&gt;记得老师说过，以前的北大校庆日，是在12月学期末，后来因为总是在期末大家不能得到放松，没法组织一些愉快的活动，就提议以五月四日为校庆，此举就延续至今。每个北大人都有一个年轻的心，积极开放，锐意进取，谦虚谨慎，勇敢执着。这么一所百年学校，虽不敢自称屹立于世界名校之林，但终归是有自己的气质的。&lt;/p&gt;
 
-&lt;h3 id=&quot;做一个自由的人&quot;&gt;做一个自由的人&lt;/h3&gt;
+&lt;h1 id=&quot;做一个自由的人&quot;&gt;做一个自由的人&lt;/h1&gt;
+
 &lt;p&gt;这也许是当初下定决心来美国的原因之一，我很想知道这被称作自由国度的地方，究竟是什么样子的。也许是我太狭隘，也许是我太传统，但这里的人们，仿佛生活在一个更加残酷的世界里。也许美国给人们提供了更多的机会，但是那些社会底层的人，往往生活更加凄苦。可以说，这是一个更加充满竞争的世界，你的努力总会得到回报，你的松懈也总会得到惩罚。如此这般，你又如何能做一个自由散漫的人呢？如此想来，昔日南朝之清谈散漫之风，一如美国的嬉皮士文化。&lt;/p&gt;
 
-&lt;h3 id=&quot;blog总算搭建完毕了&quot;&gt;Blog总算搭建完毕了&lt;/h3&gt;
-&lt;p&gt;这两天搭建好了Disqus评论系统，就开始多推广推广喽~。&lt;/p&gt;
+&lt;h1 id=&quot;blog总算搭建完毕了&quot;&gt;Blog总算搭建完毕了&lt;/h1&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/nocategories/happy-birthday-pku/&quot;&gt;母校生日快乐&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on May 03, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[关于未来]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/about-the-future/" />
-  <id>http://localhost:4000/life/about-the-future</id>
-  <published>2016-04-15T16:22:05-04:00</published>
-  <updated>2016-04-15T16:22:05-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;爱护你的灵感&quot;&gt;爱护你的灵感。&lt;/h3&gt;
+&lt;p&gt;这两天搭建好了Disqus评论系统，就开始多推广推广喽~。&lt;/p&gt;</content><author><name></name></author><summary type="html">时光仿佛，日月恍惚</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /></entry><entry><title type="html">关于未来</title><link href="http://localhost:4000/life/2016/04/15/about-the-future.html" rel="alternate" type="text/html" title="关于未来" /><published>2016-04-15T13:22:05-07:00</published><updated>2016-04-15T13:22:05-07:00</updated><id>http://localhost:4000/life/2016/04/15/about-the-future</id><content type="html" xml:base="http://localhost:4000/life/2016/04/15/about-the-future.html">&lt;h3 id=&quot;爱护你的灵感&quot;&gt;爱护你的灵感。&lt;/h3&gt;
 &lt;p&gt;有时会我会想，一辈子你会有多少秒能想起来写点东西。当那些时刻到来的时候，你又有多少次会真正把那些心中的东西写下来。所以这一刻是宝贵的。我不惜像个SB一样的在火锅店把电脑拿出来，只是为了写一些乱七八糟的文字。&lt;/p&gt;
 
 &lt;h3 id=&quot;六小龄童的感动&quot;&gt;六小龄童的感动&lt;/h3&gt;
 &lt;p&gt;有很多很多的人让我感动。今天看到一个B站上的视频，回顾了那些一生只为演好猴戏的大师们，浇灌着辛勤的汗水，只为了舞台上那活灵活现的几秒钟，几分钟。为了那更逼真，更引人入胜的大圣。&lt;/p&gt;
 
 &lt;h3 id=&quot;初代男神&quot;&gt;初代男神&lt;/h3&gt;
-&lt;p&gt;原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/about-the-future/&quot;&gt;关于未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on April 15, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[回家啦，少年！]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/back-to-home/" />
-  <id>http://localhost:4000/life/back-to-home</id>
-  <published>2016-03-18T12:43:55-04:00</published>
-  <updated>2016-03-18T12:43:55-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;何处是故乡&quot;&gt;何处是故乡？&lt;/h3&gt;
+&lt;p&gt;原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;</content><author><name></name></author><summary type="html">爱护你的灵感。 有时会我会想，一辈子你会有多少秒能想起来写点东西。当那些时刻到来的时候，你又有多少次会真正把那些心中的东西写下来。所以这一刻是宝贵的。我不惜像个SB一样的在火锅店把电脑拿出来，只是为了写一些乱七八糟的文字。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /></entry><entry><title type="html">回家啦，少年！</title><link href="http://localhost:4000/life/2016/03/18/back-to-home.html" rel="alternate" type="text/html" title="回家啦，少年！" /><published>2016-03-18T09:43:55-07:00</published><updated>2016-03-18T09:43:55-07:00</updated><id>http://localhost:4000/life/2016/03/18/back-to-home</id><content type="html" xml:base="http://localhost:4000/life/2016/03/18/back-to-home.html">&lt;h3 id=&quot;何处是故乡&quot;&gt;何处是故乡？&lt;/h3&gt;
 &lt;p&gt;不知不觉离开北京已有半年，纵使如本科四年，也未曾如此远离家乡。家乡有山，有水，有巍峨的长城，有如梦似幻的风景。有七块钱不到的地铁，有二十刀不到的美食，最重要的，是有爸爸妈妈，有每一位家人。&lt;/p&gt;
 
 &lt;p&gt;这大概是纽约永远不会成为我家乡的原因。&lt;/p&gt;
@@ -364,26 +178,7 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;h3 id=&quot;再见再见&quot;&gt;再见，再见&lt;/h3&gt;
 
-&lt;p&gt;来了美国之后的第一次旅行，有收获，有遗憾，有欣喜与欢笑，有争吵与不安。十七张明信片写满了我对家人朋友的思念，希望能和你们每一个人有机会再见！&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/back-to-home/&quot;&gt;回家啦，少年！&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on March 18, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Coldest Day]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/coldest-day/" />
-  <id>http://localhost:4000/life/coldest-day</id>
-  <published>2016-03-14T17:22:46-04:00</published>
-  <updated>2016-03-14T17:22:46-04:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;今天是来了阿拉斯加之后最冷的一天&quot;&gt;今天是来了阿拉斯加之后最冷的一天。&lt;/h3&gt;
+&lt;p&gt;来了美国之后的第一次旅行，有收获，有遗憾，有欣喜与欢笑，有争吵与不安。十七张明信片写满了我对家人朋友的思念，希望能和你们每一个人有机会再见！&lt;/p&gt;</content><author><name></name></author><summary type="html">何处是故乡？ 不知不觉离开北京已有半年，纵使如本科四年，也未曾如此远离家乡。家乡有山，有水，有巍峨的长城，有如梦似幻的风景。有七块钱不到的地铁，有二十刀不到的美食，最重要的，是有爸爸妈妈，有每一位家人。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /></entry><entry><title type="html">Coldest Day</title><link href="http://localhost:4000/life/2016/03/14/coldest-day.html" rel="alternate" type="text/html" title="Coldest Day" /><published>2016-03-14T14:22:46-07:00</published><updated>2016-03-14T14:22:46-07:00</updated><id>http://localhost:4000/life/2016/03/14/coldest-day</id><content type="html" xml:base="http://localhost:4000/life/2016/03/14/coldest-day.html">&lt;h3 id=&quot;今天是来了阿拉斯加之后最冷的一天&quot;&gt;今天是来了阿拉斯加之后最冷的一天。&lt;/h3&gt;
 &lt;p&gt;耳边寒风尚惕厉呼啸，已经在回费尔班克斯市区的路上了。大家不是在听音乐，就是东倒西歪的睡着了。心中不知为何，总会在产生一种莫名其妙的失落感。有时候事情就是这样，总会在一个莫名其妙的时刻开始想起旅行的意义，想起去思考究竟自己为何而来，又为何要离去。&lt;/p&gt;
 
 &lt;p&gt;这世界的复杂之处就在于，无论是好与坏，悲伤还是欢喜，那一切的东西，都是相对的。对于你来说的一件高兴事，就可能是别人的一件伤心事。站在北极圈上，我想的最多的，其实就是，这辈子还有很多很多的地方要去，很多很多的地方要走。走遍这个世界，去让自己成长，让自己幸福。&lt;/p&gt;
@@ -400,26 +195,7 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;于我，这冰雪，这寒冷，这一路向北的意义，并不是曾经来过，而是思考过。&lt;/p&gt;
 
-&lt;p&gt;你来过，你却离去了。&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/coldest-day/&quot;&gt;Coldest Day&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on March 14, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[On the Flight]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/on-the-flight/" />
-  <id>http://localhost:4000/life/on-the-flight</id>
-  <published>2016-03-12T08:35:54-05:00</published>
-  <updated>2016-03-12T08:35:54-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;h2 id=&quot;最近值得注意的七件事儿&quot;&gt;最近值得注意的七件事儿&lt;/h2&gt;
+&lt;p&gt;你来过，你却离去了。&lt;/p&gt;</content><author><name></name></author><summary type="html">今天是来了阿拉斯加之后最冷的一天。 耳边寒风尚惕厉呼啸，已经在回费尔班克斯市区的路上了。大家不是在听音乐，就是东倒西歪的睡着了。心中不知为何，总会在产生一种莫名其妙的失落感。有时候事情就是这样，总会在一个莫名其妙的时刻开始想起旅行的意义，想起去思考究竟自己为何而来，又为何要离去。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /></entry><entry><title type="html">On the Flight</title><link href="http://localhost:4000/life/2016/03/12/on-the-flight.html" rel="alternate" type="text/html" title="On the Flight" /><published>2016-03-12T05:35:54-08:00</published><updated>2016-03-12T05:35:54-08:00</updated><id>http://localhost:4000/life/2016/03/12/on-the-flight</id><content type="html" xml:base="http://localhost:4000/life/2016/03/12/on-the-flight.html">&lt;h2 id=&quot;最近值得注意的七件事儿&quot;&gt;最近值得注意的七件事儿&lt;/h2&gt;
 
 &lt;h3 id=&quot;315-ddl-的os作业&quot;&gt;3.15 DDL 的OS作业&lt;/h3&gt;
 &lt;p&gt;尽管OS作业给了我很长时间，我也做了很长时间，然而实际的情况是，我仍然在做它……即使是在这样一次飞机旅途中，我也仍然无法避免的在继续写它。&lt;/p&gt;
@@ -443,79 +219,4 @@ But how about more complex logic during this &lt;code class=&quot;highlighter-ro
 
 &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\dot(a,b)=\lvert a \rvert \lvert b \rvert \cos \theta&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/on-the-flight/&quot;&gt;On the Flight&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on March 12, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[未来的未来]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/future/" />
-  <id>http://localhost:4000/life/future</id>
-  <published>2016-03-06T20:34:32-05:00</published>
-  <updated>2016-03-06T20:34:32-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;p&gt;终于弄好了我的github博客，一时间不知道说什么。自己过去几年来什么事情都弄不好的状态，居然一时间就改了过来。可以很有效率的做事情了。有些时候我真不知道，自己究竟是怎么了？&lt;/p&gt;
-
-&lt;p&gt;但愿如今这种比较好的状态可以延续。&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/future/&quot;&gt;未来的未来&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on March 06, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[头晕眼花]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/life/headache/" />
-  <id>http://localhost:4000/life/headache</id>
-  <published>2016-02-29T14:30:39-05:00</published>
-  <updated>2016-02-29T14:30:39-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;p&gt;今天早起吃了一个自制的火腿鸡蛋卷，买了杯Grande Dark。 想来应该没问题，然而似乎阴天都在告诉我，你今儿要倒霉。中午吃完饭后，整个人都觉得乏力，头晕眼花仿佛低血糖的感觉。&lt;/p&gt;
-
-&lt;p&gt;问了问系草，据说是吃的太少的缘故，不知道俺这身体是啥风格，既不能吃的太多也不能太少，果然锻炼饮食是一门学问。随着锻炼的深入，不仅仍然要控制总的热量摄入，也要注意饮食结构的调整。上一学期几乎没有摄入任何碳水化合物，再加上较短的睡眠时间，这一学期就反馈给我很多疲惫的感觉。尽管我仍然对生活充满了激情，对学习也如是，但是调整生活节奏已经成为了必须考虑的问题。&lt;/p&gt;
-
-&lt;p&gt;可是还没写完NLP作业……~~&lt;del&gt;(&amp;gt;_&amp;lt;)&lt;/del&gt;~~&lt;/p&gt;
-
-&lt;p&gt;经营这个Blog是很久很久很久以前就有的计划，其实并不想一开始第一篇文章是中文，然而今天这头晕眼花的状态实在是写不出什么英文出来，以后的学习工作生活会一点一点的记录在这里。幸哉，此时天空的阴霾少了很多，些许湛蓝也透过白云露了出来。但愿每天都能鼓励自己横扫阴霾，鼓励自己不断向前。&lt;/p&gt;
-
-&lt;p&gt;才奋起直追不到半年，我该懂得调节好自己的身体。岁月你别催，该走的我不追；岁月你别催，该来的我不会催。而立之年以前，吾当奋发惕厉，也当珍惜自己。.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/life/headache/&quot;&gt;头晕眼花&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Finally]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/nocategories/my-first-post/" />
-  <id>http://localhost:4000/nocategories/my-first-post</id>
-  <published>2016-02-29T14:27:58-05:00</published>
-  <updated>2016-02-29T14:27:58-05:00</updated>
-  <author>
-    <name>Allen Liu</name>
-    <uri>http://localhost:4000</uri>
-    
-  </author>
-  <content type="html">
-    &lt;p&gt;My friends,&lt;/p&gt;
-
-&lt;p&gt;I am very glad that I’ve built my blog.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/nocategories/my-first-post/&quot;&gt;Finally&lt;/a&gt; was originally published by Allen Liu at &lt;a href=&quot;http://localhost:4000&quot;&gt;Hiking Coder&lt;/a&gt; on February 29, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-</feed>
+&lt;p&gt;貌似只能居中？以后再慢慢研究吧&lt;/p&gt;</content><author><name></name></author><summary type="html">最近值得注意的七件事儿</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /></entry></feed>

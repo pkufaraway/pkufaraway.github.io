@@ -1,6 +1,0 @@
----
-layout: post-index
-title: All Posts
-categories: All
-excerpt: "A List of Posts"
----

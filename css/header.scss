@@ -1,0 +1,42 @@
+---
+---
+
+$greengrey: #2F4F4F;
+$bluegrey: #778899;
+
+//This is the stylesheet config for header.
+.button {
+    font-family: Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
+    border-radius: 12px;
+    padding: 20px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 0px 5px;
+}
+
+a.button:link {
+    color: $greengrey;
+    font-style: normal;
+}
+
+/* visited link */
+a.button:visited {
+    color: $greengrey;
+    font-style: normal;
+}
+
+/* mouse over link */
+a.button:hover {
+    color: $bluegrey;
+    font-style: normal;
+}
+
+
+
+/* selected link */
+a.button:active {
+    color: blue;
+    font-style: normal;
+}

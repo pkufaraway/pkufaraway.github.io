@@ -1,0 +1,8 @@
+{% assign navigation = site.data.navi %}
+<link rel="stylesheet" href="/css/header.css">
+
+<div>
+{% for nav in navi %}
+    <a class="button" href="{{ nav.url }}"> {{ nav.title }} </a>
+{% endfor %}
+</div>

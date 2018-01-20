@@ -1,0 +1,108 @@
+---
+---
+
+$grey: #C0C0C0;
+$greengrey: #2F4F4F;
+$bluegrey: #778899;
+//中文
+$font-chi: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei";
+//无衬线字体 sans-serif
+$font-sans: "Noto Sans", "Noto Sans CJK", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
+//衬线字体 serif
+$font-serif: Times, Georgia;
+//等宽字体 monospace
+$font-mono: Menlo, Consolas, "Source Code Pro", Inconsolata, Monaco, "Courier New";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-sans;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.left_bar {
+    @media screen and (min-width: 720px) {
+        width: 25%;
+    }
+    float: left;
+}
+
+
+.right_content {
+    border-left: $grey solid 1px;
+    @media screen and (min-width: 720px) {
+        width: 70%;
+    }
+    @media screen and (min-width: 1080px) {
+        width: 800px;
+    }
+    margin-right: 20px;
+    float: left;
+}
+
+.nav_list {
+    margin-top: 20px;
+    margin-left: 20px;
+    border-bottom: $grey solid 1px;
+}
+
+
+
+a.post_title {
+    text-decoration: none;
+    font-size: 20px;
+    &:link {
+        color: $bluegrey;
+    }
+    &:visited {
+        color: $bluegrey;
+    }
+    &:hover {
+        color: $greengrey;
+    }
+    &:active {
+        color: blue;
+    }
+}
+
+a.nav_title {
+    text-decoration: none;
+    &:link {
+        color: $bluegrey;
+    }
+    &:visited {
+        color: $bluegrey;
+    }
+    &:hover {
+        color: $greengrey;
+    }
+    &:active {
+        color: blue;
+    }
+}
+
+.post_list {
+    margin-left: 20px;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.post_title_block {
+    margin-bottom: 5px;
+}
+
+.abstract {
+    font-size: 14px;
+}
+
+.post_block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: $grey solid 1px;
+}

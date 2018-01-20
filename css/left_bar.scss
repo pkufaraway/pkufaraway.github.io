@@ -1,0 +1,51 @@
+---
+---
+
+//stylesheet for left_bar
+@media screen and (max-width: 720px) {
+    .left_bar {
+        display: none;
+    }
+}
+
+$grey: #C0C0C0;
+$greengrey: #2F4F4F;
+$bluegrey: #778899;
+
+/* Default social media links in author sidebar */
+.contacts {
+    padding-left: 10px;
+    text-align: left;
+}
+.author-social {
+  margin-top: 10px;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  font-size: 140%;
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    color: $bluegrey
+  }
+  &:active {
+    color: $bluegrey
+  }
+  .fa {
+	margin-right: 2px;
+  }
+}
+
+.myself {
+    width: 140px;
+    display: block;
+    float: right;
+    margin: 10px;
+    .portrait {
+        float: right;
+        width: 100%;
+        height: auto;
+        border-radius: 15px 40px;
+    }
+}
