@@ -2,11 +2,7 @@
 ---
 
 //stylesheet for left_bar
-@media screen and (max-width: 720px) {
-    .left_bar {
-        display: none;
-    }
-}
+
 
 $grey: #C0C0C0;
 $greengrey: #2F4F4F;
@@ -16,6 +12,9 @@ $bluegrey: #778899;
 .contacts {
     padding-left: 10px;
     text-align: left;
+    @media screen and (max-width: 720px) {
+        width: 50%;
+    }
 }
 .author-social {
   margin-top: 10px;
@@ -37,15 +36,34 @@ $bluegrey: #778899;
   }
 }
 
-.myself {
-    width: 140px;
-    display: block;
-    float: right;
-    margin: 10px;
-    .portrait {
+
+@media screen and (min-width: 720px) {
+    .myself {
+        width: 140px;
+        display: block;
         float: right;
+        margin: 10px;
+
+        .portrait {
+            float: right;
+            width: 100%;
+            height: auto;
+            border-radius: 15px 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 719px) {
+    .myself {
         width: 100%;
-        height: auto;
-        border-radius: 15px 40px;
+        margin-left: 20px;
+        margin-top: 20px;
+        .portrait {
+            width: 20%;
+            float: left;
+
+            height: auto;
+            border-radius: 15px 40px;
+        }
     }
 }

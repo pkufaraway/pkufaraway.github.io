@@ -29,8 +29,8 @@ body {
 .left_bar {
     @media screen and (min-width: 720px) {
         width: 25%;
+        float: left;
     }
-    float: left;
 }
 
 
