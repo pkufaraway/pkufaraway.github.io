@@ -27,10 +27,13 @@ now = datetime.datetime.now();
 utcnow = datetime.datetime.utcnow();
 date_for_title = now.strftime("%Y-%m-%d");
 time_zone_diff = int(round((now - utcnow).total_seconds()/3600));
+sign = "+"
+if time_zone_diff < 0:
+    sign = "-"
 if abs(time_zone_diff) < 10:
-    time_zone_diff = str(time_zone_diff) + "000";
+    time_zone_diff = sign + "0" + str(abs(time_zone_diff)) + ":00";
 else:
-    time_zone_diff = str(time_zone_diff) + "00";
+    time_zone_diff = sign + str(abs(time_zone_diff)) + ":00";
 datetime_for_md = str(utcnow.strftime("%Y-%m-%dT%H:%M:%S")) + str(time_zone_diff);
 
 
@@ -43,8 +46,7 @@ if category not in categories:
     sys.exit(0);
 
 '''generate front_matter'''
-front_matter = """
----
+front_matter = """---
 layout: default
 title: """ + title + """
 modified: null
