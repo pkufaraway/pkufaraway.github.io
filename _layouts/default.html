@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% assign navi = site.data.navi %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index_config.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="left_bar">
+      {% include left_bar.html protrait='../../../../assets/img/myself.png' %}
+    </div>
+    <div class="right_content">
+        <div class="nav_list">
+            {% include header.html %}
+        </div>
+        <div class="post">
+            <p> {{ page.content }}</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
