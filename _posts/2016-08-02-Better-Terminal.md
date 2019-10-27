@@ -11,7 +11,7 @@ feature: null
 date: 2016-08-03T07:27:58.000Z
 ---
 
-# The main purpose of this series
+## The main purpose of this series
 
 As my internship is nearly finished, I decide to write a tech-review for all the amazing features that I have learnt during this summer.
 
