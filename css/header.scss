@@ -3,10 +3,11 @@
 
 $greengrey: #2F4F4F;
 $bluegrey: #778899;
+$font-sans: "Lexend Deca", "Noto Sans SC", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
 
 //This is the stylesheet config for header.
 .button {
-    font-family: Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
+    font-family: $font-sans;
     border-radius: 12px;
     padding: 20px 0px;
     text-align: center;

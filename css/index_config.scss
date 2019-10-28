@@ -7,11 +7,11 @@ $bluegrey: #778899;
 //中文
 $font-chi: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei";
 //无衬线字体 sans-serif
-$font-sans: "Noto Sans", "Noto Sans CJK", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
+$font-sans: "Lexend Deca", "Noto Sans SC", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
 //衬线字体 serif
 $font-serif: Times, Georgia;
 //等宽字体 monospace
-$font-mono: Menlo, Consolas, "Source Code Pro", Inconsolata, Monaco, "Courier New";
+$font-mono: "Source Code Pro", Menlo, Consolas, Inconsolata, Monaco, "Courier New";
 
 * {
     box-sizing: border-box;
@@ -49,14 +49,13 @@ body {
 .nav_list {
     margin-top: 20px;
     margin-left: 20px;
-    border-bottom: $grey solid 1px;
 }
-
-
 
 a.post_title {
     text-decoration: none;
     font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
     &:link {
         color: $bluegrey;
     }
@@ -98,7 +97,7 @@ a.nav_title {
 }
 
 .post_title_block {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .abstract {
@@ -107,8 +106,7 @@ a.nav_title {
 
 .post_block {
     margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: $grey solid 1px;
+    margin-bottom: 30px;
 }
 
 /** Reset some basic elements */
@@ -566,6 +564,7 @@ table {
 /** Syntax highlighting styles */
 
 .highlight {
+  font-family: $font-mono;
   background: #fff;
 }
 
