@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Internship Tech Review (1) - Scala is Amazing!
 modified: null
 categories: tech
