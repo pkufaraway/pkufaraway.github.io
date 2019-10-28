@@ -7,10 +7,13 @@
 $grey: #C0C0C0;
 $greengrey: #2F4F4F;
 $bluegrey: #778899;
+$font-sans: "Lexend Deca", "Noto Sans SC", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial;
 
 /* Default social media links in author sidebar */
 .contacts {
-    padding-left: 10px;
+    font-family: $font-sans;
+    font-size: 100%;
+    padding-left: 5px;
     text-align: left;
     @media screen and (max-width: 720px) {
         width: 50%;
