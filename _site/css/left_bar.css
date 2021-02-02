@@ -1,0 +1,14 @@
+/* Default social media links in author sidebar */
+.contacts { font-family: "Lexend Deca", "Noto Sans SC", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial; font-size: 100%; padding-left: 5px; text-align: left; }
+@media screen and (max-width: 720px) { .contacts { width: 50%; } }
+
+.author-social { margin-top: 10px; display: inline-block; color: black; text-decoration: none; font-size: 140%; }
+.author-social:visited { color: black; }
+.author-social:hover { color: #778899; }
+.author-social:active { color: #778899; }
+.author-social .fa { margin-right: 2px; }
+
+@media screen and (min-width: 720px) { .myself { width: 140px; display: block; float: right; margin: 10px; }
+  .myself .portrait { float: right; width: 100%; height: auto; border-radius: 15px 40px; } }
+@media screen and (max-width: 719px) { .myself { width: 100%; margin-left: 20px; margin-top: 20px; }
+  .myself .portrait { width: 20%; float: left; height: auto; border-radius: 15px 40px; } }

@@ -1,0 +1,12 @@
+.button { font-family: "Lexend Deca", "Noto Sans SC", Verdana, "Helvetica Neue", Helvetica, Tahoma, Arial; border-radius: 12px; padding: 20px 0px; text-align: center; text-decoration: none; display: inline-block; font-size: 25px; margin: 0px 5px; }
+
+a.button:link { color: #2F4F4F; font-style: normal; }
+
+/* visited link */
+a.button:visited { color: #2F4F4F; font-style: normal; }
+
+/* mouse over link */
+a.button:hover { color: #778899; font-style: normal; }
+
+/* selected link */
+a.button:active { color: blue; font-style: normal; }
