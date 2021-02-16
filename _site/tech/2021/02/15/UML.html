@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index_config.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Lexend+Deca">
+</head>
+
+<body>
+<div class="container">
+    <div class="left_bar">
+      
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/left_bar.css">
+
+<div class="myself">
+<img class="portrait" src="../../../../assets/img/myself.png">
+<div class="contacts">
+    <a href="mailto:lyy910619@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
+    
+    
+    
+    <a href="http://linkedin.com/in/yaoyuan-liu-463142a9/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+    
+    
+    
+    <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+</div>
+
+    </div>
+    <div class="right_content">
+        <div class="nav_list">
+            
+<link rel="stylesheet" href="/css/header.css">
+
+<div>
+
+    <a class="button" href="/pages/all.html"> All Posts </a>
+
+    <a class="button" href="/pages/life.html"> Life </a>
+
+    <a class="button" href="/pages/tech.html"> Tech </a>
+
+    <a class="button" href="/pages/unknown.html"> Unknown </a>
+
+</div>
+
+        </div>
+        <div class="post">
+            <p> <h2 id="unified-modeling-language">Unified Modeling Language</h2>
+
+<p>小臭的作业里经常要求提交一个java classes之间的关系图，intellij里自带一个生成这个关系图的功能。关系图
+的名字叫做UML(Unified Modeling Language)，我就很好奇这玩意儿是不是通用的，也是为了更方便画图，就去研
+究了一下，结果发现UML居然也是有ISO标准的。码农工作里的很多食物都是可以用UML图表示的，比如微服务之间
+的关系，java类之间的继承关系，数据库表格之间的键值关系。我以前做设计文档的时候都习惯用google drawing
+之类的简单画图工具画这样的关系图，现在想想，也许有些地方可以借鉴UML。</p>
+
+<h2 id="简单介绍">简单介绍</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">Wiki</a></p>
+
+<p>所有这类关系图，其实本质上就是由两部分构成：实体和关系，说的更抽象一点，就是点和线。有很多UML的可视
+化绘图工具，我记得小时候听说过的微软的Visio就是支持UML的。但是我自然对收费的东西是不感冒的，于是乎发
+现了<a href="https://plantuml.com/">PlantUML</a>以及根据PlantUML语法画图的graphviz（似乎过去几年里对abcdefg as
+code越来越感兴趣了）。</p>
+
+<p>PlantUML里有很多标准的点。比如<code class="language-plaintext highlighter-rouge">Class</code>,<code class="language-plaintext highlighter-rouge">Node</code>,<code class="language-plaintext highlighter-rouge">Component</code>之类的，一个简单的java class可以写成：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Dummy {
+  String data
+  void methods()
+}
+</code></pre></div></div>
+
+<p>关系也很简单，给java class写一个关系就可以用下面的语句：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class01 &lt;|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+</code></pre></div></div>
+
+<p>从上可以请益看出实线(<code class="language-plaintext highlighter-rouge">--</code>)、虚线(<code class="language-plaintext highlighter-rouge">..</code>),空心终点(<code class="language-plaintext highlighter-rouge">o</code>),失心终点(<code class="language-plaintext highlighter-rouge">*</code>),箭头终点(<code class="language-plaintext highlighter-rouge">&lt;|</code>)。可以说是一个非常
+简单好理解的语法。<a href="https://plantuml.com/class-diagram">更多语法</a></p>
+
+<h2 id="vscode">VSCode</h2>
+
+<p>VSCode有个<a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">现成的PlantUML插件</a>,
+可以利用graphviz生成plantuml的结果图，非常方便。</p>
+</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-02T19:17:04-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">Win10 Linux子系统</title><link href="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html" rel="alternate" type="text/html" title="Win10 Linux子系统" /><published>2021-02-01T17:44:14-08:00</published><updated>2021-02-01T17:44:14-08:00</updated><id>http://localhost:4000/tech/2021/02/01/Win10%20Linux%E5%AD%90%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html">&lt;h2 id=&quot;缘起&quot;&gt;缘起&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-15T20:28:28-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">Unified Modeling Language</title><link href="http://localhost:4000/tech/2021/02/15/UML.html" rel="alternate" type="text/html" title="Unified Modeling Language" /><published>2021-02-15T20:06:14-08:00</published><updated>2021-02-15T20:06:14-08:00</updated><id>http://localhost:4000/tech/2021/02/15/UML</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/15/UML.html">&lt;h2 id=&quot;unified-modeling-language&quot;&gt;Unified Modeling Language&lt;/h2&gt;
+
+&lt;p&gt;小臭的作业里经常要求提交一个java classes之间的关系图，intellij里自带一个生成这个关系图的功能。关系图
+的名字叫做UML(Unified Modeling Language)，我就很好奇这玩意儿是不是通用的，也是为了更方便画图，就去研
+究了一下，结果发现UML居然也是有ISO标准的。码农工作里的很多食物都是可以用UML图表示的，比如微服务之间
+的关系，java类之间的继承关系，数据库表格之间的键值关系。我以前做设计文档的时候都习惯用google drawing
+之类的简单画图工具画这样的关系图，现在想想，也许有些地方可以借鉴UML。&lt;/p&gt;
+
+&lt;h2 id=&quot;简单介绍&quot;&gt;简单介绍&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Unified_Modeling_Language&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;所有这类关系图，其实本质上就是由两部分构成：实体和关系，说的更抽象一点，就是点和线。有很多UML的可视
+化绘图工具，我记得小时候听说过的微软的Visio就是支持UML的。但是我自然对收费的东西是不感冒的，于是乎发
+现了&lt;a href=&quot;https://plantuml.com/&quot;&gt;PlantUML&lt;/a&gt;以及根据PlantUML语法画图的graphviz（似乎过去几年里对abcdefg as
+code越来越感兴趣了）。&lt;/p&gt;
+
+&lt;p&gt;PlantUML里有很多标准的点。比如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Class&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Component&lt;/code&gt;之类的，一个简单的java class可以写成：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Dummy {
+  String data
+  void methods()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;关系也很简单，给java class写一个关系就可以用下面的语句：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Class01 &amp;lt;|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;从上可以请益看出实线(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--&lt;/code&gt;)、虚线(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;..&lt;/code&gt;),空心终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o&lt;/code&gt;),失心终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;),箭头终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|&lt;/code&gt;)。可以说是一个非常
+简单好理解的语法。&lt;a href=&quot;https://plantuml.com/class-diagram&quot;&gt;更多语法&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;vscode&quot;&gt;VSCode&lt;/h2&gt;
+
+&lt;p&gt;VSCode有个&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml&quot;&gt;现成的PlantUML插件&lt;/a&gt;,
+可以利用graphviz生成plantuml的结果图，非常方便。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">Unified Modeling Language</summary></entry><entry><title type="html">Win10 Linux子系统</title><link href="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html" rel="alternate" type="text/html" title="Win10 Linux子系统" /><published>2021-02-01T17:44:14-08:00</published><updated>2021-02-01T17:44:14-08:00</updated><id>http://localhost:4000/tech/2021/02/01/Win10%20Linux%E5%AD%90%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html">&lt;h2 id=&quot;缘起&quot;&gt;缘起&lt;/h2&gt;
 &lt;p&gt;这半年来，我开始陪小臭学习编程，在这个过程中，我自己也反复思考怎么能为自己创建一
 个更好的学习环境。既然核心内容是编程，那么至少一套类unix系统用来跑程序是必须的。
 我有一个2015中期款15寸macbook pro， 原本是个很好的选择。但是我意识到插拔鼠标键盘
@@ -262,14 +302,4 @@ linux/macos就很难成为我的第一系统选择了，羸弱的游戏行能拖
 
 &lt;h2 id=&quot;blog总算搭建完毕了&quot;&gt;Blog总算搭建完毕了&lt;/h2&gt;
 
-&lt;p&gt;这两天搭建好了Disqus评论系统，就开始多推广推广喽~。&lt;/p&gt;</content><author><name></name></author><category term="unknown" /><summary type="html">时光仿佛，日月恍惚</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /><media:content medium="image" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">关于未来</title><link href="http://localhost:4000/life/2016/04/15/about-the-future.html" rel="alternate" type="text/html" title="关于未来" /><published>2016-04-15T13:22:05-07:00</published><updated>2016-04-15T13:22:05-07:00</updated><id>http://localhost:4000/life/2016/04/15/about-the-future</id><content type="html" xml:base="http://localhost:4000/life/2016/04/15/about-the-future.html">&lt;h2 id=&quot;爱护你的灵感&quot;&gt;爱护你的灵感&lt;/h2&gt;
-
-&lt;p&gt;有时会我会想，一辈子你会有多少秒能想起来写点东西。当那些时刻到来的时候，你又有多少次会真正把那些心中的东西写下来。所以这一刻是宝贵的。我不惜像个SB一样的在火锅店把电脑拿出来，只是为了写一些乱七八糟的文字。&lt;/p&gt;
-
-&lt;h2 id=&quot;六小龄童的感动&quot;&gt;六小龄童的感动&lt;/h2&gt;
-
-&lt;p&gt;有很多很多的人让我感动。今天看到一个B站上的视频，回顾了那些一生只为演好猴戏的大师们，浇灌着辛勤的汗水，只为了舞台上那活灵活现的几秒钟，几分钟。为了那更逼真，更引人入胜的大圣。&lt;/p&gt;
-
-&lt;h2 id=&quot;初代男神&quot;&gt;初代男神&lt;/h2&gt;
-
-&lt;p&gt;原来每个人心中都有一个大圣，不管他在你心中是什么形象，一个劫富济贫的形象，一个无所不能的形象，一个上天入地的形象，一个聪明伶俐，勇敢向前的形象，你都是爱他的。你的人生理想也许是拥抱世间绝色，也许是西去万里求真知，更可能是沉默和平淡但幸福的一生，但每个人心中，都有那成为大圣的梦想，有那颗奔放的内心。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">爱护你的灵感</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /><media:content medium="image" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;这两天搭建好了Disqus评论系统，就开始多推广推广喽~。&lt;/p&gt;</content><author><name></name></author><category term="unknown" /><summary type="html">时光仿佛，日月恍惚</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" /><media:content medium="image" url="http://localhost:4000/%7B%22feature%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
