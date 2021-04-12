@@ -13,7 +13,7 @@ def getPossibleClasses():
                     categories.append(navi['categories']);
             return categories;
         except yaml.YAMLError as exc:
-            print "error";
+            print("error");
             ##print(exc)
 
 '''parse arguments'''
@@ -40,9 +40,9 @@ datetime_for_md = str(utcnow.strftime("%Y-%m-%dT%H:%M:%S")) + str(time_zone_diff
 '''check if category is valid'''
 categories = getPossibleClasses()
 if category not in categories:
-    print category + " is not a valid category";
-    print "Valid categories:";
-    print categories;
+    print(category + " is not a valid category");
+    print("Valid categories:");
+    print(categories);
     sys.exit(0);
 
 '''generate front_matter'''
@@ -61,11 +61,11 @@ date: """ + datetime_for_md + """
 filename = "_posts/" + str(date_for_title) + "-" + title.replace(" ", "-").lower() + ".md";
 
 if os.path.isfile(filename):
-    print "File: " + filename + "already exists";
+    print("File: " + filename + "already exists");
     sys.exit(0);
 else:
     markdown_flie = open(filename, "w");
     markdown_flie.write(front_matter);
     markdown_flie.close();
-    print filename + " created with following front matter:";
-    print front_matter;
+    print(filename + " created with following front matter:");
+    print(front_matter);

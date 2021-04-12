@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index_config.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Lexend+Deca">
+</head>
+
+<body>
+<div class="container">
+    <div class="left_bar">
+      
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/left_bar.css">
+
+<div class="myself">
+<img class="portrait" src="../../../../assets/img/myself.png">
+<div class="contacts">
+    <a href="mailto:lyy910619@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
+    
+    
+    
+    <a href="http://linkedin.com/in/yaoyuan-liu-463142a9/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+    
+    
+    
+    <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+</div>
+
+    </div>
+    <div class="right_content">
+        <div class="nav_list">
+            
+<link rel="stylesheet" href="/css/header.css">
+
+<div>
+
+    <a class="button" href="/pages/all.html"> All Posts </a>
+
+    <a class="button" href="/pages/life.html"> Life </a>
+
+    <a class="button" href="/pages/tech.html"> Tech </a>
+
+    <a class="button" href="/pages/unknown.html"> Unknown </a>
+
+</div>
+
+        </div>
+        <div class="post">
+            <p> <h2 id="万能的-void">万能的 <code class="language-plaintext highlighter-rouge">void*</code></h2>
+
+<p><code class="language-plaintext highlighter-rouge">void*</code> 可以表示任何类型数据的指针，然后可以通过 <code class="language-plaintext highlighter-rouge">(type *)</code> 再反向转化成我们想要的类型。比如：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span><span class="n">int_p</span><span class="p">;</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">void_p</span><span class="p">;</span>
+<span class="n">void_p</span> <span class="o">=</span> <span class="n">int_p</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">int_p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">void_p</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>可这有什么用？在这学期和小臭一起学习clang的过程中，我意识到我以前一直不懂clang如何实现多态，至少如何用一个类型表示多个类型？通过这个学期的学习我意识到<code class="language-plaintext highlighter-rouge">void*</code>就是一个非常简单的解决办法，比如我想定义一个Key-Value Pair：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">char</span>      <span class="o">*</span><span class="n">key</span><span class="p">;</span>    <span class="c1">// the key in the key/value pair</span>
+  <span class="kt">void</span>      <span class="o">*</span><span class="n">value</span><span class="p">;</span>  <span class="c1">// the value in the key/value pair</span>
+<span class="p">}</span> <span class="n">KeyValue</span><span class="p">,</span> <span class="o">*</span><span class="n">KeyValuePtr</span><span class="p">;</span>
+</code></pre></div></div>
+<p>因为我可以用<code class="language-plaintext highlighter-rouge">void*</code>，我就可以让value是任何类型，获得value的时候，用户可以通过自己的方法把value转化成任意类型。不过显而易见，<code class="language-plaintext highlighter-rouge">void*</code>不像我以前学过的java多态，在编译的时候就可以发现问题，因为转换的过程是不安全的，想做到安全的转换需要使用者非常熟悉自己当初给某一个<code class="language-plaintext highlighter-rouge">void*</code>赋值的类型，并且始终记住，并且始终不忘记在使用的时候争取转换。</p>
+
+<h2 id="这是否是clang没有很多自带数据类型的原因">这是否是clang没有很多自带数据类型的原因？</h2>
+<p>长久以来我认为clang主要的思维方式是面向过程，或者说，clang的编写过程是组织函数们，把函数们放在不同的文件里，把围绕着这些函数的数据类型定义也分开来是主要的设计思想。但是最大的问题仍然是<code class="language-plaintext highlighter-rouge">void*</code>，尽管我们有了封装继承(struct)还有多态(void*)，但是因为<code class="language-plaintext highlighter-rouge">void*</code>的用法实在是太不安全了，这实际上是提高了对使用者的要求和门槛，使得把clang写的更面向对象是非常困难和难以理解的。也许这也是clang没有太多自带数据类型的原因吧。</p>
+</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
