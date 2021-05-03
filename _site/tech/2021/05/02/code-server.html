@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index_config.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Lexend+Deca">
+</head>
+
+<body>
+<div class="container">
+    <div class="left_bar">
+      
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/left_bar.css">
+
+<div class="myself">
+<img class="portrait" src="../../../../assets/img/myself.png">
+<div class="contacts">
+    <a href="mailto:lyy910619@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
+    
+    
+    
+    <a href="http://linkedin.com/in/yaoyuan-liu-463142a9/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+    
+    
+    
+    <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+</div>
+
+    </div>
+    <div class="right_content">
+        <div class="nav_list">
+            
+<link rel="stylesheet" href="/css/header.css">
+
+<div>
+
+    <a class="button" href="/pages/all.html"> All Posts </a>
+
+    <a class="button" href="/pages/life.html"> Life </a>
+
+    <a class="button" href="/pages/tech.html"> Tech </a>
+
+    <a class="button" href="/pages/unknown.html"> Unknown </a>
+
+</div>
+
+        </div>
+        <div class="post">
+            <p> <h1 id="code-server"><code class="language-plaintext highlighter-rouge">code-server</code></h1>
+<p>随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的<a href="https://github.com/cdr/code-server">code-server项目</a>。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。</p>
+
+<h1 id="几个东西之间的关系">几个东西之间的关系</h1>
+<p>一般意义上提到VS Code的时候，我们理解的是微软出品的一款编辑器/IDE，但是这款IDE本质上还有一个开源项目在支持核心部分。核心部分就是https://github.com/microsoft/vscode， 往往被称作<code class="language-plaintext highlighter-rouge">Code - OSS</code>， 而微软自己在这个项目的基础上开发了自己的distribution，这个distribution才是我们日常提到的VS Code。<code class="language-plaintext highlighter-rouge">code-server</code>是根据<code class="language-plaintext highlighter-rouge">Code - OSS</code>开发的IDE as Web，所以很多微软distrubtion的原生功能是不支持的，比如登陆账号同步设置，比如不许安装某些微软开发的插件。</p>
+
+<h1 id="插件最痛的地方">插件，最痛的地方</h1>
+<p>除了插件以外，几乎各个地方都让人满意，我认为这是IDE发展的方向：</p>
+<ul>
+  <li>真正的runtime和lib都在云端，例如jdk</li>
+  <li>一切通过web来链接，云端负责运算</li>
+  <li>简单好用的web ide提供随时随地的开发环境</li>
+</ul>
+
+<p>code-server最痛的地方就是无法提供和VS Code一样的插件市场，但是我相信随着IDE as web的越来越流行，微软会意识到这片市场的重要性。</p>
+
+</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
