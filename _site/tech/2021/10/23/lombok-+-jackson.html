@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/index_config.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC|Lexend+Deca">
+</head>
+
+<body>
+<div class="container">
+    <div class="left_bar">
+      
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/left_bar.css">
+
+<div class="myself">
+<img class="portrait" src="../../../../assets/img/myself.png">
+<div class="contacts">
+    <a href="mailto:lyy910619@gmail.com" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
+    
+    
+    
+    <a href="http://linkedin.com/in/yaoyuan-liu-463142a9/" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>
+    
+    
+    
+    <a href="http://github.com/pkufaraway" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+</div>
+
+    </div>
+    <div class="right_content">
+        <div class="nav_list">
+            
+<link rel="stylesheet" href="/css/header.css">
+
+<div>
+
+    <a class="button" href="/pages/all.html"> All Posts </a>
+
+    <a class="button" href="/pages/life.html"> Life </a>
+
+    <a class="button" href="/pages/tech.html"> Tech </a>
+
+    <a class="button" href="/pages/unknown.html"> Unknown </a>
+
+</div>
+
+        </div>
+        <div class="post">
+            <p> <p>之前知道google有个annotation叫<a href="https://github.com/google/auto/tree/master/value/src/main/java/com/google/auto/value">autovalue</a>, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用<a href="https://developers.google.com/protocol-buffers">protobuf</a>，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。</p>
+
+<p>一直以来我都知道JSON是很普遍的结构数据表示方式，但是没怎么研究过在JSON的世界里有没有类似protobuf的功能，但是显然JSON只是个轻量级的表示法，并不会通过一个额外的结构语法（像protobuf那样先写一个定义文件）从而生成各个编程语言的对应代码。既然如此，我猜JSON至少需要我写一个模板，或者退一步说，只要我写好了一个文件有哪些变量，就应该可以按照这个文件来serialize/deserialize JSON.</p>
+
+<p>那么究竟是否存在现成的工具么？还真有。小臭今年的课程里老师提到了一个类似autovalue的框架叫<a href="https://projectlombok.org/">lombok</a>，MIT license。起初我只是意识到lombok比autovalue有更多方便的annotation，之后一次小臭开会后告诉我老师提到JSON Parser可以更通用，我意识到没准说的就是我上面提到的只写模板的模式。</p>
+
+<p>于是乎发现了lombok的jacksonized, 以coindesk这个<a href="https://api.coindesk.com/v1/bpi/currentprice.json">比特币价格api</a>为例, 我简单取其中一部分：</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#36;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61,329.4033"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States Dollar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_float"</span><span class="p">:</span><span class="w"> </span><span class="mf">61329.4033</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>我需要一个price class表示它，想要支持lombok和json，只要简单加几个annotaiton就行。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">bitcoin</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.jackson.Jacksonized</span><span class="o">;</span>
+
+<span class="nd">@Builder</span>
+<span class="nd">@Data</span>
+<span class="nd">@Jacksonized</span>
+<span class="kd">final</span> <span class="kd">class</span> <span class="nc">Price</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">symbol</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rate</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">description</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rate_float</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>那么如果我想解析这段json，只需要如下代码：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">bitcoin</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="kd">final</span> <span class="kd">class</span> <span class="nc">PriceTest</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">PRICE</span> <span class="o">=</span> <span class="s">"{ \"code\": \"USD\", \"symbol\": \"&amp;#36;\","</span>
+            <span class="o">+</span> <span class="s">"\"rate\": \"61,329.4033\", \"description\": \"United States Dollar\","</span>
+            <span class="o">+</span> <span class="s">" \"rate_float\": 61329.4033 }"</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAdd</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">Price</span> <span class="n">price</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectMapper</span><span class="o">().</span><span class="na">readValue</span><span class="o">(</span><span class="no">PRICE</span><span class="o">,</span> <span class="nc">Price</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="nc">Price</span> <span class="n">expectedPrice</span> <span class="o">=</span> <span class="nc">Price</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">code</span><span class="o">(</span><span class="s">"USD"</span><span class="o">).</span><span class="na">symbol</span><span class="o">(</span><span class="s">"&amp;#36;"</span><span class="o">).</span><span class="na">rate</span><span class="o">(</span><span class="s">"61,329.4033"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">"United States Dollar"</span><span class="o">).</span><span class="na">rate_float</span><span class="o">(</span><span class="mf">61329.4033</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">price</span><span class="o">,</span> <span class="n">expectedPrice</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>如此一来对于不同JSON，只需要写一个简单的data class辅之以lombok annotation就好了。</p>
+</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

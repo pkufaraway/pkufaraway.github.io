@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-02T17:00:49-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">code-server</title><link href="http://localhost:4000/tech/2021/05/02/code-server.html" rel="alternate" type="text/html" title="code-server" /><published>2021-05-02T23:49:34-07:00</published><updated>2021-05-02T23:49:34-07:00</updated><id>http://localhost:4000/tech/2021/05/02/code-server</id><content type="html" xml:base="http://localhost:4000/tech/2021/05/02/code-server.html">&lt;h1 id=&quot;code-server&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code-server&lt;/code&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-23T08:51:31-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">lombok + jackson</title><link href="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html" rel="alternate" type="text/html" title="lombok + jackson" /><published>2021-10-23T15:08:28-07:00</published><updated>2021-10-23T15:08:28-07:00</updated><id>http://localhost:4000/tech/2021/10/23/lombok-+-jackson</id><content type="html" xml:base="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html">&lt;p&gt;之前知道google有个annotation叫&lt;a href=&quot;https://github.com/google/auto/tree/master/value/src/main/java/com/google/auto/value&quot;&gt;autovalue&lt;/a&gt;, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用&lt;a href=&quot;https://developers.google.com/protocol-buffers&quot;&gt;protobuf&lt;/a&gt;，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。&lt;/p&gt;
+
+&lt;p&gt;一直以来我都知道JSON是很普遍的结构数据表示方式，但是没怎么研究过在JSON的世界里有没有类似protobuf的功能，但是显然JSON只是个轻量级的表示法，并不会通过一个额外的结构语法（像protobuf那样先写一个定义文件）从而生成各个编程语言的对应代码。既然如此，我猜JSON至少需要我写一个模板，或者退一步说，只要我写好了一个文件有哪些变量，就应该可以按照这个文件来serialize/deserialize JSON.&lt;/p&gt;
+
+&lt;p&gt;那么究竟是否存在现成的工具么？还真有。小臭今年的课程里老师提到了一个类似autovalue的框架叫&lt;a href=&quot;https://projectlombok.org/&quot;&gt;lombok&lt;/a&gt;，MIT license。起初我只是意识到lombok比autovalue有更多方便的annotation，之后一次小臭开会后告诉我老师提到JSON Parser可以更通用，我意识到没准说的就是我上面提到的只写模板的模式。&lt;/p&gt;
+
+&lt;p&gt;于是乎发现了lombok的jacksonized, 以coindesk这个&lt;a href=&quot;https://api.coindesk.com/v1/bpi/currentprice.json&quot;&gt;比特币价格api&lt;/a&gt;为例, 我简单取其中一部分：&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;USD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;symbol&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;#36;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;61,329.4033&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;United States Dollar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rate_float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;61329.4033&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我需要一个price class表示它，想要支持lombok和json，只要简单加几个annotaiton就行。&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bitcoin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.Builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.extern.jackson.Jacksonized&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Builder&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Data&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Jacksonized&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate_float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;那么如果我想解析这段json，只需要如下代码：&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bitcoin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jupiter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Assertions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.fasterxml.jackson.databind.ObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.junit.jupiter.api.Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PriceTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PRICE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{ \&quot;code\&quot;: \&quot;USD\&quot;, \&quot;symbol\&quot;: \&quot;&amp;amp;#36;\&quot;,&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\&quot;rate\&quot;: \&quot;61,329.4033\&quot;, \&quot;description\&quot;: \&quot;United States Dollar\&quot;,&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; \&quot;rate_float\&quot;: 61329.4033 }&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testAdd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRICE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedPrice&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;USD&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;amp;#36;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;61,329.4033&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;United States Dollar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rate_float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;61329.4033&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedPrice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如此一来对于不同JSON，只需要写一个简单的data class辅之以lombok annotation就好了。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">之前知道google有个annotation叫autovalue, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用protobuf，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。</summary></entry><entry><title type="html">code-server</title><link href="http://localhost:4000/tech/2021/05/02/code-server.html" rel="alternate" type="text/html" title="code-server" /><published>2021-05-02T23:49:34-07:00</published><updated>2021-05-02T23:49:34-07:00</updated><id>http://localhost:4000/tech/2021/05/02/code-server</id><content type="html" xml:base="http://localhost:4000/tech/2021/05/02/code-server.html">&lt;h1 id=&quot;code-server&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code-server&lt;/code&gt;&lt;/h1&gt;
 &lt;p&gt;随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的&lt;a href=&quot;https://github.com/cdr/code-server&quot;&gt;code-server项目&lt;/a&gt;。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。&lt;/p&gt;
 
 &lt;h1 id=&quot;几个东西之间的关系&quot;&gt;几个东西之间的关系&lt;/h1&gt;
@@ -281,22 +338,4 @@ linux/macos就很难成为我的第一系统选择了，羸弱的游戏行能拖
 
 &lt;p&gt;如果我有幸能听到兰陵王的入阵曲，脑海中浮现的一定是一个比周瑜有过之而无不及的美少年。而他传奇和悲怆的一生，又比《三国演义》中的公瑾更有故事性。而一路打到洛阳的白袍将军陈庆之，其著名诗句连Dota2解说都拿来用过，那是一场承载YYF蓝猫的比赛，剑雪封喉称赞他的蓝猫：”名师大将莫自牢，千军万马避蓝猫！”。殊不知这句话是从称赞陈庆之的那句：”名师大将莫自牢，千军万马避白袍”来的！&lt;/p&gt;
 
-&lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">每次回去的路上，陪伴自己的只有孤独</summary></entry><entry><title type="html">Internship Tech Review (3) - A better terminal</title><link href="http://localhost:4000/tech/2016/08/03/Better-Terminal.html" rel="alternate" type="text/html" title="Internship Tech Review (3) - A better terminal" /><published>2016-08-03T00:27:58-07:00</published><updated>2016-08-03T00:27:58-07:00</updated><id>http://localhost:4000/tech/2016/08/03/Better-Terminal</id><content type="html" xml:base="http://localhost:4000/tech/2016/08/03/Better-Terminal.html">&lt;h2 id=&quot;the-main-purpose-of-this-series&quot;&gt;The main purpose of this series&lt;/h2&gt;
-
-&lt;p&gt;As my internship is nearly finished, I decide to write a tech-review for all the amazing features that I have learnt during this summer.&lt;/p&gt;
-
-&lt;p&gt;Today I gonna talk about some useful tools/features that can be applied to your terminal, make it happier.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Notice that this is for Mac OS users only.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;try-iterm2&quot;&gt;Try iTerm2&lt;/h2&gt;
-
-&lt;p&gt;You can try iTerm2 &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;here&lt;/a&gt;. You can checkout their impressive features &lt;a href=&quot;https://www.iterm2.com/features.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;zsh&quot;&gt;ZSH&lt;/h2&gt;
-
-&lt;p&gt;Zsh is one of the shell that you can use, the reason why I love it is its wonderful theme plugins and best auto-completion that I’ve met. Using oh my zsh with zsh can give me a totally different shell compared to the Mac OS X’s own shell.&lt;/p&gt;
-
-&lt;h2 id=&quot;oh-my-zsh&quot;&gt;oh-my-zsh&lt;/h2&gt;
-
-&lt;p&gt;oh my zsh is a cute name, isn’t it?&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">The main purpose of this series</summary></entry></feed>
+&lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">每次回去的路上，陪伴自己的只有孤独</summary></entry></feed>
