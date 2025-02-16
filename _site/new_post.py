@@ -2,18 +2,19 @@ import datetime;
 import os;
 import sys;
 import yaml;
+from yaml import SafeLoader
 
 def getPossibleClasses():
     categories = []
     with open("./_data/navi.yml", 'r') as stream:
         try:
-            navis = yaml.load(stream);
+            navis = yaml.load(stream=stream, Loader=SafeLoader)
             for navi in navis:
                 if navi['categories'] != "all":
-                    categories.append(navi['categories']);
-            return categories;
+                    categories.append(navi['categories'])
+            return categories
         except yaml.YAMLError as exc:
-            print("error");
+            print("error")
             ##print(exc)
 
 '''parse arguments'''
