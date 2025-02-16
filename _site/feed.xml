@@ -1,341 +1,341 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-10-23T08:51:31-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">lombok + jackson</title><link href="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html" rel="alternate" type="text/html" title="lombok + jackson" /><published>2021-10-23T15:08:28-07:00</published><updated>2021-10-23T15:08:28-07:00</updated><id>http://localhost:4000/tech/2021/10/23/lombok-+-jackson</id><content type="html" xml:base="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html">&lt;p&gt;之前知道google有个annotation叫&lt;a href=&quot;https://github.com/google/auto/tree/master/value/src/main/java/com/google/auto/value&quot;&gt;autovalue&lt;/a&gt;, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用&lt;a href=&quot;https://developers.google.com/protocol-buffers&quot;&gt;protobuf&lt;/a&gt;，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-16T13:35:18-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Yaoyuan</title><subtitle>这是我自己随便写写东西的地方</subtitle><entry><title type="html">lombok + jackson</title><link href="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html" rel="alternate" type="text/html" title="lombok + jackson" /><published>2021-10-23T15:08:28-07:00</published><updated>2021-10-23T15:08:28-07:00</updated><id>http://localhost:4000/tech/2021/10/23/lombok-+-jackson</id><content type="html" xml:base="http://localhost:4000/tech/2021/10/23/lombok-+-jackson.html"><![CDATA[<p>之前知道google有个annotation叫<a href="https://github.com/google/auto/tree/master/value/src/main/java/com/google/auto/value">autovalue</a>, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用<a href="https://developers.google.com/protocol-buffers">protobuf</a>，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。</p>
 
-&lt;p&gt;一直以来我都知道JSON是很普遍的结构数据表示方式，但是没怎么研究过在JSON的世界里有没有类似protobuf的功能，但是显然JSON只是个轻量级的表示法，并不会通过一个额外的结构语法（像protobuf那样先写一个定义文件）从而生成各个编程语言的对应代码。既然如此，我猜JSON至少需要我写一个模板，或者退一步说，只要我写好了一个文件有哪些变量，就应该可以按照这个文件来serialize/deserialize JSON.&lt;/p&gt;
+<p>一直以来我都知道JSON是很普遍的结构数据表示方式，但是没怎么研究过在JSON的世界里有没有类似protobuf的功能，但是显然JSON只是个轻量级的表示法，并不会通过一个额外的结构语法（像protobuf那样先写一个定义文件）从而生成各个编程语言的对应代码。既然如此，我猜JSON至少需要我写一个模板，或者退一步说，只要我写好了一个文件有哪些变量，就应该可以按照这个文件来serialize/deserialize JSON.</p>
 
-&lt;p&gt;那么究竟是否存在现成的工具么？还真有。小臭今年的课程里老师提到了一个类似autovalue的框架叫&lt;a href=&quot;https://projectlombok.org/&quot;&gt;lombok&lt;/a&gt;，MIT license。起初我只是意识到lombok比autovalue有更多方便的annotation，之后一次小臭开会后告诉我老师提到JSON Parser可以更通用，我意识到没准说的就是我上面提到的只写模板的模式。&lt;/p&gt;
+<p>那么究竟是否存在现成的工具么？还真有。小臭今年的课程里老师提到了一个类似autovalue的框架叫<a href="https://projectlombok.org/">lombok</a>，MIT license。起初我只是意识到lombok比autovalue有更多方便的annotation，之后一次小臭开会后告诉我老师提到JSON Parser可以更通用，我意识到没准说的就是我上面提到的只写模板的模式。</p>
 
-&lt;p&gt;于是乎发现了lombok的jacksonized, 以coindesk这个&lt;a href=&quot;https://api.coindesk.com/v1/bpi/currentprice.json&quot;&gt;比特币价格api&lt;/a&gt;为例, 我简单取其中一部分：&lt;/p&gt;
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;USD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;symbol&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;amp;#36;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;61,329.4033&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;United States Dollar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rate_float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;61329.4033&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;我需要一个price class表示它，想要支持lombok和json，只要简单加几个annotaiton就行。&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bitcoin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<p>于是乎发现了lombok的jacksonized, 以coindesk这个<a href="https://api.coindesk.com/v1/bpi/currentprice.json">比特币价格api</a>为例, 我简单取其中一部分：</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;#36;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61,329.4033"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States Dollar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rate_float"</span><span class="p">:</span><span class="w"> </span><span class="mf">61329.4033</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>我需要一个price class表示它，想要支持lombok和json，只要简单加几个annotaiton就行。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">bitcoin</span><span class="o">;</span>
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.Builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lombok.extern.jackson.Jacksonized&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<span class="kn">import</span> <span class="nn">lombok.Builder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.jackson.Jacksonized</span><span class="o">;</span>
 
-&lt;span class=&quot;nd&quot;&gt;@Builder&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Data&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Jacksonized&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate_float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;那么如果我想解析这段json，只需要如下代码：&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bitcoin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<span class="nd">@Builder</span>
+<span class="nd">@Data</span>
+<span class="nd">@Jacksonized</span>
+<span class="kd">final</span> <span class="kd">class</span> <span class="nc">Price</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">symbol</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rate</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">description</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rate_float</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>那么如果我想解析这段json，只需要如下代码：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">bitcoin</span><span class="o">;</span>
 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jupiter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Assertions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.fasterxml.jackson.databind.ObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.junit.jupiter.api.Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
 
-&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PriceTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PRICE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{ \&quot;code\&quot;: \&quot;USD\&quot;, \&quot;symbol\&quot;: \&quot;&amp;amp;#36;\&quot;,&quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\&quot;rate\&quot;: \&quot;61,329.4033\&quot;, \&quot;description\&quot;: \&quot;United States Dollar\&quot;,&quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; \&quot;rate_float\&quot;: 61329.4033 }&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<span class="kd">final</span> <span class="kd">class</span> <span class="nc">PriceTest</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">PRICE</span> <span class="o">=</span> <span class="s">"{ \"code\": \"USD\", \"symbol\": \"&amp;#36;\","</span>
+            <span class="o">+</span> <span class="s">"\"rate\": \"61,329.4033\", \"description\": \"United States Dollar\","</span>
+            <span class="o">+</span> <span class="s">" \"rate_float\": 61329.4033 }"</span><span class="o">;</span>
 
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testAdd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRICE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAdd</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">Price</span> <span class="n">price</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectMapper</span><span class="o">().</span><span class="na">readValue</span><span class="o">(</span><span class="no">PRICE</span><span class="o">,</span> <span class="nc">Price</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 
-        &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedPrice&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;USD&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;amp;#36;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;61,329.4033&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;United States Dollar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rate_float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;61329.4033&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        <span class="nc">Price</span> <span class="n">expectedPrice</span> <span class="o">=</span> <span class="nc">Price</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">code</span><span class="o">(</span><span class="s">"USD"</span><span class="o">).</span><span class="na">symbol</span><span class="o">(</span><span class="s">"&amp;#36;"</span><span class="o">).</span><span class="na">rate</span><span class="o">(</span><span class="s">"61,329.4033"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">"United States Dollar"</span><span class="o">).</span><span class="na">rate_float</span><span class="o">(</span><span class="mf">61329.4033</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
 
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedPrice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">price</span><span class="o">,</span> <span class="n">expectedPrice</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;如此一来对于不同JSON，只需要写一个简单的data class辅之以lombok annotation就好了。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">之前知道google有个annotation叫autovalue, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用protobuf，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。</summary></entry><entry><title type="html">code-server</title><link href="http://localhost:4000/tech/2021/05/02/code-server.html" rel="alternate" type="text/html" title="code-server" /><published>2021-05-02T23:49:34-07:00</published><updated>2021-05-02T23:49:34-07:00</updated><id>http://localhost:4000/tech/2021/05/02/code-server</id><content type="html" xml:base="http://localhost:4000/tech/2021/05/02/code-server.html">&lt;h1 id=&quot;code-server&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code-server&lt;/code&gt;&lt;/h1&gt;
-&lt;p&gt;随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的&lt;a href=&quot;https://github.com/cdr/code-server&quot;&gt;code-server项目&lt;/a&gt;。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。&lt;/p&gt;
+<p>如此一来对于不同JSON，只需要写一个简单的data class辅之以lombok annotation就好了。</p>]]></content><author><name></name></author><category term="tech" /><summary type="html"><![CDATA[之前知道google有个annotation叫autovalue, 作用就是方便构造value class，比如自动添加builder/getter/setter。对于google来说，复杂的数据往往都是用protobuf，因为protobuf不仅提供了builder/setter/getter，而且可以跨多个编程语言通用，更重要的是可以提供简单方便地serialization/deserialization的功能。]]></summary></entry><entry><title type="html">code-server</title><link href="http://localhost:4000/tech/2021/05/02/code-server.html" rel="alternate" type="text/html" title="code-server" /><published>2021-05-02T23:49:34-07:00</published><updated>2021-05-02T23:49:34-07:00</updated><id>http://localhost:4000/tech/2021/05/02/code-server</id><content type="html" xml:base="http://localhost:4000/tech/2021/05/02/code-server.html"><![CDATA[<h1 id="code-server"><code class="language-plaintext highlighter-rouge">code-server</code></h1>
+<p>随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的<a href="https://github.com/cdr/code-server">code-server项目</a>。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。</p>
 
-&lt;h1 id=&quot;几个东西之间的关系&quot;&gt;几个东西之间的关系&lt;/h1&gt;
-&lt;p&gt;一般意义上提到VS Code的时候，我们理解的是微软出品的一款编辑器/IDE，但是这款IDE本质上还有一个开源项目在支持核心部分。核心部分就是https://github.com/microsoft/vscode， 往往被称作&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code - OSS&lt;/code&gt;， 而微软自己在这个项目的基础上开发了自己的distribution，这个distribution才是我们日常提到的VS Code。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code-server&lt;/code&gt;是根据&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code - OSS&lt;/code&gt;开发的IDE as Web，所以很多微软distrubtion的原生功能是不支持的，比如登陆账号同步设置，比如不许安装某些微软开发的插件。&lt;/p&gt;
+<h1 id="几个东西之间的关系">几个东西之间的关系</h1>
+<p>一般意义上提到VS Code的时候，我们理解的是微软出品的一款编辑器/IDE，但是这款IDE本质上还有一个开源项目在支持核心部分。核心部分就是https://github.com/microsoft/vscode， 往往被称作<code class="language-plaintext highlighter-rouge">Code - OSS</code>， 而微软自己在这个项目的基础上开发了自己的distribution，这个distribution才是我们日常提到的VS Code。<code class="language-plaintext highlighter-rouge">code-server</code>是根据<code class="language-plaintext highlighter-rouge">Code - OSS</code>开发的IDE as Web，所以很多微软distrubtion的原生功能是不支持的，比如登陆账号同步设置，比如不许安装某些微软开发的插件。</p>
 
-&lt;h1 id=&quot;插件最痛的地方&quot;&gt;插件，最痛的地方&lt;/h1&gt;
-&lt;p&gt;除了插件以外，几乎各个地方都让人满意，我认为这是IDE发展的方向：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;真正的runtime和lib都在云端，例如jdk&lt;/li&gt;
-  &lt;li&gt;一切通过web来链接，云端负责运算&lt;/li&gt;
-  &lt;li&gt;简单好用的web ide提供随时随地的开发环境&lt;/li&gt;
-&lt;/ul&gt;
+<h1 id="插件最痛的地方">插件，最痛的地方</h1>
+<p>除了插件以外，几乎各个地方都让人满意，我认为这是IDE发展的方向：</p>
+<ul>
+  <li>真正的runtime和lib都在云端，例如jdk</li>
+  <li>一切通过web来链接，云端负责运算</li>
+  <li>简单好用的web ide提供随时随地的开发环境</li>
+</ul>
 
-&lt;p&gt;code-server最痛的地方就是无法提供和VS Code一样的插件市场，但是我相信随着IDE as web的越来越流行，微软会意识到这片市场的重要性。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">code-server 随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的code-server项目。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。</summary></entry><entry><title type="html">clang void*</title><link href="http://localhost:4000/life/2021/04/12/clang-void.html" rel="alternate" type="text/html" title="clang void*" /><published>2021-04-12T04:47:18-07:00</published><updated>2021-04-12T04:47:18-07:00</updated><id>http://localhost:4000/life/2021/04/12/clang-void*</id><content type="html" xml:base="http://localhost:4000/life/2021/04/12/clang-void.html">&lt;h2 id=&quot;万能的-void&quot;&gt;万能的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;&lt;/h2&gt;
+<p>code-server最痛的地方就是无法提供和VS Code一样的插件市场，但是我相信随着IDE as web的越来越流行，微软会意识到这片市场的重要性。</p>]]></content><author><name></name></author><category term="tech" /><summary type="html"><![CDATA[code-server 随着IDE as web的越来越兴起，我最近开始研究用chrome写代码了，搜索之下，发现了开的code-server项目。项目本质上是给开源的Visual Studio Code做了一个前段，这样任何人可以在任何浏览器里打开VS Code写代码。]]></summary></entry><entry><title type="html">clang void*</title><link href="http://localhost:4000/life/2021/04/12/clang-void.html" rel="alternate" type="text/html" title="clang void*" /><published>2021-04-12T04:47:18-07:00</published><updated>2021-04-12T04:47:18-07:00</updated><id>http://localhost:4000/life/2021/04/12/clang-void*</id><content type="html" xml:base="http://localhost:4000/life/2021/04/12/clang-void.html"><![CDATA[<h2 id="万能的-void">万能的 <code class="language-plaintext highlighter-rouge">void*</code></h2>
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt; 可以表示任何类型数据的指针，然后可以通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(type *)&lt;/code&gt; 再反向转化成我们想要的类型。比如：&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">void*</code> 可以表示任何类型数据的指针，然后可以通过 <code class="language-plaintext highlighter-rouge">(type *)</code> 再反向转化成我们想要的类型。比如：</p>
 
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;void_p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int_p2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span><span class="n">int_p</span><span class="p">;</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">void_p</span><span class="p">;</span>
+<span class="n">void_p</span> <span class="o">=</span> <span class="n">int_p</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">int_p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">void_p</span><span class="p">;</span>
+</code></pre></div></div>
 
-&lt;p&gt;可这有什么用？在这学期和小臭一起学习clang的过程中，我意识到我以前一直不懂clang如何实现多态，至少如何用一个类型表示多个类型？通过这个学期的学习我意识到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;就是一个非常简单的解决办法，比如我想定义一个Key-Value Pair：&lt;/p&gt;
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// the key in the key/value pair&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// the value in the key/value pair&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KeyValuePtr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;因为我可以用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;，我就可以让value是任何类型，获得value的时候，用户可以通过自己的方法把value转化成任意类型。不过显而易见，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;不像我以前学过的java多态，在编译的时候就可以发现问题，因为转换的过程是不安全的，想做到安全的转换需要使用者非常熟悉自己当初给某一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;赋值的类型，并且始终记住，并且始终不忘记在使用的时候争取转换。&lt;/p&gt;
+<p>可这有什么用？在这学期和小臭一起学习clang的过程中，我意识到我以前一直不懂clang如何实现多态，至少如何用一个类型表示多个类型？通过这个学期的学习我意识到<code class="language-plaintext highlighter-rouge">void*</code>就是一个非常简单的解决办法，比如我想定义一个Key-Value Pair：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">char</span>      <span class="o">*</span><span class="n">key</span><span class="p">;</span>    <span class="c1">// the key in the key/value pair</span>
+  <span class="kt">void</span>      <span class="o">*</span><span class="n">value</span><span class="p">;</span>  <span class="c1">// the value in the key/value pair</span>
+<span class="p">}</span> <span class="n">KeyValue</span><span class="p">,</span> <span class="o">*</span><span class="n">KeyValuePtr</span><span class="p">;</span>
+</code></pre></div></div>
+<p>因为我可以用<code class="language-plaintext highlighter-rouge">void*</code>，我就可以让value是任何类型，获得value的时候，用户可以通过自己的方法把value转化成任意类型。不过显而易见，<code class="language-plaintext highlighter-rouge">void*</code>不像我以前学过的java多态，在编译的时候就可以发现问题，因为转换的过程是不安全的，想做到安全的转换需要使用者非常熟悉自己当初给某一个<code class="language-plaintext highlighter-rouge">void*</code>赋值的类型，并且始终记住，并且始终不忘记在使用的时候争取转换。</p>
 
-&lt;h2 id=&quot;这是否是clang没有很多自带数据类型的原因&quot;&gt;这是否是clang没有很多自带数据类型的原因？&lt;/h2&gt;
-&lt;p&gt;长久以来我认为clang主要的思维方式是面向过程，或者说，clang的编写过程是组织函数们，把函数们放在不同的文件里，把围绕着这些函数的数据类型定义也分开来是主要的设计思想。但是最大的问题仍然是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;，尽管我们有了封装继承(struct)还有多态(void*)，但是因为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void*&lt;/code&gt;的用法实在是太不安全了，这实际上是提高了对使用者的要求和门槛，使得把clang写的更面向对象是非常困难和难以理解的。也许这也是clang没有太多自带数据类型的原因吧。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">万能的 void*</summary></entry><entry><title type="html">疲惫之中</title><link href="http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81.html" rel="alternate" type="text/html" title="疲惫之中" /><published>2021-02-28T10:43:14-08:00</published><updated>2021-02-28T10:43:14-08:00</updated><id>http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81.html">&lt;p&gt;最近因为各种原因非常忙碌，包括忙着perf的事情，也包括陪小臭学习的内容越来越多，以至于我自己都没什么时
-间看书了。但是也重新思考了我究竟该如何调整自己的状态。&lt;/p&gt;
+<h2 id="这是否是clang没有很多自带数据类型的原因">这是否是clang没有很多自带数据类型的原因？</h2>
+<p>长久以来我认为clang主要的思维方式是面向过程，或者说，clang的编写过程是组织函数们，把函数们放在不同的文件里，把围绕着这些函数的数据类型定义也分开来是主要的设计思想。但是最大的问题仍然是<code class="language-plaintext highlighter-rouge">void*</code>，尽管我们有了封装继承(struct)还有多态(void*)，但是因为<code class="language-plaintext highlighter-rouge">void*</code>的用法实在是太不安全了，这实际上是提高了对使用者的要求和门槛，使得把clang写的更面向对象是非常困难和难以理解的。也许这也是clang没有太多自带数据类型的原因吧。</p>]]></content><author><name></name></author><category term="life" /><summary type="html"><![CDATA[万能的 void*]]></summary></entry><entry><title type="html">疲惫之中</title><link href="http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81.html" rel="alternate" type="text/html" title="疲惫之中" /><published>2021-02-28T10:43:14-08:00</published><updated>2021-02-28T10:43:14-08:00</updated><id>http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/28/%E8%B0%83%E6%95%B4%E5%BF%83%E6%80%81.html"><![CDATA[<p>最近因为各种原因非常忙碌，包括忙着perf的事情，也包括陪小臭学习的内容越来越多，以至于我自己都没什么时
+间看书了。但是也重新思考了我究竟该如何调整自己的状态。</p>
 
-&lt;h2 id=&quot;重新找回责任感可能是错的&quot;&gt;重新找回责任感可能是错的&lt;/h2&gt;
+<h2 id="重新找回责任感可能是错的">重新找回责任感可能是错的</h2>
 
-&lt;p&gt;一般这种疲惫的状况出现在多线的时候，有很多事情要处理，而我不得不做出取舍。取舍的过程中，想明白几件事
+<p>一般这种疲惫的状况出现在多线的时候，有很多事情要处理，而我不得不做出取舍。取舍的过程中，想明白几件事
 的先后顺序是非常重要的。我和我带的L3聊天的时候经常说，处理好好几个项目的先后顺序是是很重要的，也不要
 陷入在一个项目中钻牛角尖的窘境。等事情发生在我自己身上的时候，我又往往不能很好的处理好，比如最近我负
 责系统需要大量的深入优化工作，所以我不得不一定程度上加班来尽快解决问题，但是同时还要照顾小臭的学习工
 作，就显得力不从心了。但是其实，我很少思考过如何让我和小臭的学习变得更有效率，也没想过能不能让组里的
 人帮忙提高系统的效率，我可以说完全陷入了不知道如何管理的状态。责任感这件事儿非常重要，我认为我过去几
 年慢慢变成了一个更有责任感的人，但是正如历史上的许多莽夫一样，一味靠自己向前冲，早晚只能累死自己而不
-能真正的扩大影响力。想要更进一步，最重要的事情就是学会相信别人。&lt;/p&gt;
+能真正的扩大影响力。想要更进一步，最重要的事情就是学会相信别人。</p>
 
-&lt;h2 id=&quot;关于如何更好的分配项目&quot;&gt;关于如何更好的分配项目&lt;/h2&gt;
+<h2 id="关于如何更好的分配项目">关于如何更好的分配项目</h2>
 
-&lt;p&gt;这是许久以来我的疑问，我认为我相比刚当TL的半年前有了一个新能力，就是可以相对清晰的判断每一个人的能力
-高低。但是我仍然时常犹豫要如何给大家合理的分配任务，分配的思路大体上有两种：&lt;/p&gt;
+<p>这是许久以来我的疑问，我认为我相比刚当TL的半年前有了一个新能力，就是可以相对清晰的判断每一个人的能力
+高低。但是我仍然时常犹豫要如何给大家合理的分配任务，分配的思路大体上有两种：</p>
 
-&lt;ul&gt;
-  &lt;li&gt;能力越强就给越难的项目&lt;/li&gt;
-  &lt;li&gt;野心越大就给越难的项目&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>能力越强就给越难的项目</li>
+  <li>野心越大就给越难的项目</li>
+</ul>
 
-&lt;p&gt;看似第一个远远好于第二个，实际运用起来却各有优缺点。比如按照能力分配，似乎可以保证项目暗示做完，从效
+<p>看似第一个远远好于第二个，实际运用起来却各有优缺点。比如按照能力分配，似乎可以保证项目暗示做完，从效
 率上讲是最好的，但是这往往限制了大家的进步，比如说我现在也许是我这个5人团队里能力最强的，但是所有最
 难的技术问题都是我解决的话，就会让L3们失去努力钻研的方向和展示才华的机会。而如果野心越大就给越难的项
 目，那么就可能因为能力不足而极大的影响项目的进度。所以实际上要在这二者之间取得平衡，简单来说，要努力
 做到给每个人的项目都略高于这个人当前的能力，而我尽力帮助组里的人一起去钻研克服其中最复杂的部分，在此
-基础上大家才能一起进步，对我来说才能取得领导力上的进步。&lt;/p&gt;
+基础上大家才能一起进步，对我来说才能取得领导力上的进步。</p>
 
-&lt;h2 id=&quot;锻炼减轻自己压力的重要渠道&quot;&gt;锻炼，减轻自己压力的重要渠道&lt;/h2&gt;
+<h2 id="锻炼减轻自己压力的重要渠道">锻炼，减轻自己压力的重要渠道</h2>
 
-&lt;p&gt;我意识到锻炼身体这样的减压方法已经被我忽略了，虽然我也有按时卷腹，但是没有大量的有氧活动会使人陷入疲
+<p>我意识到锻炼身体这样的减压方法已经被我忽略了，虽然我也有按时卷腹，但是没有大量的有氧活动会使人陷入疲
 惫抑郁的状态中，尤其是当有很多工作生活压力袭来的时候，我深切的感受到我做的吃的口味都变差了，这说明不
 是努力认真的问题，而是真的需要放松了。我有很多放松的手段，比如看书、做饭、收拾屋子，但是这些事情的核
 心问题就在于，都无法让我走出房间，而在这个房间里带久了，是无可避免的会感到压抑的，只有能看到新鲜的景
 色和呼吸新鲜的空气才能使我彻底放松心情。这一点通过这周六的12工里走路活动得到了印证，我过去两周睡得一
-直很差，但是昨天徒步之后，晚上不仅睡得更好了，今天的精神状态也更好了。&lt;/p&gt;
+直很差，但是昨天徒步之后，晚上不仅睡得更好了，今天的精神状态也更好了。</p>
 
-&lt;h2 id=&quot;给小臭能量而不是凶悍&quot;&gt;给小臭能量，而不是凶悍&lt;/h2&gt;
+<h2 id="给小臭能量而不是凶悍">给小臭能量，而不是凶悍</h2>
 
-&lt;p&gt;和小臭一起学习的时候我经常显得过于严厉了，考虑到小臭是一个才接触编程半年的人，这种严厉会产生过多无形
+<p>和小臭一起学习的时候我经常显得过于严厉了，考虑到小臭是一个才接触编程半年的人，这种严厉会产生过多无形
 的压力。因此多讲解，多耐心的引导是很重要的。因为我自己的压力，导致小臭也无形中承受了我的怒气值，显然
 让两个人的状态都变差了。所以要想改变这个局面，最重要的还是上面说的，我要先改变自己的心理生理状况，在
 此基础上才能更耐心和小臭一起学习。这一个多学期来，我也因为和小臭一起学习进步了不少，不仅是回顾了很多
 clang的知识，也通过教小臭学习让自己重新思考了和别人沟通的方式。小臭是一个性格很鲜明突出的人，所以更
 容易让我察觉到她的情绪，在工作之中和别人沟通，可能别人就不会这样轻易的让我感受到情绪，而是把不满记载
 心里，因此改变我自己略显凶悍的沟通方式是非常重要的，不仅可以缓和同事关系，也可以让我自己的心情更愉
-快。&lt;/p&gt;
+快。</p>
 
-&lt;h2 id=&quot;正月后半&quot;&gt;正月后半&lt;/h2&gt;
+<h2 id="正月后半">正月后半</h2>
 
-&lt;p&gt;新的一年已经过去5%了，希望这个辛苦的开头带来好结果，希望小臭早点来美国，希望我的升职顺利，希望整个世
-界都能更安静祥和。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">最近因为各种原因非常忙碌，包括忙着perf的事情，也包括陪小臭学习的内容越来越多，以至于我自己都没什么时 间看书了。但是也重新思考了我究竟该如何调整自己的状态。</summary></entry><entry><title type="html">Unified Modeling Language</title><link href="http://localhost:4000/tech/2021/02/15/UML.html" rel="alternate" type="text/html" title="Unified Modeling Language" /><published>2021-02-15T20:06:14-08:00</published><updated>2021-02-15T20:06:14-08:00</updated><id>http://localhost:4000/tech/2021/02/15/UML</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/15/UML.html">&lt;h2 id=&quot;unified-modeling-language&quot;&gt;Unified Modeling Language&lt;/h2&gt;
+<p>新的一年已经过去5%了，希望这个辛苦的开头带来好结果，希望小臭早点来美国，希望我的升职顺利，希望整个世
+界都能更安静祥和。</p>]]></content><author><name></name></author><category term="tech" /><summary type="html"><![CDATA[最近因为各种原因非常忙碌，包括忙着perf的事情，也包括陪小臭学习的内容越来越多，以至于我自己都没什么时 间看书了。但是也重新思考了我究竟该如何调整自己的状态。]]></summary></entry><entry><title type="html">Unified Modeling Language</title><link href="http://localhost:4000/tech/2021/02/15/UML.html" rel="alternate" type="text/html" title="Unified Modeling Language" /><published>2021-02-15T20:06:14-08:00</published><updated>2021-02-15T20:06:14-08:00</updated><id>http://localhost:4000/tech/2021/02/15/UML</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/15/UML.html"><![CDATA[<h2 id="unified-modeling-language">Unified Modeling Language</h2>
 
-&lt;p&gt;小臭的作业里经常要求提交一个java classes之间的关系图，intellij里自带一个生成这个关系图的功能。关系图
+<p>小臭的作业里经常要求提交一个java classes之间的关系图，intellij里自带一个生成这个关系图的功能。关系图
 的名字叫做UML(Unified Modeling Language)，我就很好奇这玩意儿是不是通用的，也是为了更方便画图，就去研
 究了一下，结果发现UML居然也是有ISO标准的。码农工作里的很多食物都是可以用UML图表示的，比如微服务之间
 的关系，java类之间的继承关系，数据库表格之间的键值关系。我以前做设计文档的时候都习惯用google drawing
-之类的简单画图工具画这样的关系图，现在想想，也许有些地方可以借鉴UML。&lt;/p&gt;
+之类的简单画图工具画这样的关系图，现在想想，也许有些地方可以借鉴UML。</p>
 
-&lt;h2 id=&quot;简单介绍&quot;&gt;简单介绍&lt;/h2&gt;
+<h2 id="简单介绍">简单介绍</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Unified_Modeling_Language&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">Wiki</a></p>
 
-&lt;p&gt;所有这类关系图，其实本质上就是由两部分构成：实体和关系，说的更抽象一点，就是点和线。有很多UML的可视
+<p>所有这类关系图，其实本质上就是由两部分构成：实体和关系，说的更抽象一点，就是点和线。有很多UML的可视
 化绘图工具，我记得小时候听说过的微软的Visio就是支持UML的。但是我自然对收费的东西是不感冒的，于是乎发
-现了&lt;a href=&quot;https://plantuml.com/&quot;&gt;PlantUML&lt;/a&gt;以及根据PlantUML语法画图的graphviz（似乎过去几年里对abcdefg as
-code越来越感兴趣了）。&lt;/p&gt;
+现了<a href="https://plantuml.com/">PlantUML</a>以及根据PlantUML语法画图的graphviz（似乎过去几年里对abcdefg as
+code越来越感兴趣了）。</p>
 
-&lt;p&gt;PlantUML里有很多标准的点。比如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Class&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Component&lt;/code&gt;之类的，一个简单的java class可以写成：&lt;/p&gt;
+<p>PlantUML里有很多标准的点。比如<code class="language-plaintext highlighter-rouge">Class</code>,<code class="language-plaintext highlighter-rouge">Node</code>,<code class="language-plaintext highlighter-rouge">Component</code>之类的，一个简单的java class可以写成：</p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Dummy {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Dummy {
   String data
   void methods()
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;关系也很简单，给java class写一个关系就可以用下面的语句：&lt;/p&gt;
+<p>关系也很简单，给java class写一个关系就可以用下面的语句：</p>
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Class01 &amp;lt;|-- Class02
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class01 &lt;|-- Class02
 Class03 *-- Class04
 Class05 o-- Class06
 Class07 .. Class08
 Class09 -- Class10
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;从上可以请益看出实线(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--&lt;/code&gt;)、虚线(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;..&lt;/code&gt;),空心终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o&lt;/code&gt;),失心终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;),箭头终点(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|&lt;/code&gt;)。可以说是一个非常
-简单好理解的语法。&lt;a href=&quot;https://plantuml.com/class-diagram&quot;&gt;更多语法&lt;/a&gt;&lt;/p&gt;
+<p>从上可以请益看出实线(<code class="language-plaintext highlighter-rouge">--</code>)、虚线(<code class="language-plaintext highlighter-rouge">..</code>),空心终点(<code class="language-plaintext highlighter-rouge">o</code>),失心终点(<code class="language-plaintext highlighter-rouge">*</code>),箭头终点(<code class="language-plaintext highlighter-rouge">&lt;|</code>)。可以说是一个非常
+简单好理解的语法。<a href="https://plantuml.com/class-diagram">更多语法</a></p>
 
-&lt;h2 id=&quot;vscode&quot;&gt;VSCode&lt;/h2&gt;
+<h2 id="vscode">VSCode</h2>
 
-&lt;p&gt;VSCode有个&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml&quot;&gt;现成的PlantUML插件&lt;/a&gt;,
-可以利用graphviz生成plantuml的结果图，非常方便。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">Unified Modeling Language</summary></entry><entry><title type="html">Win10 Linux子系统</title><link href="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html" rel="alternate" type="text/html" title="Win10 Linux子系统" /><published>2021-02-01T17:44:14-08:00</published><updated>2021-02-01T17:44:14-08:00</updated><id>http://localhost:4000/tech/2021/02/01/Win10%20Linux%E5%AD%90%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html">&lt;h2 id=&quot;缘起&quot;&gt;缘起&lt;/h2&gt;
-&lt;p&gt;这半年来，我开始陪小臭学习编程，在这个过程中，我自己也反复思考怎么能为自己创建一
+<p>VSCode有个<a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">现成的PlantUML插件</a>,
+可以利用graphviz生成plantuml的结果图，非常方便。</p>]]></content><author><name></name></author><category term="tech" /><summary type="html"><![CDATA[Unified Modeling Language]]></summary></entry><entry><title type="html">Win10 Linux子系统</title><link href="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html" rel="alternate" type="text/html" title="Win10 Linux子系统" /><published>2021-02-01T17:44:14-08:00</published><updated>2021-02-01T17:44:14-08:00</updated><id>http://localhost:4000/tech/2021/02/01/Win10%20Linux%E5%AD%90%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/01/Win10-Linux%E5%AD%90%E7%B3%BB%E7%BB%9F.html"><![CDATA[<h2 id="缘起">缘起</h2>
+<p>这半年来，我开始陪小臭学习编程，在这个过程中，我自己也反复思考怎么能为自己创建一
 个更好的学习环境。既然核心内容是编程，那么至少一套类unix系统用来跑程序是必须的。
 我有一个2015中期款15寸macbook pro， 原本是个很好的选择。但是我意识到插拔鼠标键盘
 和显示器是一件非常麻烦的事情，我也没有条件做两套桌面来分别服务win10台式机和
-macbook pro，于是乎思考如何在win10上写代码就成了我的一大难题。&lt;/p&gt;
+macbook pro，于是乎思考如何在win10上写代码就成了我的一大难题。</p>
 
-&lt;h2 id=&quot;方案1chrome-remote-desktop&quot;&gt;方案1：Chrome Remote Desktop&lt;/h2&gt;
-&lt;p&gt;这是一个非常简单的方案，在macbook pro上开通chrome remote desktop, 然后在win10里
-远程连接macbook pro。这个做法有几个问题：&lt;/p&gt;
+<h2 id="方案1chrome-remote-desktop">方案1：Chrome Remote Desktop</h2>
+<p>这是一个非常简单的方案，在macbook pro上开通chrome remote desktop, 然后在win10里
+远程连接macbook pro。这个做法有几个问题：</p>
 
-&lt;ul&gt;
-  &lt;li&gt;图像质量似乎有点问题，很难做到点对点；&lt;/li&gt;
-  &lt;li&gt;需要折腾才能扣上macbook的盖子，不然就要一直开着；&lt;/li&gt;
-  &lt;li&gt;很多快捷键会和win10的快捷键冲突，尤其是win键很难完全当作command键来使用；&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>图像质量似乎有点问题，很难做到点对点；</li>
+  <li>需要折腾才能扣上macbook的盖子，不然就要一直开着；</li>
+  <li>很多快捷键会和win10的快捷键冲突，尤其是win键很难完全当作command键来使用；</li>
+</ul>
 
-&lt;h2 id=&quot;方案2win10-linux子系统&quot;&gt;方案2：Win10 Linux子系统&lt;/h2&gt;
-&lt;p&gt;我没想到可以这么方便，这篇文章是用win10的vs code，写在linux子系统的文件系统里
+<h2 id="方案2win10-linux子系统">方案2：Win10 Linux子系统</h2>
+<p>我没想到可以这么方便，这篇文章是用win10的vs code，写在linux子系统的文件系统里
 的。装了简单的ubuntu20.04。gcc/g++/make/openjdk11/gradle/ruby都是没有什么问题
 的，我的这个blog是搭建在jekyll上的，也没有任何问题。我不是教别人怎么做事儿，所以
 也没必要写一个冗长的教程，微软官网有非常清晰的安装指南，每个人对linux子系统的要
-求也不尽相同，就我个人而言，只需要满足以下这两件事：&lt;/p&gt;
+求也不尽相同，就我个人而言，只需要满足以下这两件事：</p>
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;当我在linux子系统里开启一个web server的时候，可以在win10里访问对应的网页，每
-次写博客需要这个预览。我试着跑&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;, 发现生成的
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:4000&lt;/code&gt;竟然可以直接访问，非常方便。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;可以非常轻松的访问子系统的文件，很多现代工具都会生成一些网页或是pdf，比如
+<ol>
+  <li>
+    <p>当我在linux子系统里开启一个web server的时候，可以在win10里访问对应的网页，每
+次写博客需要这个预览。我试着跑<code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code>, 发现生成的
+<code class="language-plaintext highlighter-rouge">http://127.0.0.1:4000</code>竟然可以直接访问，非常方便。</p>
+  </li>
+  <li>
+    <p>可以非常轻松的访问子系统的文件，很多现代工具都会生成一些网页或是pdf，比如
 javadoc/jcoco，再比如latex写作。 在这种情况下，我非常需要能轻松的从win10里打
-开和访问这些文件，因为linux子系统是没有GUI的。令人欣喜的是，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wsl$&lt;/code&gt;会提供一个
+开和访问这些文件，因为linux子系统是没有GUI的。令人欣喜的是，<code class="language-plaintext highlighter-rouge">wsl$</code>会提供一个
 直接的文件接口，可以访问子系统的所有文件，直接在文件管理器的地址栏里输入
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wsl$&lt;/code&gt;，或者用现代浏览器打开&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file://wsl%24/Ubuntu-20.04/home/allenliu&lt;/code&gt;（当然
+<code class="language-plaintext highlighter-rouge">wsl$</code>，或者用现代浏览器打开<code class="language-plaintext highlighter-rouge">file://wsl%24/Ubuntu-20.04/home/allenliu</code>（当然
 每个人的文件夹结构不同）就能轻松访问所有文件，这对于某些生成的linux子系统本地
-文件的访问是非常友好的。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+文件的访问是非常友好的。</p>
+  </li>
+</ol>
 
-&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
-&lt;p&gt;可以说win10的linux子系统让我相当满意，win10在这种情况下更像是linux的GUI，使用起
+<h2 id="总结">总结</h2>
+<p>可以说win10的linux子系统让我相当满意，win10在这种情况下更像是linux的GUI，使用起
 来完全没有任何迟滞。我猜想实际性能应该比虚拟机要强很多，但是因为我很懒，所以没有
 和虚拟机比较性能，我猜想这套子系统本质上是做了一个非常好的文件系统，可以让win10
-很方便的使用linux的文件系统，这样诸如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;这样的软件就可以几乎无缝衔接了。当
+很方便的使用linux的文件系统，这样诸如<code class="language-plaintext highlighter-rouge">vscode</code>这样的软件就可以几乎无缝衔接了。当
 然这套系统还有一些缺憾，其中最大的问题就在于没法很轻松的让任何ide都直接访问这个
 文件系统，可能还是需要每个ide做一套proxy，这对推广子系统是个障碍。微软这几年做了
 很多有益于用户的事儿，包括github codespace这样的online ide也是一个重要的发展方
-向。&lt;/p&gt;
+向。</p>
 
-&lt;p&gt;就当下这个子系统来说，它几乎满足了我对自己的开发环境的一切需求，可以说是非常完
+<p>就当下这个子系统来说，它几乎满足了我对自己的开发环境的一切需求，可以说是非常完
 美。Windows平台如今既是兼容性最强的游戏平台，也是应用兼容性最好的平台，虽然性能
 上还有一些落后，但是如今对开发环境的更好支持，让我更看好它，相比之下，
 linux/macos就很难成为我的第一系统选择了，羸弱的游戏行能拖累了他们，而作为开发环
-境的优势在linux子系统面前不复存在，可以说微软这步棋是精妙绝伦的。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">缘起 这半年来，我开始陪小臭学习编程，在这个过程中，我自己也反复思考怎么能为自己创建一 个更好的学习环境。既然核心内容是编程，那么至少一套类unix系统用来跑程序是必须的。 我有一个2015中期款15寸macbook pro， 原本是个很好的选择。但是我意识到插拔鼠标键盘 和显示器是一件非常麻烦的事情，我也没有条件做两套桌面来分别服务win10台式机和 macbook pro，于是乎思考如何在win10上写代码就成了我的一大难题。</summary></entry><entry><title type="html">就是想试试中文标题好不好使</title><link href="http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98.html" rel="alternate" type="text/html" title="就是想试试中文标题好不好使" /><published>2019-10-27T16:07:14-07:00</published><updated>2019-10-27T16:07:14-07:00</updated><id>http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98</id><content type="html" xml:base="http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98.html">&lt;h2 id=&quot;意识到我已经一年多没有写blog了&quot;&gt;意识到我已经一年多没有写blog了&lt;/h2&gt;
+境的优势在linux子系统面前不复存在，可以说微软这步棋是精妙绝伦的。</p>]]></content><author><name></name></author><category term="tech" /><summary type="html"><![CDATA[缘起 这半年来，我开始陪小臭学习编程，在这个过程中，我自己也反复思考怎么能为自己创建一 个更好的学习环境。既然核心内容是编程，那么至少一套类unix系统用来跑程序是必须的。 我有一个2015中期款15寸macbook pro， 原本是个很好的选择。但是我意识到插拔鼠标键盘 和显示器是一件非常麻烦的事情，我也没有条件做两套桌面来分别服务win10台式机和 macbook pro，于是乎思考如何在win10上写代码就成了我的一大难题。]]></summary></entry><entry><title type="html">就是想试试中文标题好不好使</title><link href="http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98.html" rel="alternate" type="text/html" title="就是想试试中文标题好不好使" /><published>2019-10-27T16:07:14-07:00</published><updated>2019-10-27T16:07:14-07:00</updated><id>http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98</id><content type="html" xml:base="http://localhost:4000/life/2019/10/27/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98.html"><![CDATA[<h2 id="意识到我已经一年多没有写blog了">意识到我已经一年多没有写blog了</h2>
 
-&lt;p&gt;这是个问题啊。。。赶快重新拾起jekyll，虽然暂时想不到写什么，但是多调整一下网站的主题是可以的。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">意识到我已经一年多没有写blog了</summary></entry><entry><title type="html">读史笔记 1</title><link href="http://localhost:4000/life/2018/01/21/reading-history-1.html" rel="alternate" type="text/html" title="读史笔记 1" /><published>2018-01-21T19:29:14-08:00</published><updated>2018-01-21T19:29:14-08:00</updated><id>http://localhost:4000/life/2018/01/21/reading-history-1</id><content type="html" xml:base="http://localhost:4000/life/2018/01/21/reading-history-1.html">&lt;h2 id=&quot;缘起&quot;&gt;缘起&lt;/h2&gt;
+<p>这是个问题啊。。。赶快重新拾起jekyll，虽然暂时想不到写什么，但是多调整一下网站的主题是可以的。</p>]]></content><author><name></name></author><category term="life" /><summary type="html"><![CDATA[意识到我已经一年多没有写blog了]]></summary></entry><entry><title type="html">读史笔记 1</title><link href="http://localhost:4000/life/2018/01/21/reading-history-1.html" rel="alternate" type="text/html" title="读史笔记 1" /><published>2018-01-21T19:29:14-08:00</published><updated>2018-01-21T19:29:14-08:00</updated><id>http://localhost:4000/life/2018/01/21/reading-history-1</id><content type="html" xml:base="http://localhost:4000/life/2018/01/21/reading-history-1.html"><![CDATA[<h2 id="缘起">缘起</h2>
 
-&lt;p&gt;最近开始读一套二手历史资料《讲谈社：中国的历史》，读此书还是受B站主播稚嫩的魔法师的影响，他经常在制作游戏视频之外，推荐一些历史书籍，从小说到二手历史资料到一手资料甚至历史工具书都有。个人对阅读一手历史资料缺乏耐心，往往是读一遍二手历史材料，在阅读过程中若有感兴趣的话题，就去查阅相关的一手资料。近日逐渐觉得有一些有趣的思考应当写下来，就当是满足自己爱好历史的一点小乐趣吧。&lt;/p&gt;
+<p>最近开始读一套二手历史资料《讲谈社：中国的历史》，读此书还是受B站主播稚嫩的魔法师的影响，他经常在制作游戏视频之外，推荐一些历史书籍，从小说到二手历史资料到一手资料甚至历史工具书都有。个人对阅读一手历史资料缺乏耐心，往往是读一遍二手历史材料，在阅读过程中若有感兴趣的话题，就去查阅相关的一手资料。近日逐渐觉得有一些有趣的思考应当写下来，就当是满足自己爱好历史的一点小乐趣吧。</p>
 
-&lt;p&gt;至于本文，源头是读了《讲谈社：中国的历史》中的魏晋南北朝卷，原书是系列第五卷，由九州大学教授川本昭芳先生所著，原书名为：《中华的崩溃与扩大： 魏晋南北朝》。 我读这本，译者是余晓潮师兄。&lt;/p&gt;
+<p>至于本文，源头是读了《讲谈社：中国的历史》中的魏晋南北朝卷，原书是系列第五卷，由九州大学教授川本昭芳先生所著，原书名为：《中华的崩溃与扩大： 魏晋南北朝》。 我读这本，译者是余晓潮师兄。</p>
 
-&lt;h2 id=&quot;北魏孝文帝改革中有趣的细枝末节&quot;&gt;北魏孝文帝改革中有趣的细枝末节&lt;/h2&gt;
+<h2 id="北魏孝文帝改革中有趣的细枝末节">北魏孝文帝改革中有趣的细枝末节</h2>
 
-&lt;p&gt;这本书中最有趣的观点其实不是孝文帝改革，而是很多南北朝历史学家都避讳谈及的孝文帝身份问题，文中甚至提及孝文帝可能不是文明冯太后的孙子，而是文明冯太后的儿子。我对于这类谁是谁儿子的问题并不感兴趣，一如秦始皇的一生功过，与其本身的生母生父身份并不想干一样。但是孝文帝这件事情却又有不同，全因孝文帝亲政之前，和冯太皇太后的关系可谓亲密无间，与其父献文帝不同，孝文帝也全盘接受，甚至更加深化了文明太后的汉化政策。&lt;/p&gt;
+<p>这本书中最有趣的观点其实不是孝文帝改革，而是很多南北朝历史学家都避讳谈及的孝文帝身份问题，文中甚至提及孝文帝可能不是文明冯太后的孙子，而是文明冯太后的儿子。我对于这类谁是谁儿子的问题并不感兴趣，一如秦始皇的一生功过，与其本身的生母生父身份并不想干一样。但是孝文帝这件事情却又有不同，全因孝文帝亲政之前，和冯太皇太后的关系可谓亲密无间，与其父献文帝不同，孝文帝也全盘接受，甚至更加深化了文明太后的汉化政策。</p>
 
-&lt;p&gt;不过我个人更愿意认为，北魏的汉化政策，是一贯的政策，从拓跋焘时期就已经开始了。陈寅恪先生就说：“北魏的汉化政策， 应当说是一贯的政策，非孝文帝所特创。不然，鲜卑部酋便在北方呆不下去，便须返回塞外。只是前期的汉化带有不自觉性，被迫性”。我觉得基于这种想法，我们更需要明白，为何到了孝文帝的时候，汉化政策得以顺利实行，以至于顺利压制了鲜卑贵族的反抗呢？&lt;/p&gt;
+<p>不过我个人更愿意认为，北魏的汉化政策，是一贯的政策，从拓跋焘时期就已经开始了。陈寅恪先生就说：“北魏的汉化政策， 应当说是一贯的政策，非孝文帝所特创。不然，鲜卑部酋便在北方呆不下去，便须返回塞外。只是前期的汉化带有不自觉性，被迫性”。我觉得基于这种想法，我们更需要明白，为何到了孝文帝的时候，汉化政策得以顺利实行，以至于顺利压制了鲜卑贵族的反抗呢？</p>
 
-&lt;p&gt;所以我就查阅一些一手资料，致力于找到一些有趣的细枝末节。再次声明，我缺乏对所有历史资料之大成，也就不可能有川本昭芳先生甚至是陈寅恪先生的总结归纳能力，之所以写这篇文章，是聊以自娱而已。&lt;/p&gt;
+<p>所以我就查阅一些一手资料，致力于找到一些有趣的细枝末节。再次声明，我缺乏对所有历史资料之大成，也就不可能有川本昭芳先生甚至是陈寅恪先生的总结归纳能力，之所以写这篇文章，是聊以自娱而已。</p>
 
-&lt;h2 id=&quot;改太祖&quot;&gt;改太祖&lt;/h2&gt;
+<h2 id="改太祖">改太祖</h2>
 
-&lt;p&gt;孝文帝五岁即位，哪怕他再天纵英才，也是不可能年方五岁就执政的。太和十四年垂帘听政的冯太后去世，这个时候孝文帝拓跋宏23岁，已经登基18年了。然而他33岁就去世，亲政时间仅有十年。迁都洛阳发生在太和十九年秋，恰巧是亲政一半的时候。那么在前五年的平城岁月里，有没有什么有趣的事儿呢？最引起我注意的，是太和十五年秋七月乙卯日，孝文帝昭告祖先，以道武为太祖。&lt;/p&gt;
+<p>孝文帝五岁即位，哪怕他再天纵英才，也是不可能年方五岁就执政的。太和十四年垂帘听政的冯太后去世，这个时候孝文帝拓跋宏23岁，已经登基18年了。然而他33岁就去世，亲政时间仅有十年。迁都洛阳发生在太和十九年秋，恰巧是亲政一半的时候。那么在前五年的平城岁月里，有没有什么有趣的事儿呢？最引起我注意的，是太和十五年秋七月乙卯日，孝文帝昭告祖先，以道武为太祖。</p>
 
-&lt;p&gt;以道武帝为太祖这件事儿稀奇在何处呢？&lt;/p&gt;
+<p>以道武帝为太祖这件事儿稀奇在何处呢？</p>
 
-&lt;p&gt;我举个不恰当的例子，满清政权的太祖是努尔哈赤，终其一生都没能进入山海关内。这样的成就，终究还是游荡在北方的游牧民族，说得难听点，明朝中前期的北方蒙古族势力的领袖，比如也先，比如俺答，都是势力很大，名震一时的游牧民族领袖，努尔哈赤和他们的成就，算是类似的。如果这么对比下来，几乎统一了大半个北方的道武帝拓跋珪，似乎功绩超过了这个太祖的定义？那之前的太祖是？&lt;/p&gt;
+<p>我举个不恰当的例子，满清政权的太祖是努尔哈赤，终其一生都没能进入山海关内。这样的成就，终究还是游荡在北方的游牧民族，说得难听点，明朝中前期的北方蒙古族势力的领袖，比如也先，比如俺答，都是势力很大，名震一时的游牧民族领袖，努尔哈赤和他们的成就，算是类似的。如果这么对比下来，几乎统一了大半个北方的道武帝拓跋珪，似乎功绩超过了这个太祖的定义？那之前的太祖是？</p>
 
-&lt;p&gt;之前的太祖是拓跋鬱律，是道武帝的亲爷爷，也就是拓跋什翼犍的父亲。今日的史学家谈到鲜卑北魏的建国历程，往往会从拓跋什翼犍说起。拓跋什翼犍是北魏的额高祖，这个高祖的名号是拓跋珪称的。这其中的核心问题是，拓跋鬱律、拓跋翳槐和拓跋什翼犍的时候，鲜卑部族尽管有了自己的地盘和势力，但是其国号并不叫魏，而是叫代。这个代最终被前秦的苻坚所灭，拓跋什翼犍也被杀。而当拓跋珪建立魏时，这期间的复国经历可谓坎坷，实际上过去名存实亡的代国名号也没有意义了。而代和魏这两个国名，恰恰说明了前者是以秦朝代郡故地为根据地的北方小国，而魏则是黄河流域的中原王朝的名称。这就把国家的目标和含义扩大化了许多。从这一点上讲，拓跋珪是这个北魏王朝的奠基人，更适合作为太祖，而以道武帝拓跋珪为分界线，孝文帝实际上是希望抹去过去祖先作为游牧民族附庸的历史，而希望魏能成为一个中原王朝。&lt;/p&gt;
+<p>之前的太祖是拓跋鬱律，是道武帝的亲爷爷，也就是拓跋什翼犍的父亲。今日的史学家谈到鲜卑北魏的建国历程，往往会从拓跋什翼犍说起。拓跋什翼犍是北魏的额高祖，这个高祖的名号是拓跋珪称的。这其中的核心问题是，拓跋鬱律、拓跋翳槐和拓跋什翼犍的时候，鲜卑部族尽管有了自己的地盘和势力，但是其国号并不叫魏，而是叫代。这个代最终被前秦的苻坚所灭，拓跋什翼犍也被杀。而当拓跋珪建立魏时，这期间的复国经历可谓坎坷，实际上过去名存实亡的代国名号也没有意义了。而代和魏这两个国名，恰恰说明了前者是以秦朝代郡故地为根据地的北方小国，而魏则是黄河流域的中原王朝的名称。这就把国家的目标和含义扩大化了许多。从这一点上讲，拓跋珪是这个北魏王朝的奠基人，更适合作为太祖，而以道武帝拓跋珪为分界线，孝文帝实际上是希望抹去过去祖先作为游牧民族附庸的历史，而希望魏能成为一个中原王朝。</p>
 
-&lt;p&gt;所以说，改太祖这件事情，实际上也是汉化、或者说北魏中原化的手段之一。现在的史学看法，多以迁都作为孝文帝汉化改革的开始，但是实际上早在亲政第二年的改太祖，就已经是孝文帝改革工作中的重要铺垫了。&lt;/p&gt;
+<p>所以说，改太祖这件事情，实际上也是汉化、或者说北魏中原化的手段之一。现在的史学看法，多以迁都作为孝文帝汉化改革的开始，但是实际上早在亲政第二年的改太祖，就已经是孝文帝改革工作中的重要铺垫了。</p>
 
-&lt;h2 id=&quot;巡幸六镇&quot;&gt;巡幸六镇&lt;/h2&gt;
+<h2 id="巡幸六镇">巡幸六镇</h2>
 
-&lt;p&gt;孝文帝的改革往往被认为也给北魏的灭亡埋下了祸根，其中六镇起义就是北魏名存实亡、分裂成东西魏的星星之火。我认为从孝文帝个人来看，这件事儿他是考虑到了的。太和十八年，也就是迁都前一年秋月，他还曾亲自到过怀朔、武川、抚冥、柔玄四镇。而且还曾经
-下诏：&lt;/p&gt;
+<p>孝文帝的改革往往被认为也给北魏的灭亡埋下了祸根，其中六镇起义就是北魏名存实亡、分裂成东西魏的星星之火。我认为从孝文帝个人来看，这件事儿他是考虑到了的。太和十八年，也就是迁都前一年秋月，他还曾亲自到过怀朔、武川、抚冥、柔玄四镇。而且还曾经
+下诏：</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;詔六鎮及禦夷城人，年八十以上而無子孫兄弟，終身給其廩粟；七十以上家貧者，各賜粟十斛。
+<blockquote>
+  <p>詔六鎮及禦夷城人，年八十以上而無子孫兄弟，終身給其廩粟；七十以上家貧者，各賜粟十斛。
 又詔諸北城人，年滿七十以上及廢疾之徒，校其元犯，以準新律，事當從坐者，聽一身還鄉，又令一子扶養，終命之後，乃遣歸邊；
-自餘之處，如此之犯，年八十以上，皆聽還。&lt;/p&gt;
-&lt;/blockquote&gt;
+自餘之處，如此之犯，年八十以上，皆聽還。</p>
+</blockquote>
 
-&lt;p&gt;可见孝文帝对六镇是很重视的。&lt;/p&gt;
+<p>可见孝文帝对六镇是很重视的。</p>
 
-&lt;h2 id=&quot;九品中正&quot;&gt;九品中正&lt;/h2&gt;
+<h2 id="九品中正">九品中正</h2>
 
-&lt;p&gt;同样是太和十八年，孝文帝还曾下诏：&lt;/p&gt;
+<p>同样是太和十八年，孝文帝还曾下诏：</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;三載考績，自古通經；三考黜陟，以彰能否。今若待三考然後黜陟，可黜者不足為遲，可進者大成賒緩。
+<blockquote>
+  <p>三載考績，自古通經；三考黜陟，以彰能否。今若待三考然後黜陟，可黜者不足為遲，可進者大成賒緩。
 是以朕今三載一考，考即黜陟，欲令愚滯無妨於賢者，才能不壅於下位。各令當曹考其優劣，為三等。六品以下，尚書重問；
-五品以上，朕將親與公卿論其善惡。上上者遷之，下下者黜之，中中者守其本任。」&lt;/p&gt;
-&lt;/blockquote&gt;
+五品以上，朕將親與公卿論其善惡。上上者遷之，下下者黜之，中中者守其本任。」</p>
+</blockquote>
 
-&lt;p&gt;这看着是不是和九品中正很像呢？可九品中正，不就是妥妥的魏晋考察官员的方法么？换句话说，这不就是汉化工作的的一部分么？可见在官员选拔体制上，孝文帝早在迁都之前，就向汉人贵族们释出了非常积极的信号，原诏中说六品以下，尚书重问，当时的尚书是冯太后宠幸的陇西李氏的李冲。连负责审核官吏选拔的尚书令李冲，哪怕他是冯太后的宠幸，哪怕他是陇西汉人，都可以拥有考核重问官员优劣分等的权力，可见此时孝文帝，或者说北魏已经有了汉人官员很大的发挥空间了，这也自然是为后来迁都和全盘汉化做好了铺垫。&lt;/p&gt;
+<p>这看着是不是和九品中正很像呢？可九品中正，不就是妥妥的魏晋考察官员的方法么？换句话说，这不就是汉化工作的的一部分么？可见在官员选拔体制上，孝文帝早在迁都之前，就向汉人贵族们释出了非常积极的信号，原诏中说六品以下，尚书重问，当时的尚书是冯太后宠幸的陇西李氏的李冲。连负责审核官吏选拔的尚书令李冲，哪怕他是冯太后的宠幸，哪怕他是陇西汉人，都可以拥有考核重问官员优劣分等的权力，可见此时孝文帝，或者说北魏已经有了汉人官员很大的发挥空间了，这也自然是为后来迁都和全盘汉化做好了铺垫。</p>
 
-&lt;p&gt;而且在太武帝拓跋焘时期开始，北魏许多官员会分为南北，这与后来契丹人的南院、北院何其相似！其中就有曾在和平中年就担任北部尚书的尉元，值得注意的是，尉元在太和十三年时，就变成了侍中、都曹尚书、尚书令了。在这之后似乎史书中也没有北部尚书的称呼了，可见此时南部分设官吏的制度已经在弱化了。&lt;/p&gt;
+<p>而且在太武帝拓跋焘时期开始，北魏许多官员会分为南北，这与后来契丹人的南院、北院何其相似！其中就有曾在和平中年就担任北部尚书的尉元，值得注意的是，尉元在太和十三年时，就变成了侍中、都曹尚书、尚书令了。在这之后似乎史书中也没有北部尚书的称呼了，可见此时南部分设官吏的制度已经在弱化了。</p>
 
-&lt;h2 id=&quot;一点小小的感想&quot;&gt;一点小小的感想&lt;/h2&gt;
+<h2 id="一点小小的感想">一点小小的感想</h2>
 
-&lt;p&gt;当真正开始写的时候才会意识到，思考到的有趣的点，如果不经过考察记录，终究只是皮毛而已，整个小文章写下来，也还是翻阅了不少第一手资料，但愿从这篇文章起，我可以有更多的精力投入到阅读第一手资料中去，让自己的历史知识可以更加丰富完备。&lt;/p&gt;
+<p>当真正开始写的时候才会意识到，思考到的有趣的点，如果不经过考察记录，终究只是皮毛而已，整个小文章写下来，也还是翻阅了不少第一手资料，但愿从这篇文章起，我可以有更多的精力投入到阅读第一手资料中去，让自己的历史知识可以更加丰富完备。</p>
 
-&lt;p&gt;惭愧。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">缘起</summary></entry><entry><title type="html">航班上</title><link href="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html" rel="alternate" type="text/html" title="航班上" /><published>2017-02-21T07:11:09-08:00</published><updated>2017-02-21T07:11:09-08:00</updated><id>http://localhost:4000/life/2017/02/21/the-sound-of-rain</id><content type="html" xml:base="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html">&lt;h2 id=&quot;而我听见下雨的声音&quot;&gt;而我听见下雨的声音&lt;/h2&gt;
+<p>惭愧。</p>]]></content><author><name></name></author><category term="life" /><summary type="html"><![CDATA[缘起]]></summary></entry><entry><title type="html">航班上</title><link href="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html" rel="alternate" type="text/html" title="航班上" /><published>2017-02-21T07:11:09-08:00</published><updated>2017-02-21T07:11:09-08:00</updated><id>http://localhost:4000/life/2017/02/21/the-sound-of-rain</id><content type="html" xml:base="http://localhost:4000/life/2017/02/21/the-sound-of-rain.html"><![CDATA[<h2 id="而我听见下雨的声音">而我听见下雨的声音</h2>
 
-&lt;p&gt;一年半了，红红火火，恍恍惚惚。 在这一班回纽约的航班上，耳边的肖邦渐渐生出一种让我厌恶之感。回荡起的《你的名字》让我突然意识到，我是不是一直在寻找？找一个人，一个地方，一个故事，一段时光？我始终不会让自己生活在一个中庸的状态中，那种既不拼尽全力，也不消极颓废的态度，不知我何年何月才能拥有。&lt;/p&gt;
+<p>一年半了，红红火火，恍恍惚惚。 在这一班回纽约的航班上，耳边的肖邦渐渐生出一种让我厌恶之感。回荡起的《你的名字》让我突然意识到，我是不是一直在寻找？找一个人，一个地方，一个故事，一段时光？我始终不会让自己生活在一个中庸的状态中，那种既不拼尽全力，也不消极颓废的态度，不知我何年何月才能拥有。</p>
 
-&lt;p&gt;纽约下雨了，还没到，而我听见下雨的声音。&lt;/p&gt;
+<p>纽约下雨了，还没到，而我听见下雨的声音。</p>
 
-&lt;h2 id=&quot;这是我想要的生活么&quot;&gt;这是我想要的生活么？&lt;/h2&gt;
+<h2 id="这是我想要的生活么">这是我想要的生活么？</h2>
 
-&lt;p&gt;有时候觉得一个工程师无聊透顶，写无病呻吟的文字是不是一种病？我庆幸自己还有这细腻的感情，能思考很多事情。有时候别人羡慕我，有时候别人唾弃我；有时候人们可怜我，有时候人们夸赞我。可那都不是我喜欢的我。我需要更多的时间思考究竟什么是我想要的生活，不管自己过得很好还是很崩，都不该忘记什么是自己想要的生活，不要忘记哪怕只是很简单的梦想。否则，似乎一切辛苦都失去了意义。&lt;/p&gt;
+<p>有时候觉得一个工程师无聊透顶，写无病呻吟的文字是不是一种病？我庆幸自己还有这细腻的感情，能思考很多事情。有时候别人羡慕我，有时候别人唾弃我；有时候人们可怜我，有时候人们夸赞我。可那都不是我喜欢的我。我需要更多的时间思考究竟什么是我想要的生活，不管自己过得很好还是很崩，都不该忘记什么是自己想要的生活，不要忘记哪怕只是很简单的梦想。否则，似乎一切辛苦都失去了意义。</p>
 
-&lt;h2 id=&quot;年龄宗教心灵的归宿&quot;&gt;年龄、宗教、心灵的归宿&lt;/h2&gt;
+<h2 id="年龄宗教心灵的归宿">年龄、宗教、心灵的归宿</h2>
 
-&lt;p&gt;我的中文表达开始碎片化了，不知道要如何才能不继续堕落下去。也许，从今天起每天写一点东西是挽救我的好方法。随着自己年龄的增长，开始一点一点拜托精神的束缚。举个例子来说，过去很多年我会觉得自己的每一分汗水都在为家人的爱而努力，直到有一天这爱我根本承受不住，还不清，我才知道，自己的那些努力，都应该是为了自己而已。在此基础上，我努力对家人好，给自己的感觉就不像是在还债，而像是奉献，自然就身心愉悦多了。&lt;/p&gt;
+<p>我的中文表达开始碎片化了，不知道要如何才能不继续堕落下去。也许，从今天起每天写一点东西是挽救我的好方法。随着自己年龄的增长，开始一点一点拜托精神的束缚。举个例子来说，过去很多年我会觉得自己的每一分汗水都在为家人的爱而努力，直到有一天这爱我根本承受不住，还不清，我才知道，自己的那些努力，都应该是为了自己而已。在此基础上，我努力对家人好，给自己的感觉就不像是在还债，而像是奉献，自然就身心愉悦多了。</p>
 
-&lt;p&gt;最近对宗教有了新的认识，尽管自己仍然是个无神论者，但是对宗教存在的价值、宗教改革的历史都有了更深入的了解。我越来越明白为什么信徒们需要信仰，而我暂时不需要。但愿这是我哲学意识的一点进步吧。应该用一点时间去增长自己的哲学知识啦！&lt;/p&gt;
+<p>最近对宗教有了新的认识，尽管自己仍然是个无神论者，但是对宗教存在的价值、宗教改革的历史都有了更深入的了解。我越来越明白为什么信徒们需要信仰，而我暂时不需要。但愿这是我哲学意识的一点进步吧。应该用一点时间去增长自己的哲学知识啦！</p>
 
-&lt;p&gt;我觉得知识、爱能成为自己心灵的归宿。对爱有一点恐惧心理的我，不知道什么时候才能在知识之外，找到一点心灵旅程的避风港呢？想来如果自己把爱当做避风港，反而是一种幼稚、懦弱的表现。真正伟大的爱情，应该是经历过风吹雨打的平凡吧。&lt;/p&gt;
+<p>我觉得知识、爱能成为自己心灵的归宿。对爱有一点恐惧心理的我，不知道什么时候才能在知识之外，找到一点心灵旅程的避风港呢？想来如果自己把爱当做避风港，反而是一种幼稚、懦弱的表现。真正伟大的爱情，应该是经历过风吹雨打的平凡吧。</p>
 
-&lt;h2 id=&quot;凭什么要失望&quot;&gt;凭什么要失望&lt;/h2&gt;
+<h2 id="凭什么要失望">凭什么要失望</h2>
 
-&lt;p&gt;在北京的这三周很神奇，当你过得变好的时候，大家都来关心爱护你；当你在低谷的时候，只有那些真正爱你的人才会关心你。我该多庆幸即使自己过得那么差，还有那么多人爱护我，鼓励我，让我振作起来。仅仅这一点，就该庆幸一辈子。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">而我听见下雨的声音</summary></entry><entry><title type="html">瞎说</title><link href="http://localhost:4000/life/2016/08/21/Nonsense.html" rel="alternate" type="text/html" title="瞎说" /><published>2016-08-21T00:27:58-07:00</published><updated>2016-08-21T00:27:58-07:00</updated><id>http://localhost:4000/life/2016/08/21/Nonsense</id><content type="html" xml:base="http://localhost:4000/life/2016/08/21/Nonsense.html">&lt;h2 id=&quot;每次回去的路上陪伴自己的只有孤独&quot;&gt;每次回去的路上，陪伴自己的只有孤独&lt;/h2&gt;
+<p>在北京的这三周很神奇，当你过得变好的时候，大家都来关心爱护你；当你在低谷的时候，只有那些真正爱你的人才会关心你。我该多庆幸即使自己过得那么差，还有那么多人爱护我，鼓励我，让我振作起来。仅仅这一点，就该庆幸一辈子。</p>]]></content><author><name></name></author><category term="life" /><summary type="html"><![CDATA[而我听见下雨的声音]]></summary></entry><entry><title type="html">瞎说</title><link href="http://localhost:4000/life/2016/08/21/Nonsense.html" rel="alternate" type="text/html" title="瞎说" /><published>2016-08-21T00:27:58-07:00</published><updated>2016-08-21T00:27:58-07:00</updated><id>http://localhost:4000/life/2016/08/21/Nonsense</id><content type="html" xml:base="http://localhost:4000/life/2016/08/21/Nonsense.html"><![CDATA[<h2 id="每次回去的路上陪伴自己的只有孤独">每次回去的路上，陪伴自己的只有孤独</h2>
 
-&lt;p&gt;这次的座位是20C，一路上20E的妹子和20B的汉子是一对couple，妹子总是无限深情的看向我们这边，期待着20B的汉子能看她一眼，然而汉子总是无动于衷，世间多少相爱的人，其实也在痛苦着啊！又有多少如我一般孤独着的人，脸上挂着一丝苦笑。&lt;/p&gt;
+<p>这次的座位是20C，一路上20E的妹子和20B的汉子是一对couple，妹子总是无限深情的看向我们这边，期待着20B的汉子能看她一眼，然而汉子总是无动于衷，世间多少相爱的人，其实也在痛苦着啊！又有多少如我一般孤独着的人，脸上挂着一丝苦笑。</p>
 
-&lt;h2 id=&quot;还是写点历史吧&quot;&gt;还是写点历史吧&lt;/h2&gt;
+<h2 id="还是写点历史吧">还是写点历史吧</h2>
 
-&lt;p&gt;最近看了很多南北朝历史，重新审视了我们这个总是在不断堕落的民族。我们往往可以取得很多很多成就，一旦领先了这个世界，就慢慢堕落、骄傲、自满、目空一切，然后就是被那些自己根本看不起的”蛮夷”民族征服，无论是五胡乱华、蒙古人灭我华夏，还是两次鸦片战争，我们都只能被动挨打，直到一百年的战争让我们觉醒，让我们重新站立起来。我真庆幸我们这个民族总是没丢失自己的根儿，却也惊叹于我们衰落的速度之快。&lt;/p&gt;
+<p>最近看了很多南北朝历史，重新审视了我们这个总是在不断堕落的民族。我们往往可以取得很多很多成就，一旦领先了这个世界，就慢慢堕落、骄傲、自满、目空一切，然后就是被那些自己根本看不起的”蛮夷”民族征服，无论是五胡乱华、蒙古人灭我华夏，还是两次鸦片战争，我们都只能被动挨打，直到一百年的战争让我们觉醒，让我们重新站立起来。我真庆幸我们这个民族总是没丢失自己的根儿，却也惊叹于我们衰落的速度之快。</p>
 
-&lt;p&gt;也许每一个人心目中的伟大的中国君主都不同。有人喜欢”天可汗”李世民，有人喜欢”泗水亭长”刘邦，有人偏爱平八荒，扫六合的秦始皇，有人欣赏草莽出身，天不怕地不怕的朱元璋。然而我喜欢的那些人，也许连君主都算不上，却又深深的影响了中国的历史进程。&lt;/p&gt;
+<p>也许每一个人心目中的伟大的中国君主都不同。有人喜欢”天可汗”李世民，有人喜欢”泗水亭长”刘邦，有人偏爱平八荒，扫六合的秦始皇，有人欣赏草莽出身，天不怕地不怕的朱元璋。然而我喜欢的那些人，也许连君主都算不上，却又深深的影响了中国的历史进程。</p>
 
-&lt;p&gt;比如孟德。&lt;/p&gt;
+<p>比如孟德。</p>
 
-&lt;p&gt;没有曹孟德这样的英雄，也许我们的南北朝动乱时代，要早开启一百年。曹操曹丕父子，包括后来的司马懿以及他两个有出息的儿子，北拒游牧民族的同时，还有精力南下以一中国，是非常不容易的。他们所在的时代，是被无数后人称颂的将星云集的时代。汉族人在三国时期，并不惧怕少数民族，与边境少数民族作战都是胜多败少。三国演义中说羌人尊马孟起为”神威天将军”，还经常与蜀国联合侵扰魏国西北，可见当时的少数民族是没法对中原政权形成任何威胁的，尽管此时的中原政权并不稳固。&lt;/p&gt;
+<p>没有曹孟德这样的英雄，也许我们的南北朝动乱时代，要早开启一百年。曹操曹丕父子，包括后来的司马懿以及他两个有出息的儿子，北拒游牧民族的同时，还有精力南下以一中国，是非常不容易的。他们所在的时代，是被无数后人称颂的将星云集的时代。汉族人在三国时期，并不惧怕少数民族，与边境少数民族作战都是胜多败少。三国演义中说羌人尊马孟起为”神威天将军”，还经常与蜀国联合侵扰魏国西北，可见当时的少数民族是没法对中原政权形成任何威胁的，尽管此时的中原政权并不稳固。</p>
 
-&lt;p&gt;比如苻坚。&lt;/p&gt;
+<p>比如苻坚。</p>
 
-&lt;p&gt;苻坚其人，被后世嘲笑最多的肯定是”风声鹤唳，草木皆兵”了，然而却没有多少人对苻坚的前秦一统北方，文治武功有太多的欣赏。也许在我们看来，苻坚不是汉人，可苻坚王猛那套治理国家的方法，不正是汉人治理国家的方法么？高欢宇文泰乃至后来的杨坚就可以是汉人，苻坚为何不能？今日的统一战线工作异常的高效，我们认为辽金都是中华民族的一部分，苻坚就也可以理解为中华民族的强者？当无数的电视剧电影都专注于隋唐、三国、甚至先秦的时候，竟然没有几部作品是反应南北朝时期英雄的，这该多么遗憾啊。&lt;/p&gt;
+<p>苻坚其人，被后世嘲笑最多的肯定是”风声鹤唳，草木皆兵”了，然而却没有多少人对苻坚的前秦一统北方，文治武功有太多的欣赏。也许在我们看来，苻坚不是汉人，可苻坚王猛那套治理国家的方法，不正是汉人治理国家的方法么？高欢宇文泰乃至后来的杨坚就可以是汉人，苻坚为何不能？今日的统一战线工作异常的高效，我们认为辽金都是中华民族的一部分，苻坚就也可以理解为中华民族的强者？当无数的电视剧电影都专注于隋唐、三国、甚至先秦的时候，竟然没有几部作品是反应南北朝时期英雄的，这该多么遗憾啊。</p>
 
-&lt;p&gt;殊不知，除了苻坚以外，无论是南北朝，都出了很多位不亚于那些三国英雄的不世出的豪杰。说到奸雄，前有曹操，后有高欢宇文泰。说到谋士，前秦的王猛是绝对不亚于诸葛孔明的存在。说到沙场将军，南朝宋国的开国皇帝刘裕，是连辛弃疾都称赞的，可记得那句：”想当年，金戈铁马，气吞万里如虎”，又有几个人知道玉璧城的韦孝宽，白袍将军陈庆之，懂音律又能征善战的翩翩少年兰陵王？&lt;/p&gt;
+<p>殊不知，除了苻坚以外，无论是南北朝，都出了很多位不亚于那些三国英雄的不世出的豪杰。说到奸雄，前有曹操，后有高欢宇文泰。说到谋士，前秦的王猛是绝对不亚于诸葛孔明的存在。说到沙场将军，南朝宋国的开国皇帝刘裕，是连辛弃疾都称赞的，可记得那句：”想当年，金戈铁马，气吞万里如虎”，又有几个人知道玉璧城的韦孝宽，白袍将军陈庆之，懂音律又能征善战的翩翩少年兰陵王？</p>
 
-&lt;p&gt;如果我有幸能听到兰陵王的入阵曲，脑海中浮现的一定是一个比周瑜有过之而无不及的美少年。而他传奇和悲怆的一生，又比《三国演义》中的公瑾更有故事性。而一路打到洛阳的白袍将军陈庆之，其著名诗句连Dota2解说都拿来用过，那是一场承载YYF蓝猫的比赛，剑雪封喉称赞他的蓝猫：”名师大将莫自牢，千军万马避蓝猫！”。殊不知这句话是从称赞陈庆之的那句：”名师大将莫自牢，千军万马避白袍”来的！&lt;/p&gt;
+<p>如果我有幸能听到兰陵王的入阵曲，脑海中浮现的一定是一个比周瑜有过之而无不及的美少年。而他传奇和悲怆的一生，又比《三国演义》中的公瑾更有故事性。而一路打到洛阳的白袍将军陈庆之，其著名诗句连Dota2解说都拿来用过，那是一场承载YYF蓝猫的比赛，剑雪封喉称赞他的蓝猫：”名师大将莫自牢，千军万马避蓝猫！”。殊不知这句话是从称赞陈庆之的那句：”名师大将莫自牢，千军万马避白袍”来的！</p>
 
-&lt;p&gt;但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。&lt;/p&gt;</content><author><name></name></author><category term="life" /><summary type="html">每次回去的路上，陪伴自己的只有孤独</summary></entry></feed>
+<p>但愿有生之年可以有更多的机会看到关于南北朝的艺术作品，让人们能记住这段波澜壮阔又曲折反复的历史。</p>]]></content><author><name></name></author><category term="life" /><summary type="html"><![CDATA[每次回去的路上，陪伴自己的只有孤独]]></summary></entry></feed>
